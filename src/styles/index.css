@@ -155,74 +155,56 @@ button {
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.95rem;
-  padding: 1.05rem 2.5rem;
+  gap: 0.75rem;
+  padding: 1rem 2.3rem;
   border: 1px solid var(--ivory);
-  border-radius: 0; /* heritage square buttons */
+  border-radius: 6px;
   font-size: 0.7rem;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   font-weight: 600;
-  color: var(--ivory);
+  color: var(--ink);
   background: var(--ivory);
   position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
-  transition: color 0.45s var(--ease), transform 0.45s var(--ease), box-shadow 0.45s var(--ease), border-color 0.45s var(--ease);
+  transition: background 0.35s var(--ease), color 0.35s var(--ease),
+    transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
 }
-/* inner hairline + chamfer corner accents — the portal's signature button */
-.btn::before {
-  content: "";
-  position: absolute;
-  inset: 5px;
-  border: 1px solid var(--ivory-faint);
-  pointer-events: none;
-  z-index: 1;
-  transition: border-color 0.45s var(--ease);
-}
-/* red fill sweeps in from the left on hover */
-.btn::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(115deg, #c22e34, #8f1d22);
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 0.55s var(--ease);
-  z-index: -1;
-}
-.btn:hover::after { transform: scaleX(1); }
 .btn:hover {
+  background: var(--bronze);
+  border-color: var(--bronze);
   color: #ffffff;
-  border-color: transparent;
-  transform: translateY(-3px);
-  box-shadow: 0 18px 40px rgba(179, 40, 45, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(179, 40, 45, 0.25);
 }
-.btn:hover::before { border-color: rgba(255, 255, 255, 0.55); }
-.btn:active { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(179, 40, 45, 0.24); }
+.btn:active { transform: translateY(0); box-shadow: 0 4px 10px rgba(179, 40, 45, 0.2); }
 
-/* red-outlined ghost variant (secondary actions on white) */
+/* secondary: outline button */
 .btn--ghost {
   background: transparent;
   color: var(--bronze);
   border-color: var(--bronze);
 }
-.btn--ghost::before { border-color: var(--bronze-dim); }
-.btn--ghost:hover { color: #ffffff; border-color: transparent; }
-.btn--ghost::after { background: linear-gradient(115deg, #b3282d, #8f1d22); }
+.btn--ghost:hover {
+  background: var(--bronze);
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(179, 40, 45, 0.22);
+}
 
-/* solid dark CTA (photo overlays) */
+/* solid dark CTA on white pages */
 .btn--solid { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
-.btn--solid::before { border-color: rgba(27, 22, 17, 0.3); }
-.btn--solid:hover { color: #ffffff; border-color: transparent; }
-.btn--solid:hover::before { border-color: rgba(255, 255, 255, 0.55); }
 
-/* white ghost variant over hero photos */
-.btn--onphoto { background: transparent; color: #ffffff; border-color: rgba(255, 255, 255, 0.6); }
-.btn--onphoto::before { border-color: rgba(255, 255, 255, 0.35); }
-.btn--onphoto:hover { color: #ffffff; border-color: transparent; }
-.btn--onphoto:hover::before { border-color: rgba(255, 255, 255, 0.55); }
+/* white button over hero/finale photos */
+.btn--onphoto {
+  background: transparent;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.75);
+}
+.btn--onphoto:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--ink);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
 
 .tr-line { display: block; }
 .tr-inner { display: block; }
@@ -359,10 +341,17 @@ button {
   text-transform: uppercase;
 }
 .hero__scroll-line { width: 56px; height: 1px; background: var(--bronze); }
-.hero__content .btn { color: #ffffff; border-color: rgba(255, 255, 255, 0.6); background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
-.hero__content .btn::before { border-color: rgba(255, 255, 255, 0.35); }
-.hero__content .btn:hover { color: #ffffff; border-color: transparent; background: transparent; }
-.hero__content .btn:hover::before { border-color: rgba(255, 255, 255, 0.55); }
+.hero__content .btn {
+  color: #ffffff;
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.75);
+}
+.hero__content .btn:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--ink);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
 
 /* ---------- intro (static editorial) ---------- */
 .intro { position: relative; background: var(--ink); }
