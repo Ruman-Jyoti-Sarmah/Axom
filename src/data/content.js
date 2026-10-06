@@ -18,7 +18,7 @@ export const NAV = [
 ];
 
 export const HERO = {
-  image: w("Sunset from the bank of Brahmaputra.jpg", 2400),
+  image: w("Sunset from the bank of Brahmaputra.jpg", 1600),
   alt: "Golden sunset over the mighty Brahmaputra river in Guwahati, Assam",
   headline: ["DISCOVER", "ASSAM"],
   support:
@@ -39,7 +39,7 @@ export const INTRO = {
 export const ARCHITECTURE = {
   label: "CHAPTER 02 — THE HERITAGE · AHOM LEGACY",
   title: ["CARVED BY AHOMS,", "BLESSED BY KAMAKHYA"],
-  image: w("Kamakhya Temple, Guwahati.jpg", 2200),
+  image: w("Kamakhya Temple, Guwahati.jpg", 1600),
   alt: "Kamakhya Temple complex on Nilachal Hill glowing in morning light",
   detail: w("Jaapi,Dhemaji.jpg", 1000),
   detailAlt: "Assorted traditional Jaapi hats of Dhemaji, Assam",
@@ -60,7 +60,7 @@ export const SUITES = [
 export const DINING = {
   label: "CHAPTER 03 — THE TABLE · AXOMIYA PAAT",
   title: ["A FEAST SERVED", "ON BANANA & BELL-METAL"],
-  image: w("Assamese Thali (Jorhat).JPG", 2000),
+  image: w("Assamese Thali (Jorhat).JPG", 1600),
   alt: "Traditional Assamese thali on bell-metal",
   image2: w("Assamese food thali.jpg", 1200),
   image2Alt: "Assamese cuisine on copper plate",
@@ -99,7 +99,7 @@ export const LOCATION = {
 };
 
 export const FINALE = {
-  image: w("Indian rhinoceros in Kaziranga National Park March 2025 by Tisha Mukherjee 02.jpg", 2400),
+  image: w("Indian rhinoceros in Kaziranga National Park March 2025 by Tisha Mukherjee 02.jpg", 1600),
   alt: "One-horned rhino at dusk in Kaziranga — pride of Assam",
   title: ["PLAN YOUR", "VISIT TO ASSAM"],
 };

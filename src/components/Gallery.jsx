@@ -63,7 +63,7 @@ export default function Gallery() {
           <ChevronLeft size={26} aria-hidden="true" />
         </button>
         <div className="lightbox__stage" onClick={(e) => e.stopPropagation()}>
-          {open && <img src={GALLERY[index].image.replace("w=1000", "w=2000")} alt={GALLERY[index].alt} />}
+          {open && <img src={GALLERY[index].image.replace(/width=\d+/, "width=1600")} alt={GALLERY[index].alt} />}
           {open && <p className="label lightbox__caption">{GALLERY[index].caption}</p>}
         </div>
         <button

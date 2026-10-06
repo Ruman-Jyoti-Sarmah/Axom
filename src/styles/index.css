@@ -76,7 +76,6 @@ button {
 .rooms__header .label,
 .exp__head .label,
 .gallery__head .label,
-.districts__head .label,
 .location__title .label,
 .arch__caption .label,
 .dining__content .label,
@@ -92,7 +91,6 @@ button {
 .rooms__header .label::before,
 .exp__head .label::before,
 .gallery__head .label::before,
-.districts__head .label::before,
 .location__title .label::before,
 .arch__caption .label::before,
 .dining__content .label::before,
@@ -357,10 +355,10 @@ button {
 .intro { position: relative; background: var(--ink); }
 .intro__stage {
   position: relative;
-  padding: clamp(6rem, 14vh, 11rem) var(--gutter);
+  padding: clamp(4rem, 9vh, 7rem) var(--gutter);
   display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.5fr) minmax(0, 0.85fr);
-  gap: clamp(2rem, 5vw, 5rem);
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.6fr) minmax(0, 0.7fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
   align-items: center;
   max-width: 110rem;
   margin: 0 auto;
@@ -388,7 +386,7 @@ button {
 
 /* ---------- architecture ---------- */
 .arch { background: var(--charcoal); }
-.arch__media { position: relative; height: 92vh; height: 92svh; overflow: hidden; }
+.arch__media { position: relative; height: 70vh; height: 70svh; overflow: hidden; }
 .arch__frame { position: absolute; inset: 0; overflow: hidden; }
 .arch__frame img, .arch__img { width: 100%; height: 100%; object-fit: cover; }
 .arch__caption {
@@ -422,16 +420,16 @@ button {
 .arch__facts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 3rem;
-  padding: clamp(4rem, 10vh, 8rem) var(--gutter);
+  gap: 2.5rem;
+  padding: clamp(3rem, 7vh, 5rem) var(--gutter);
   border-top: 1px solid var(--hairline);
 }
 .arch__facts p { color: var(--ivory-dim); font-size: 0.92rem; max-width: 40ch; }
 .arch__facts .label { margin-bottom: 0.9rem; display: block; color: var(--bronze); }
 
 /* ---------- rooms (static card grid) ---------- */
-.rooms { background: var(--ink); padding: clamp(6rem, 14vh, 11rem) var(--gutter); }
-.rooms__header { max-width: 70rem; margin-bottom: clamp(3rem, 7vh, 5rem); }
+.rooms { background: var(--ink); padding: clamp(4rem, 9vh, 7rem) var(--gutter); }
+.rooms__header { max-width: 70rem; margin-bottom: clamp(2rem, 5vh, 3.5rem); }
 .rooms__header .label { color: var(--bronze); }
 .rooms__header h2 {
   font-family: var(--serif);
@@ -471,11 +469,11 @@ button {
 .room__kind { color: var(--ivory-dim); font-size: 0.66rem; letter-spacing: 0.28em; text-transform: uppercase; margin-top: 0.4rem; }
 /* ---------- dining (static split) ---------- */
 .dining { background: var(--charcoal); }
-.dining__media { height: 62vh; min-height: 24rem; overflow: hidden; }
+.dining__media { height: 44vh; min-height: 19rem; overflow: hidden; }
 .dining__media img { width: 100%; height: 100%; object-fit: cover; }
 .dining__overlay {
   position: relative;
-  padding: clamp(4rem, 10vh, 8rem) var(--gutter);
+  padding: clamp(3rem, 7vh, 5.5rem) var(--gutter);
   background: var(--charcoal);
   border-top: 1px solid var(--hairline);
 }
@@ -501,8 +499,8 @@ button {
 .dining__inset {
   position: absolute;
   right: var(--gutter);
-  top: -9rem;
-  width: clamp(180px, 24vw, 320px);
+  top: -6rem;
+  width: clamp(160px, 20vw, 260px);
   aspect-ratio: 4/5;
   overflow: hidden;
   border-radius: 4px;
@@ -515,28 +513,21 @@ button {
 .exp { background: var(--ink); }
 .exp__grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: clamp(1.5rem, 3vw, 3rem) clamp(1rem, 3vw, 3rem);
-  padding: clamp(5rem, 12vh, 9rem) var(--gutter);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  padding: clamp(4rem, 9vh, 6rem) var(--gutter);
 }
-.exp__head { grid-column: 1 / -1; margin-bottom: 3rem; }
+.exp__head { grid-column: 1 / -1; margin-bottom: 2rem; }
 .exp__head .label { color: var(--bronze); }
 .exp__head h2 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(2.4rem, 6vw, 6rem);
+  font-size: clamp(2.2rem, 5vw, 4.6rem);
   line-height: 1.02;
   margin-top: 1.2rem;
 }
 .exp__card { position: relative; }
-.exp__card:nth-child(2) { grid-column: 1 / 6; }
-.exp__card:nth-child(3) { grid-column: 7 / 13; margin-top: 16vh; }
-.exp__card:nth-child(4) { grid-column: 2 / 7; margin-top: 0; }
-.exp__card:nth-child(5) { grid-column: 6 / 13; margin-top: 8vh; }
-.exp__card:nth-child(6) { grid-column: 1 / 6; margin-top: 4vh; }
-.exp__card:nth-child(7) { grid-column: 7 / 13; margin-top: 8vh; }
 .exp__card .exp__imgwrap { overflow: hidden; aspect-ratio: 4 / 3; border-radius: 3px; }
-.exp__card:nth-child(odd) .exp__imgwrap { aspect-ratio: 3 / 4; }
 .exp__card img {
   width: 100%; height: 100%;
   object-fit: cover;
@@ -544,12 +535,12 @@ button {
 }
 .exp__card:hover img { transform: scale(1.05); }
 .exp__card figcaption { margin-top: 1.2rem; }
-.exp__card h3 { font-family: var(--serif); font-weight: 400; font-size: 1.7rem; letter-spacing: 0.02em; }
-.exp__card p { color: var(--ivory-dim); font-size: 0.82rem; margin-top: 0.35rem; }
+.exp__card h3 { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; letter-spacing: 0.02em; }
+.exp__card p { color: var(--ivory-dim); font-size: 0.8rem; margin-top: 0.35rem; }
 
 /* ---------- gallery ---------- */
 .gallery { background: var(--charcoal); position: relative; }
-.gallery__head { padding: clamp(6rem, 14vh, 10rem) var(--gutter) 4rem; }
+.gallery__head { padding: clamp(4rem, 9vh, 6rem) var(--gutter) 2.5rem; }
 .gallery__head .label { color: var(--bronze); }
 .gallery__head h2 {
   font-family: var(--serif);
@@ -558,10 +549,10 @@ button {
   margin-top: 1.2rem;
 }
 .gallery__flow {
-  padding: 0 var(--gutter) clamp(7rem, 16vh, 12rem);
+  padding: 0 var(--gutter) clamp(4rem, 10vh, 7rem);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 2.5rem;
 }
 .gitem { position: relative; }
 .gitem button {
@@ -582,12 +573,12 @@ button {
   color: var(--ivory-dim);
 }
 .gitem--1 { width: 58%; margin-left: 6%; }
-.gitem--2 { width: 30%; margin-left: 68%; margin-top: -14%; z-index: 2; }
-.gitem--3 { width: 46%; margin-left: 8%; margin-top: 12%; }
-.gitem--4 { width: 34%; margin-left: 56%; margin-top: -18%; z-index: 2; }
-.gitem--5 { width: 60%; margin-left: 4%; margin-top: 14%; }
-.gitem--6 { width: 32%; margin-left: 62%; margin-top: -22%; z-index: 2; }
-.gitem--7 { width: 50%; margin-left: 26%; margin-top: 12%; }
+.gitem--2 { width: 30%; margin-left: 68%; margin-top: -10%; z-index: 2; }
+.gitem--3 { width: 46%; margin-left: 8%; margin-top: 0; }
+.gitem--4 { width: 34%; margin-left: 56%; margin-top: -10%; z-index: 2; }
+.gitem--5 { width: 60%; margin-left: 4%; margin-top: 0; }
+.gitem--6 { width: 32%; margin-left: 62%; margin-top: -12%; z-index: 2; }
+.gitem--7 { width: 50%; margin-left: 26%; margin-top: 0; }
 
 /* lightbox */
 .lightbox {
@@ -634,7 +625,7 @@ button {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: clamp(3rem, 8vw, 8rem);
-  padding: clamp(7rem, 16vh, 12rem) var(--gutter);
+  padding: clamp(4rem, 9vh, 7rem) var(--gutter);
   align-items: center;
 }
 .location__title .label { color: var(--bronze); }
@@ -684,8 +675,8 @@ button {
 .finale { position: relative; }
 .finale__stage {
   position: relative;
-  height: 92vh;
-  height: 92svh;
+  height: 72vh;
+  height: 72svh;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -968,7 +959,8 @@ button {
   .arch__detail { display: none; }
   .location__inner { grid-template-columns: 1fr; }
   .location__map { aspect-ratio: 16 / 10; }
-  .exp__card:nth-child(n) { grid-column: 1 / -1; margin-top: 0; }
+  .exp__card:nth-child(n) { grid-column: auto; margin-top: 0; }
+  .exp__grid { grid-template-columns: 1fr; }
   .gitem--1, .gitem--3, .gitem--5, .gitem--7 { width: 82%; margin-left: 6%; }
   .gitem--2, .gitem--4, .gitem--6 { width: 62%; margin-left: 30%; margin-top: -10%; }
   .hero__title { font-size: clamp(3rem, 16vw, 6rem); }
