@@ -1,35 +1,14 @@
-import { useLayoutEffect, useRef } from "react";
 import { EXPERIENCES } from "../data/content";
-import { gsap, prefersReducedMotion } from "../lib/motion";
 import DepthImage from "./DepthImage";
 import TextReveal from "./TextReveal";
 
 /**
- * SCENE 06 — Experiences. An asymmetric editorial grid; each card lives
- * on its own depth plane (scroll parallax alternates direction).
+ * Experiences — static asymmetric editorial grid. No scroll parallax,
+ * no staggered reveals.
  */
 export default function Experiences() {
-  const root = useRef(null);
-
-  useLayoutEffect(() => {
-    if (prefersReducedMotion()) return;
-    const ctx = gsap.context(() => {
-      gsap.utils.toArray(".exp__card").forEach((card, i) => {
-        gsap.fromTo(card, { y: 90 * (i % 2 ? -0.6 : 1), opacity: 0 }, {
-          y: 0, opacity: 1, duration: 1.3, ease: "expo.out",
-          scrollTrigger: { trigger: card, start: "top 88%" },
-        });
-        gsap.fromTo(card.querySelector("img"), { yPercent: -6 }, {
-          yPercent: 6, ease: "none",
-          scrollTrigger: { trigger: card, start: "top bottom", end: "bottom top", scrub: 1.2 },
-        });
-      });
-    }, root);
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={root} className="exp scene" id="experiences" aria-label="Experiences">
+    <section className="exp scene" id="experiences" aria-label="Experiences">
       <div className="exp__grid">
         <div className="exp__head">
           <span className="label">CHAPTER 04 · EXPERIENCES</span>

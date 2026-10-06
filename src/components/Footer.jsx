@@ -1,12 +1,15 @@
 import { ArrowUpRight } from "lucide-react";
 import { BRAND, NAV, FOOTER } from "../data/content";
-import { getLenis } from "../lib/motion";
 
 /** SCENE 10 — Minimal premium footer. */
 export default function Footer() {
   const go = (e, href) => {
     e.preventDefault();
-    getLenis()?.scrollTo(href, { duration: 2.2 });
+    if (href.startsWith("#/") || window.location.hash.startsWith("#/district")) {
+      window.location.hash = href;
+      return;
+    }
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
   return (
     <footer className="footer" aria-label="Footer">

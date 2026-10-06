@@ -2,6 +2,10 @@
 const W = (file, width = 1600) =>
   `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=${width}`;
 
+// URL slug for a district name: "Kamrup Metropolitan" -> "kamrup-metropolitan"
+export const slugify = (name) =>
+  name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+
 export const DISTRICTS = [
   { no: 1, name: "Baksa", division: "Lower Assam", hq: "Mushalpur", tag: "Manas National Park · UNESCO", about: "Half-wild hill district of the Bhutan foothills, where Manas shelters tiger, elephant and golden langur beside Bodo villages and threshing-floor Bihu.", image: W("Spectacular view of the mountains from Manas National Park.jpg"), alt: "Bhutan foothills seen from Manas National Park, Baksa" },
   { no: 2, name: "Bajali", division: "Lower Assam", hq: "Pathsala", tag: "Seat of naamghars & satras", about: "Assam's smallest district — a fertile plain of satras, naamghars and the Vaishnavite scholarship of Bhattadev around Pathsala.", image: W("Bajali college Arts Building.jpg"), alt: "Bajali College arts building, Pathsala" },

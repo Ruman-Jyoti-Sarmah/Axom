@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { BRAND, NAV } from "../data/content";
-import { getLenis } from "../lib/motion";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -16,7 +15,11 @@ export default function Navbar() {
   const go = (e, href) => {
     e.preventDefault();
     setOpen(false);
-    getLenis()?.scrollTo(href, { offset: 0, duration: 2 });
+    if (href.startsWith("#/") || window.location.hash.startsWith("#/district")) {
+      window.location.hash = href;
+      return;
+    }
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (

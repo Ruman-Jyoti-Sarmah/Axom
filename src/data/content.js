@@ -3,8 +3,8 @@ const w = (file, width = 1600) =>
 
 export const BRAND = {
   name: "AXOM",
-  tagline: "Soul of Assam · Land of the Brahmaputra",
-  established: "EST. AHOM ERA · ASSAM",
+  tagline: "Discover Assam — Land of the Red River & Blue Hills",
+  established: "ASSAM · INDIA · OFFICIAL CULTURAL PORTAL",
 };
 
 export const NAV = [
@@ -12,7 +12,7 @@ export const NAV = [
   { label: "Stays", href: "#suites" },
   { label: "Cuisine", href: "#dining" },
   { label: "Experiences", href: "#experiences" },
-  { label: "Districts", href: "#districts" },
+  { label: "Districts", href: "#/districts" },
   { label: "Gallery", href: "#gallery" },
   { label: "Visit", href: "#location" },
 ];
@@ -20,9 +20,9 @@ export const NAV = [
 export const HERO = {
   image: w("Sunset from the bank of Brahmaputra.jpg", 2400),
   alt: "Golden sunset over the mighty Brahmaputra river in Guwahati, Assam",
-  headline: ["BEYOND", "BRAHMAPUTRA"],
+  headline: ["DISCOVER", "ASSAM"],
   support:
-    "A living sanctuary on the banks of the Luit — where Ahom heritage, tea gardens, temple bells and Bihu drums breathe together as one Axomiya soul.",
+    "Welcome to the official cultural gateway of Assam — explore 35 districts, living heritage, tea gardens and the mighty Brahmaputra.",
   cta: "Begin the Journey",
 };
 
@@ -101,7 +101,7 @@ export const LOCATION = {
 export const FINALE = {
   image: w("Indian rhinoceros in Kaziranga National Park March 2025 by Tisha Mukherjee 02.jpg", 2400),
   alt: "One-horned rhino at dusk in Kaziranga — pride of Assam",
-  title: ["YOUR JOURNEY", "BEGINS IN AXOM"],
+  title: ["PLAN YOUR", "VISIT TO ASSAM"],
 };
 
 export const FOOTER = {

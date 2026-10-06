@@ -1,36 +1,15 @@
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { GALLERY } from "../data/content";
-import { gsap, prefersReducedMotion } from "../lib/motion";
 
 /**
- * SCENE 07 — Gallery. An asymmetric, overlapping editorial flow.
- * Images enter from alternating depth planes; a premium lightbox with
- * keyboard navigation opens on click.
+ * Gallery — static asymmetric editorial flow with a premium lightbox
+ * (keyboard navigation, opens on click). No scroll animation.
  */
 export default function Gallery() {
   const root = useRef(null);
   const [index, setIndex] = useState(-1);
   const open = index >= 0;
-
-  useLayoutEffect(() => {
-    if (prefersReducedMotion()) return;
-    const ctx = gsap.context(() => {
-      gsap.utils.toArray(".gitem").forEach((item, i) => {
-        gsap.fromTo(item, { y: 110, opacity: 0, scale: 0.94 }, {
-          y: 0, opacity: 1, scale: 1, duration: 1.4, ease: "expo.out",
-          scrollTrigger: { trigger: item, start: "top 90%" },
-        });
-        gsap.fromTo(item, { yPercent: i % 2 ? 10 : -10 }, {
-          yPercent: i % 2 ? -10 : 10, ease: "none",
-          scrollTrigger: { trigger: item, start: "top bottom", end: "bottom top", scrub: 1.4 },
-        });
-      });
-    }, root);
-    return () => ctx.revert();
-  }, []);
-
-  const close = useCallback(() => setIndex(-1), []);
   const step = useCallback((d) => setIndex((i) => (i + d + GALLERY.length) % GALLERY.length), []);
 
   useEffect(() => {
