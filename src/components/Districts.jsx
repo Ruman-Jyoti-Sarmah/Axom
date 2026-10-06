@@ -49,29 +49,67 @@ export default function Districts() {
         ))}
       </div>
 
-      {/* card grid */}
-      <div className="dlist__grid">
-        {list.map((d, i) => (
-          <a
-            className="dlist__card"
-            key={d.no}
-            href={`#/district/${slugify(d.name)}`}
-            aria-label={`Open ${d.name} district page`}
-          >
-            <div className="dlist__media">
-              <img src={d.image} alt={d.alt} loading={i < 8 ? "eager" : "lazy"} decoding="async" />
-              <span className="dlist__num">{String(d.no).padStart(2, "0")}</span>
+      {/* card grid — division groups on "All" (carousels on mobile),
+          single filtered row otherwise */}
+      {filter === "All" ? (
+        DIVISIONS.slice(1).map((div) => {
+          const items = DISTRICTS.filter((d) => d.division === div);
+          return (
+            <div className="dlist__group" key={div}>
+              <div className="dlist__group-head">
+                <span className="label">{div}</span>
+                <i className="dlist__rule" aria-hidden="true" />
+                <span className="label">{String(items.length).padStart(2, "0")} districts</span>
+              </div>
+              <div className="dlist__grid">
+                {items.map((d, i) => (
+                  <a
+                    className="dlist__card"
+                    key={d.no}
+                    href={`#/district/${slugify(d.name)}`}
+                    aria-label={`Open ${d.name} district page`}
+                  >
+                    <div className="dlist__media">
+                      <img src={d.image} alt={d.alt} loading={i < 6 ? "eager" : "lazy"} decoding="async" />
+                      <span className="dlist__num">{String(d.no).padStart(2, "0")}</span>
+                    </div>
+                    <div className="dlist__body">
+                      <span className="label dlist__division">{d.division}</span>
+                      <h3>{d.name}</h3>
+                      <p className="dlist__hq"><span>Seat</span> {d.hq}</p>
+                      <p className="dlist__about">{d.about}</p>
+                      <span className="dlist__cta">Open district <em>→</em></span>
+                    </div>
+                  </a>
+                ))}
+              </div>
             </div>
-            <div className="dlist__body">
-              <span className="label dlist__division">{d.division}</span>
-              <h3>{d.name}</h3>
-              <p className="dlist__hq"><span>Seat</span> {d.hq}</p>
-              <p className="dlist__about">{d.about}</p>
-              <span className="dlist__cta">Open district <em>→</em></span>
-            </div>
-          </a>
-        ))}
-      </div>
+          );
+        })
+      ) : (
+        <div className="dlist__grid dlist__grid--all">
+          {list.map((d, i) => (
+            <a
+              className="dlist__card"
+              key={d.no}
+              href={`#/district/${slugify(d.name)}`}
+              aria-label={`Open ${d.name} district page`}
+            >
+              <div className="dlist__media">
+                <img src={d.image} alt={d.alt} loading={i < 6 ? "eager" : "lazy"} decoding="async" />
+                <span className="dlist__num">{String(d.no).padStart(2, "0")}</span>
+              </div>
+              <div className="dlist__body">
+                <span className="label dlist__division">{d.division}</span>
+                <h3>{d.name}</h3>
+                <p className="dlist__hq"><span>Seat</span> {d.hq}</p>
+                <p className="dlist__about">{d.about}</p>
+                <span className="dlist__cta">Open district <em>→</em></span>
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
 
       <div className="dlist__foot">
         <a className="btn btn--ghost" href="#top">← Back to the main page</a>

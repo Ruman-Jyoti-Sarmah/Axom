@@ -795,6 +795,19 @@ button {
   gap: 0.8rem;
   margin-bottom: clamp(2.5rem, 6vh, 4rem);
 }
+
+/* division groups (All view) */
+.dlist__group { margin-bottom: clamp(3rem, 7vh, 5rem); }
+.dlist__group-head {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  margin-bottom: clamp(1.6rem, 3vh, 2.4rem);
+}
+.dlist__group-head .label { color: var(--leaf); white-space: nowrap; }
+.dlist__group-head .label:last-child { color: var(--ivory-faint); }
+.dlist__rule { flex: 1; height: 1px; background: var(--hairline); }
+.dlist__grid--all { margin-top: 0.5rem; }
 .dlist__chip {
   font-size: 0.64rem;
   letter-spacing: 0.26em;
@@ -989,6 +1002,70 @@ button {
 
 .room__kind { color: var(--leaf); }
 .dlist__division { color: var(--leaf); }
+/* ---------- mobile: side-scrolling carousels ---------- */
+@media (max-width: 900px) {
+  /* shared carousel behaviour */
+  .rooms__grid,
+  .dlist__grid,
+  .dlist__grid--all,
+  .dpage__gallery,
+  .gallery__flow {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding-bottom: 0.8rem;
+    margin: 0 calc(var(--gutter) * -1);
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    scrollbar-width: none; /* Firefox */
+  }
+  .rooms__grid::-webkit-scrollbar,
+  .dlist__grid::-webkit-scrollbar,
+  .dlist__grid--all::-webkit-scrollbar,
+  .dpage__gallery::-webkit-scrollbar,
+  .gallery__flow::-webkit-scrollbar { display: none; }
+
+  /* Rooms — one suite per swipe */
+  .rooms__grid .room {
+    flex: 0 0 82vw;
+    scroll-snap-align: center;
+    width: auto;
+  }
+  .rooms__grid .room__img { aspect-ratio: 4 / 3; }
+
+  /* Districts — compact swipe cards per division row */
+  .dlist__grid .dlist__card,
+  .dlist__grid--all .dlist__card {
+    flex: 0 0 74vw;
+    scroll-snap-align: start;
+  }
+  .dlist__about { display: none; } /* save vertical space — details live on the district page */
+  .dlist__media { aspect-ratio: 16 / 10; }
+  .dlist__body { padding: 1rem 1.1rem 1.2rem; gap: 0.35rem; }
+  .dlist__body h3 { font-size: 1.35rem; }
+  .dlist__cta { padding-top: 0.5rem; }
+  .dlist__group { margin-bottom: 2.2rem; }
+
+  /* district detail gallery — horizontal strip */
+  .dpage__gallery .dpage__shot { flex: 0 0 84vw; }
+  .dpage__shot img, .dpage__shotimg { aspect-ratio: 4 / 3; }
+
+  /* Gallery — swipe through keeps the editorial offsets off */
+  .gallery__flow .gitem,
+  .gitem--1, .gitem--2, .gitem--3, .gitem--4, .gitem--5, .gitem--6, .gitem--7 {
+    width: 82vw;
+    margin-left: 0;
+    margin-top: 0;
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+  }
+  .gitem figcaption { bottom: -1.7rem; }
+}
+
 
 
 
