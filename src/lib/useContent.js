@@ -14,7 +14,6 @@ export function useContent() {
       l2: t("hero_l2"),
       support: t("hero_support"),
       cta: t("hero_cta"),
-      scroll: t("hero_scroll"),
       discover: t("hero_discover"),
     },
     intro: { label: t("intro_label"), l1: t("intro_l1"), l2: t("intro_l2"), l3: t("intro_l3"), body: t("intro_body") },

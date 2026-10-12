@@ -110,7 +110,6 @@ export const STRINGS = {
     hero_support:
       "Welcome to the official cultural gateway of Assam — explore 35 districts, living heritage, tea gardens and the mighty Brahmaputra.",
     hero_cta: "Begin the Journey",
-    hero_scroll: "Scroll",
     hero_discover: "Discover",
     intro_label: "CHAPTER 01 — THE ARRIVAL · NOMOSKAR",
     intro_l1: "WHERE ASSAM",
@@ -473,7 +472,6 @@ export const STRINGS = {
     hero_support:
       "অসমৰ চৰকাৰী সাংস্কৃতিক দুৱাৰমুখলৈ স্বাগতম — ৩৫ খন জিলা, জীৱন্ত ঐতিহ্য, চাহ বাগিচা আৰু মহাবাহু ব্ৰহ্মপুত্ৰক চিনি লওক।",
     hero_cta: "যাত্ৰা আৰম্ভ কৰক",
-    hero_scroll: "তললৈ চাওক",
     hero_discover: "আৱিষ্কাৰ কৰক",
     intro_label: "অধ্যায় ০১ — আগমন · নমস্কাৰ",
     intro_l1: "য’ত অসমে",

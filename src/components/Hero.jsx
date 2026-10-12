@@ -38,10 +38,6 @@ export default function Hero() {
             <a className="btn hero__cta" href="#intro">
               {hero.discover}
             </a>
-            <span className="hero__scroll">
-              {hero.scroll}{" "}
-              <span className="hero__scroll-line" aria-hidden="true" />
-            </span>
           </div>
         </div>
       </div>
