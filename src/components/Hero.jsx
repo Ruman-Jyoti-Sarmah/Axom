@@ -10,8 +10,8 @@ export default function Hero() {
     <section className="hero" id="top" aria-label="Introduction">
       <img
         className="hero__bg-img"
-        src="/img/hero-brahmaputra-sm.jpg"
-        srcSet="/img/hero-brahmaputra-sm.webp 760w, /img/hero-brahmaputra.webp 1400w, /img/hero-brahmaputra.jpg 1800w"
+        src="/homehero.png"
+        srcSet="/homehero.png 1600w"
         sizes="100vw"
         alt={HERO.alt}
         fetchpriority="high"
@@ -27,20 +27,35 @@ export default function Hero() {
             <span className="tr-inner">{hero.l1}</span>
           </span>
           <span className="tr-line">
-            <span className="tr-inner"><em>{hero.l2}</em></span>
+            <span className="tr-inner">
+              <em>{hero.l2}</em>
+            </span>
           </span>
         </h1>
         <div className="hero__bottom">
           <p className="hero__support">{hero.support}</p>
           <div style={{ display: "flex", alignItems: "center", gap: "2.5rem" }}>
-            <a className="btn hero__cta" href="#intro">{hero.discover}</a>
+            <a className="btn hero__cta" href="#intro">
+              {hero.discover}
+            </a>
             <span className="hero__scroll">
-              {hero.scroll} <span className="hero__scroll-line" aria-hidden="true" />
+              {hero.scroll}{" "}
+              <span className="hero__scroll-line" aria-hidden="true" />
             </span>
           </div>
         </div>
       </div>
-      <ArrowDown size={16} style={{ position: "absolute", bottom: 18, left: "50%", zIndex: 2, opacity: 0.4 }} aria-hidden="true" />
+      <ArrowDown
+        size={16}
+        style={{
+          position: "absolute",
+          bottom: 18,
+          left: "50%",
+          zIndex: 2,
+          opacity: 0.4,
+        }}
+        aria-hidden="true"
+      />
     </section>
   );
 }
