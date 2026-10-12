@@ -16,8 +16,8 @@ export function HomeFacts() {
         <div className="zubeen__hero">
           <div className="zubeen__img">
             <img
-              src="/img/zubeen-garg-sm.jpg"
-              srcSet="/img/zubeen-garg-sm.webp 760w, /img/zubeen-garg.webp 1400w"
+              src="https://share.google/NrSgkTFABziPncX2x"
+              srcSet="https://share.google/NrSgkTFABziPncX2x 760w, https://share.google/NrSgkTFABziPncX2x 1400w"
               sizes="(max-width: 700px) 100vw, 50vw"
               alt={"Zubeen Garg — " + t("zubeen_label")}
               loading="lazy"
