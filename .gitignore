@@ -1,5 +1,12 @@
 # Dependencies
 node_modules/
+server/node_modules/
+
+# Build output
+dist/
+
+# Dynamic DB (generated via seed)
+data/db.json
 
 # Build output
 dist/

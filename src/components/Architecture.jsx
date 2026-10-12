@@ -1,14 +1,13 @@
 import { ARCHITECTURE } from "../data/content";
+import { useContent } from "../lib/useContent";
 import TextReveal from "./TextReveal";
 import DepthImage from "./DepthImage";
 
-/**
- * Architecture — static full-bleed feature with floating detail image
- * and a facts row. No clip-path reveals, no parallax.
- */
+/** Architecture — label, title + paragraphs follow the site language. */
 export default function Architecture() {
+  const { arch } = useContent();
   return (
-    <section className="arch scene" id="architecture" aria-label="The Heritage architecture">
+    <section className="arch scene" id="architecture" aria-label="The Heritage architecture" data-reveal>
       <div className="arch__media">
         <div className="arch__frame">
           <DepthImage src={ARCHITECTURE.image} alt={ARCHITECTURE.alt} imgClassName="arch__img" eager />
@@ -17,12 +16,12 @@ export default function Architecture() {
           <img src={ARCHITECTURE.detail} alt={ARCHITECTURE.detailAlt} loading="lazy" decoding="async" />
         </div>
         <div className="arch__caption">
-          <span className="label">{ARCHITECTURE.label}</span>
-          <TextReveal as="h3" lines={ARCHITECTURE.title} />
+          <span className="label">{arch.label}</span>
+          <TextReveal as="h3" lines={[arch.l1, arch.l2]} />
         </div>
       </div>
       <div className="arch__facts">
-        {ARCHITECTURE.paragraphs.map((p, i) => (
+        {[arch.p1, arch.p2].map((p, i) => (
           <div key={i}>
             <span className="label">{String(i + 1).padStart(2, "0")}</span>
             <p>{p}</p>

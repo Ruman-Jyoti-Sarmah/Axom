@@ -1,23 +1,22 @@
 import { DINING } from "../data/content";
+import { useContent } from "../lib/useContent";
 import TextReveal from "./TextReveal";
 
-/**
- * Dining — static split layout: full-height image with a dark gradient
- * panel carrying the menu story. No clip reveals.
- */
+/** Dining — story + menu follow the site language. */
 export default function Dining() {
+  const { dining } = useContent();
   return (
-    <section className="dining scene" id="dining" aria-label="Dining">
+    <section className="dining scene" id="dining" aria-label="Dining" data-reveal>
       <div className="dining__media">
         <img src={DINING.image} alt={DINING.alt} loading="lazy" decoding="async" />
       </div>
       <div className="dining__overlay">
         <div className="dining__content">
-          <span className="label">{DINING.label}</span>
-          <TextReveal as="h2" lines={DINING.title} />
-          <p>{DINING.body}</p>
+          <span className="label">{dining.label}</span>
+          <TextReveal as="h2" lines={[dining.l1, dining.l2]} />
+          <p>{dining.body}</p>
           <ul className="dining__list">
-            {DINING.menuHighlights.map((m) => <li key={m}>{m}</li>)}
+            {dining.menu.map((m) => <li key={m}>{m}</li>)}
           </ul>
         </div>
         <div className="dining__inset">

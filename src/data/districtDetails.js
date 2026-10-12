@@ -12,7 +12,7 @@ export const DISTRICT_DETAILS = {
   "baksa": {
     history:
       "Named after the Baksa river, the district was carved out in 2003 from Goalpara and Kamrup. Its hills form the southern rampart of the Manas landscape, home to Bodo, Mech and Katha villages whose Bwisagu spring festival opens the Assamese new year with drum, dance and gamosa.",
-    extra: [W("Manas landscape rhino.jpg")],
+    extra: [W("Manas National Park.jpg"), W("Sunrise at Manas National Park.jpg")],
     attractions: [
       { name: "Manas National Park", kind: "UNESCO World Heritage", about: "Tiger, elephant, one-horned rhino and golden langur on the Bhutan border — among India's first World Heritage sites." },
       { name: "Mathanguri", kind: "Forest Retreat", about: "Deep-inside Manas camp on the Bholigaon river where rescued elephants are rehabilitated." },
@@ -23,7 +23,7 @@ export const DISTRICT_DETAILS = {
   "bajali": {
     history:
       "Assam's smallest district, Bajali is the parishad of Bhattadev — the 'second Sankardev' — whose Baradiha satra gave Assam its first prose in the Assamese language. Elevated to a district in the 2020s, it remains a fertile cluster of naamghars and scholarly satras on the Barpeta plain.",
-    extra: [],
+    extra: [W("Barpeta Satra, Barpeta.jpg"), W("Bahari satra Barpeta Assam 2.jpg")],
     attractions: [
       { name: "Baradiha Satra", kind: "Vaishnavite Estate", about: "The satra founded by Bhattadev, where Assamese prose and the puthi tradition were born." },
       { name: "Tukraibleswar Than", kind: "Temple", about: "Ancient Shiva shrine beside Pathsala drawn in Assam's own temple idiom." },
@@ -33,7 +33,7 @@ export const DISTRICT_DETAILS = {
   "barpeta": {
     history:
       "In 1583 Srimanta Sankardev raised his Kamala Kshetra at Bata, and Barpeta grew into the greatest seat of neo-Vaishnavism after the saint settled his satra here. The district's Fakir singers carried Borgeet across the region, and its bell-metal workshops still turn the lamps of every naamghar.",
-    extra: [],
+    extra: [W("Barpeta Satra, Barpeta.jpg"), W("Bahari satra Barpeta Assam 2.jpg")],
     attractions: [
       { name: "Barpeta Satra", kind: "Neo-Vaishnavite Estate", about: "The grandest satra of Assam, where Sankardev's Barpeta bhakti and puthi culture flourish." },
       { name: "Bata Kamala Kshetra", kind: "Pilgrimage", about: "Sankardev's first monastery on the bank of the Bharalu — the womb of the faith." },
@@ -44,7 +44,7 @@ export const DISTRICT_DETAILS = {
   "bongaigaon": {
     history:
       "Jogighopa on the Manas was the ancient port of Kamarupa where Bhaskaravarman received the Chinese pilgrim Xuanzang in the 7th century. Modern Bongaigaon, laid out beside the old Egarosimha ghat, is the youngest town of western Assam, facing rocky Bhumeshwar hill across the Manas.",
-    extra: [],
+    extra: [W("Bongaigaon Refinery.jpg"), W("Tamranga Beel, Bongaigaon, Assam, India.jpg")],
     attractions: [
       { name: "Jogighopa", kind: "Ancient Port", about: "Kamarupa's river port where Xuanzang landed — rock-cut caves still face the Manas." },
       { name: "Bhumeshwar Hill", kind: "Sacred Hill", about: "Rocky hill of old shrines and caves overlooking the Brahmaputra's northern bank." },
@@ -54,7 +54,7 @@ export const DISTRICT_DETAILS = {
   "chirang": {
     history:
       "The seat of the Koch kings of Bijni until 1839, Chirang takes its name from the Chiri river. Within the Bodoland Territorial Region its Bodo, Mech and Bengali villages share the Bhutan foothill forests, where Bwisagu and Bathou worship still mark the turning of the year.",
-    extra: [],
+    extra: [W("Bijni Namghar.jpg"), W("Wild elephant Raimona National Park.jpg")],
     attractions: [
       { name: "Bijni Palace Ruins", kind: "Royal Heritage", about: "Mounds and gateways of the Koch capital at Dewkurapaar, swallowed by forest and time." },
       { name: "Kajalgaon", kind: "District Town", about: "The administrative seat at the edge of the Bhutan foothills, market for the Bodo plains." },
@@ -64,7 +64,7 @@ export const DISTRICT_DETAILS = {
   "dhubri": {
     history:
       "One of the oldest towns of the Northeast, Dhubri was the headquarters of Goalpara district under the British and a port where Guru Gobind Singh rested in 1671. Its riverbank shrines and ferry ghats still gather the whole western Brahmaputra for mela and samagam.",
-    extra: [],
+    extra: [W("Guru Dwara Dhubri.jpg"), W("Dhubri Gurdwara1.JPG"), W("Dhuburi collage.jpg")],
     attractions: [
       { name: "Sri Sri Gurdwara", kind: "Sikh Shrine", about: "Seventeenth-century shrine marking the Guru's stay — Assam's holiest Gurdwara." },
       { name: "Dhubri Devi Temple", kind: "Temple", about: "Clifftop goddess shrine above the Brahmaputra, lit up during the winter mela." },
@@ -75,7 +75,7 @@ export const DISTRICT_DETAILS = {
   "goalpara": {
     history:
       "Goalpara's hills preserve one of Assam's strangest archaeological pages — Surya Pahar, chiselled with hundreds of Buddhist stupas and sun discs between the 8th and 12th centuries. The town was long the headquarters of Goalpara district, the gateway by which the British entered the Brahmaputra valley.",
-    extra: [],
+    extra: [W("Sri Surya Mandir at Sri Surya Pahar, Goalpara.jpg"), W("Buddha Stupa at Sri Surya Pahar, Goalpara.jpg")],
     attractions: [
       { name: "Surya Pahar", kind: "Archaeological Site", about: "A hill of rock-cut stupas, Jain figures and sun-shrines — Assam's hidden Buddhist page." },
       { name: "Dudhnoi", kind: "River Town", about: "Fast water town on the Dudhnoi river below the Meghalaya hills." },
@@ -85,7 +85,7 @@ export const DISTRICT_DETAILS = {
   "kamrup": {
     history:
       "Kamrup is the sacred geography of Assam: Hajo, where Hayagriva Madhava crowns a hill shared by Hindus, Buddhists and Sikhs; Sualkuchi, weaving muga and pat silk since the Ahom kings; and Saraighat, where Lachit's flotilla broke the Mughal fleet in 1671.",
-    extra: [W("Sualkuchi Budhram Madhab Satradhikar College.jpg")],
+    extra: [W("Sualkuchi Budhram Madhab Satradhikar College.jpg"), W("Manchester of Assam- Sualkuchi.jpg"), W("Shree Shree Hayagriva Madhab Temple, Hajo, Assam.jpg")],
     attractions: [
       { name: "Hayagriva Madhava Temple, Hajo", kind: "Temple", about: "Triple-faith hilltop shrine where the Buddha is worshipped as an avatar of Vishnu." },
       { name: "Powa Makkah, Hajo", kind: "Shrine", about: "The 'lesser Mecca' of the Northeast, drawn by Sufi pilgrims for four centuries." },
@@ -97,7 +97,7 @@ export const DISTRICT_DETAILS = {
   "kamrup-metropolitan": {
     history:
       "Guwahati grew beneath Nilachal, where the Kamakhya yoni-shrine drew shakti worshippers before the Kamarupa kings. The capital city is the gateway to the entire Northeast — a river port turned metropolis, still circling Umananda's peacock island each morning.",
-    extra: [W("Umananda Island, Guwahati (4).jpg")],
+    extra: [W("Umananda Island, Guwahati (4).jpg"), W("Doul Govinda Mandir, Rajaduar, North Guwahati.jpg")],
     attractions: [
       { name: "Kamakhya Temple", kind: "Shakti Pitha", about: "Eighth-century shakti pith atop Nilachal — mother goddess of the Kamarupas and Ambubachi mela." },
       { name: "Umananda Island", kind: "River Island", about: "The world's smallest inhabited river island, crowned by a Shiva temple mid-stream." },
@@ -109,7 +109,7 @@ export const DISTRICT_DETAILS = {
   "kokrajhar": {
     history:
       "Headquarters of the Bodoland Territorial Region, Kokrajhar district was carved from Goalpara in 2003 for the Bodo people. Raimona, declared a national park in 2020, guards the golden-langur country on the Bhutan fringe — and the Bodo Gwcwra society still meets in its wooden houses.",
-    extra: [W("Wild elephant Raimona National Park.jpg")],
+    extra: [W("Wild elephant Raimona National Park.jpg"), W("Singi stream in Raimona NP.jpg")],
     attractions: [
       { name: "Raimona National Park", kind: "National Park", about: "Golden langurs, elephants and hornbills in the Bhutan foothill forests declared a park in 2020." },
       { name: "Chakrasila Wildlife Sanctuary", kind: "Sanctuary", about: "Langur-haunted sal forest on the Dhansiri — a quiet sister to Manas." },
@@ -119,7 +119,7 @@ export const DISTRICT_DETAILS = {
   "nalbari": {
     history:
       "Nalbari's Ghosha family and its network of naamghars kept the Naam Dharma alive through four centuries. Daul Mandir rises from a hillock in the town's centre, and the district's mango gardens and river Burhanguri still set the calendar of its fairs.",
-    extra: [],
+    extra: [W("Nalbari Hari Mandir.jpg"), W("Hari Mandir at Nalbari during Ras Utsav.jpg")],
     attractions: [
       { name: "Daul Mandir", kind: "Temple", about: "Hillock shrine of Shakti in the heart of Nalbari town, lit through the Durga mela." },
       { name: "Ghosha Satras & Naamghars", kind: "Vaishnavite Heritage", about: "The scholarly estates of the Ghosha family where Naam Dharma was preserved." },
@@ -129,7 +129,7 @@ export const DISTRICT_DETAILS = {
   "south-salmara-mankachar": {
     history:
       "Assam's westernmost district, formed in 2016 from Dhubri, is a world of chars and ghatas between the Brahmaputra and Bangladesh. Every monsoon redraws its islands — and Mankachar's Kamakhya shrine still draws boatloads from both banks of the border river.",
-    extra: [],
+    extra: [W("Pancharatna bridge.jpg"), W("Dhubri Gurdawa2.JPG")],
     attractions: [
       { name: "Mankachar Kamakhya Shrine", kind: "Temple", about: "Riverside copy of Nilachal's goddess, worshipped by the border boatmen." },
       { name: "Hatsingimari Ghat", kind: "River Port", about: "The district's seat on the Brahmaputra — ferries, fish market and evening light." },
@@ -139,7 +139,7 @@ export const DISTRICT_DETAILS = {
   "tamulpur": {
     history:
       "Formed in 2021 from northern Baksa, Tamulpur sits where the Bhutan foothills meet the Manas plain. Bodo, Bengali and Garo villages share its paddy fields and forested ridges along the old Rangia–Bhutan road.",
-    extra: [],
+    extra: [W("Sunrise at Manas National Park.jpg"), W("Bogibeel bridge.jpg")],
     attractions: [
       { name: "Bhutan Foothill Forests", kind: "Landscape", about: "Sal and chir pine ridges rising behind the paddy — leopard and hornbill country." },
       { name: "Bodo Villages", kind: "Living Culture", about: "Huts where Bwisagu songs and the arnai welcome still open every door." },
@@ -149,7 +149,7 @@ export const DISTRICT_DETAILS = {
   "biswanath": {
     history:
       "Biswanath Ghat, once called the 'second Kashi', drew pilgrims to its Shiva temple on the Brahmaputra. The 2016 district wraps that holy ghat in tea estates and the northern grasslands of Kaziranga, where rhinos graze within sight of the river.",
-    extra: [],
+    extra: [W("The Nagshankar Temple (also known as Nagsankar Devalaya), Sootea, Biswanath district of Assam.jpg"), W("Cheesa River.jpg")],
     attractions: [
       { name: "Biswanath Ghat & Shiva Temple", kind: "Temple Town", about: "The ASI Shiva temple on the old river ghat — Assam's riverside Kashi." },
       { name: "Biswanath Tea Estates", kind: "Tea Country", about: "Colonial-era gardens and bungalows between the ghat and the Kaziranga fringe." },
@@ -159,7 +159,7 @@ export const DISTRICT_DETAILS = {
   "darrang": {
     history:
       "Patharighat in Darrang is where Assamese peasants drew their line against the 1905 Partition — remembered in the Swahid Stambha. The district's plain, watered by the Barnadi, remains one of Assam's granaries, its naamghars full on every kati punhi.",
-    extra: [],
+    extra: [W("Swahid Stambha, Patharighat.jpg"), W("Krishak swahid bhawan, Patharighat.jpg"), W("Tamreswar-shiv-mandir-and-museum-darrang-museums-n07hsq841j.jpg")],
     attractions: [
       { name: "Patharighat Swahid Stambha", kind: "Memorial", about: "Martyrs' column honouring the peasants who resisted the Partition of Bengal." },
       { name: "Mangaldoi", kind: "District Town", about: "The seat of Darrang, ringed by sattras, mustard fields and Bihu grounds." },
@@ -169,7 +169,7 @@ export const DISTRICT_DETAILS = {
   "sonitpur": {
     history:
       "Tezpur's name — 'city of blood' — comes from the Usha–Aniruddha legend of love and war. Mahabhairav crowns the town, Agnigarh remembers the fire, and beyond the Brahmaputra the forests of Nameri keep hornbills in the Bhutan foothills.",
-    extra: [W("Agnigarh Hill, Tezpur.JPG")],
+    extra: [W("Agnigarh Hill, Tezpur.JPG"), W("NAMERI NATIONAL PARK.jpg")],
     attractions: [
       { name: "Mahabhairav Temple", kind: "Temple", about: "Ancient Shiva shrine on the hillock above Tezpur, rebuilt by the Ahoms." },
       { name: "Agnigarh", kind: "Legend Site", about: "The 'fort of fire' park on a mound tied to the Usha–Aniruddha story." },
@@ -180,7 +180,7 @@ export const DISTRICT_DETAILS = {
   "udalguri": {
     history:
       "The Bodo hills of Udalguri grew up around the old Udalguri subdivision, now part of the Bodoland region. Its name is heard in the stone legends of Kukurakata and its valleys carry the Bhutanese border streams down to the Brahmaputra.",
-    extra: [],
+    extra: [W("Bhairabkunda gate.jpg"), W("Bhairabkunda Bhutan gate.jpg")],
     attractions: [
       { name: "Bhairabkunda", kind: "Waterfalls", about: "Border gorge of thundering water and picnic lawns at the Bhutan gate." },
       { name: "Kukurakata Hill", kind: "Landscape", about: "Round hill of duranta fruit and Bodo stories, rising over the Udalguri plain." },
@@ -190,7 +190,7 @@ export const DISTRICT_DETAILS = {
   "charaideo": {
     history:
       "Charaideo was the first Ahom capital, chosen by Sukapha in 1228 at the head of the Patkai passes. Its maidams — vaulted burials of kings and queens beneath mounded earth — were inscribed by UNESCO in 2024 as the necropolis of the Ahom dynasty.",
-    extra: [],
+    extra: [W("Charaideo Maidam.jpg"), W("Charaideo Maidam of Ahom Kings at Charaideo in Sivasagar, Assam 4.jpg")],
     attractions: [
       { name: "Charaideo Maidams", kind: "UNESCO World Heritage", about: "Ahom pyramid-mounds of kings, queens and queens' guards, ringed by guardian stones." },
       { name: "Sonari", kind: "District Town", about: "The seat of Charaideo, base for maidam trails toward the Patkai hills." },
@@ -200,7 +200,7 @@ export const DISTRICT_DETAILS = {
   "dhemaji": {
     history:
       "Carved from Lakhimpur in 1989, Dhemaji stands where the Subansiri meets the Brahmaputra. Floods have shaped its life and its faith — its sattras carried Vaishnavism out to the chars, and its Raas and Monati fairs are the calendar of the northern plain.",
-    extra: [],
+    extra: [W("Inside Nameri National Park.jpg"), W("Paddy cultivation in Nagaon.jpg")],
     attractions: [
       { name: "Naamghars & Raas", kind: "Living Faith", about: "Thatch-and-bamboo naamghars staging Raas leela with khol and cymbal each Kartik." },
       { name: "Gogamukh", kind: "Confluence Town", about: "Riverside town and fairground where the northern hills' waters reach the Luit." },
@@ -210,7 +210,7 @@ export const DISTRICT_DETAILS = {
   "dibrugarh": {
     history:
       "Dibrugarh was the administrative seat of Upper Assam after the Treaty of Yandaboo, and grew into the tea capital of India. The Bogibeel bridge now stitches its north-bank world to the rest of the country, while Dehing's sattras keep the old rites of the river.",
-    extra: [W("Dibru Saikhuwa National Park.jpg")],
+    extra: [W("Dibru Saikhuwa National Park.jpg"), W("Bogibeel Bridge, Dibrugarh.jpg")],
     attractions: [
       { name: "Bogibeel Bridge", kind: "Engineering", about: "India's longest rail-road bridge, spanning the Brahmaputra to the Assamese north bank." },
       { name: "Heritage Tea Estates", kind: "Tea Country", about: "Thika gardens and bungalows where Assam's first tea bushes still flush." },
@@ -221,7 +221,7 @@ export const DISTRICT_DETAILS = {
   "golaghat": {
     history:
       "Golaghat's name recalls its old ghat of golah (granary huts) on the Dhansiri. The Kohora gate of Kaziranga opens inside the district, and its tea gardens — planted from the 1870s — still pour the leaf that made Assam famous worldwide.",
-    extra: [],
+    extra: [W("Kaziranga National Park, Assam, India 01.jpg"), W("Kaziranga National Orchid and Biodiversity Park.jpg")],
     attractions: [
       { name: "Kaziranga — Kohora Gate", kind: "National Park", about: "The central range of the UNESCO park: rhinos, buffaloes and the elephant safari at dawn." },
       { name: "Panbari Reserve", kind: "Wildlife", about: "Patch of elephant and tiger forest between Dhansiri and the park." },
@@ -232,7 +232,7 @@ export const DISTRICT_DETAILS = {
   "jorhat": {
     history:
       "Jorhat was the last capital of the Ahoms, founded in 1794 after the Tai king moved from Sivasagar. A century later it became the tea research capital of the world — and today its Nimati ghat sends the first boat of the morning to Majuli's sattras.",
-    extra: [],
+    extra: [W("Jorhat Gymkhana Club.jpg"), W("Guwahati Planetarium.jpg")],
     attractions: [
       { name: "Hollongapar Gibbon Sanctuary", kind: "Wildlife", about: "India's only sanctuary named for the hoolock gibbon, among old silk-cotton trees." },
       { name: "Tocklai Tea Research Institute", kind: "Tea Heritage", about: "The century-old institute where the science of the Assam leaf was written." },
@@ -243,7 +243,7 @@ export const DISTRICT_DETAILS = {
   "lakhimpur": {
     history:
       "North Lakhimpur keeps the memory of Lachit Borphukan — his tomb at Sissiborgaon and the Dighalupukhuri tank said to have been dug by his order. Beyond the Subansiri, the district's plains run to the Arunachal foothills and the old Patkai trails.",
-    extra: [],
+    extra: [W("Inside Nameri National Park.jpg"), W("Malini Than.jpg")],
     attractions: [
       { name: "Dighalupukhuri", kind: "Heritage Tank", about: "The royal pond of Lakhimpur tied to Lachit's legend, ringed by ghat and grove." },
       { name: "Lachit Borphukan's Tomb", kind: "Memorial", about: "Samadhi of Assam's greatest general at Jingra, Sissiborgaon, honoured each 24 November." },
@@ -253,7 +253,7 @@ export const DISTRICT_DETAILS = {
   "majuli": {
     history:
       "After a great Brahmaputra flood, Madhavdev brought Sankardev's legacy to Majuli, and the island became the Vatican of neo-Vaishnavism — more than twenty sattras still keep its rites. India's first river- island district (2016), it floats between two channels of the Luit.",
-    extra: [W("Majuli - The largest river island.jpg")],
+    extra: [W("Majuli - The largest river island.jpg"), W("A huge mask at Samaguri satra Majuli.jpg")],
     attractions: [
       { name: "Auniati Satra", kind: "Neo-Vaishnavite Estate", about: "Island's premier satra, keeper of the alankaar traditions and the Auniati brass." },
       { name: "Kamalabari Satra", kind: "Neo-Vaishnavite Estate", about: "Seat of the Sankari (Sankardev) faith on the island's northern bank." },
@@ -265,7 +265,7 @@ export const DISTRICT_DETAILS = {
   "sivasagar": {
     history:
       "For 420 years the Ahoms ruled from here — Rang Ghar, Asia's oldest surviving amphitheatre; Talatal Ghar, with its secret tunnels; Joysagar, the largest tank of Assam; and the Shiva Dol, tallest of its kind. The district is an open-air museum of a dynasty.",
-    extra: [W("Ranghar - Assam.jpg"), W("Talatal Ghar in Sivasagar, Assam.jpg")],
+    extra: [W("Ranghar - Assam.jpg"), W("Joysagar Vishnu Dol from across Joysagar Tank.jpg")],
     attractions: [
       { name: "Rang Ghar", kind: "Royal Amphitheatre", about: "The two-storey pavilion where Ahom kings watched bazi and buffalo fights." },
       { name: "Talatal Ghar", kind: "Palace", about: "Masonry palace of tunnels and wells — the most elaborate of the Ahom Karengs." },
@@ -276,7 +276,7 @@ export const DISTRICT_DETAILS = {
   "tinsukia": {
     history:
       "Digboi, in Tinsukia, holds Asia's oldest operating refinery — oil struck in 1889 and refined since 1901, 'the place where they said: dig, boy, dig'. The district is also where the Stilwell Road once ran to China, and where Dibru-Saikhowa keeps its feral horses.",
-    extra: [W("Digboi Centenary Museum 04.JPG")],
+    extra: [W("Digboi Centenary Museum 04.JPG"), W("Digboi Oil Refinery Guest House.jpg")],
     attractions: [
       { name: "Digboi Refinery & Centenary Museum", kind: "Industrial Heritage", about: "The oldest operating refinery in Asia, with its museum of drills and photographs." },
       { name: "Digboi War Cemetery", kind: "Memorial", about: "IMCW cemetery of the airmen and soldiers who died on the Burma front." },
@@ -287,7 +287,7 @@ export const DISTRICT_DETAILS = {
   "dima-hasao": {
     history:
       "The hill district of Assam, seat of the Dimasa Kacharis whose kingdom once ruled from Maibang. Haflong — 'land of the white squirrel' in Dimasa — holds the lake and the hill railway, while Jatinga keeps its strange nightly rite of falling birds.",
-    extra: [],
+    extra: [W("Haflong Lake.jpg"), W("A scenic view of Haflong.jpg")],
     attractions: [
       { name: "Haflong Lake", kind: "Landscape", about: "Hill lake of Haflong town, ringed by gardens and the Barail skyline." },
       { name: "Jatinga", kind: "Mystery Site", about: "The village where birds descend on dark, moonless nights — studied since the 1900s." },
@@ -298,7 +298,7 @@ export const DISTRICT_DETAILS = {
   "hojai": {
     history:
       "Carved from Nagaon in 2016, Hojai is India's agarwood capital — the oudh distilled at Jugijan reaches perfume houses of the world. Its hills at the Karbi fringe hold old tin-base shrines, and its markets smell of smoke, musk and monsoon wood.",
-    extra: [],
+    extra: [W("Panthoibi at Hojai, Assam 01.jpg"), W("Hojai Railway Station.jpg")],
     attractions: [
       { name: "Jugijan Oudh Distilleries", kind: "Craft Trail", about: "Cottage distilleries drawing the precious oudh oil from agarwood chips." },
       { name: "Lanka", kind: "Town", about: "Railhead market town of Hojai, gateway to the agarwood belt." },
@@ -308,7 +308,7 @@ export const DISTRICT_DETAILS = {
   "morigaon": {
     history:
       "Morigaon takes its name from a 'mora' (bent) stream on the southern bank of the Brahmaputra. Its soil carries two reputations — the rhinos of Pobitora and the medicine-folk of Mayang, whose village lore still draws visitors from across the state.",
-    extra: [W("Indian Rhino in Pobitora.jpg")],
+    extra: [W("Indian Rhino in Pobitora.jpg"), W("Elephant Grass in Kaziranga National Park.jpg")],
     attractions: [
       { name: "Pobitora Wildlife Sanctuary", kind: "Wildlife", about: "Compact wetland holding one of Assam's densest rhino populations — an hour from Guwahati." },
       { name: "Mayang", kind: "Living Lore", about: "The village famed for traditional medicine and the old stories of witchcraft." },
@@ -318,7 +318,7 @@ export const DISTRICT_DETAILS = {
   "nagaon": {
     history:
       "At Batadrava in Nagaon, Srimanta Sankardev was born in 1449 — and the district remains the cradle of Vaishnavism. Around it spread Assam's rice bowl, with Kaziranga's Agoratoli range breaking the green on the north-eastern edge.",
-    extra: [],
+    extra: [W("Bordowa Than Cultural Project, Nagaon, Assam.jpg"), W("Paddy cultivation in Nagaon.jpg")],
     attractions: [
       { name: "Batadrava Than", kind: "Pilgrimage", about: "Birthplace of Srimanta Sankardev — naamghar, tank and the annual birth festival." },
       { name: "Agoratoli Range, Kaziranga", kind: "Wildlife", about: "The quiet eastern gate of Kaziranga, best for birding and jeep encounters." },
@@ -328,7 +328,7 @@ export const DISTRICT_DETAILS = {
   "karbi-anglong": {
     history:
       "The Karbi highlands — 'anglong' meaning land of hills — were long ruled by chiefships before Diphu became their seat. The Rongker and Bor Boruwa festivals still open the agricultural year here, and the forests around Langkovku fall through monsoon mist.",
-    extra: [W("Diphu hills.JPG")],
+    extra: [W("Diphu hills.JPG"), W("Barail Wildlife Sanctuary, Assam.jpg")],
     attractions: [
       { name: "Langkovku Waterfall", kind: "Waterfalls", about: "The cascading falls of Manjha, Karbi Anglong's most-visited shower of green." },
       { name: "Diphu", kind: "District Town", about: "Pine-scented hill headquarters with the Karbi Heritage Museum and Rongker grounds." },
@@ -338,7 +338,7 @@ export const DISTRICT_DETAILS = {
   "west-karbi-anglong": {
     history:
       "Carved from Karbi Anglong in 2016, West Karbi Anglong is the younger hill district — Hamren's ridges, Baithalangso's pine slopes and the Garo-Karbi border forests. Its people raise jhum on the slopes and meet in the pachong council halls.",
-    extra: [],
+    extra: [W("Hayagriva Madhava Temple, Hajo.jpg"), W("Shree Shree Hayagriva Madhab Temple, Hajo, Assam.jpg")],
     attractions: [
       { name: "Baithalangso", kind: "Hill Retreat", about: "Pine-backed slopes and stone Karbi houses on the district's western ridge." },
       { name: "Hamren", kind: "District Town", about: "Ridge-top headquarters with views over the Garo border forests." },
@@ -348,7 +348,7 @@ export const DISTRICT_DETAILS = {
   "cachar": {
     history:
       "The Barak valley's Khaspur was capital of the Khasi kings until the British annexed Cachar in the 1830s; Silchar then grew into the cultured river-port of the south. Tea and orange still rule its estates, and the Barak sets the pace of its towns.",
-    extra: [],
+    extra: [W("Kachari palace.JPG"), W("Barak River in Silchar.jpg")],
     attractions: [
       { name: "Khaspur Ruins", kind: "Royal Heritage", about: "Stone gateways and carved remains of the last Khasi capital of Cachar." },
       { name: "Silchar Riverfront", kind: "Town", about: "The 'Island of Peace' on the Barak — ghats, ferries and book-shop streets." },
@@ -359,7 +359,7 @@ export const DISTRICT_DETAILS = {
   "hailakandi": {
     history:
       "The garden district of the Barak valley, Hailakandi took shape as a British outpost in the 1870s and grew rich on orange and pineapple. Its Katkhal hills look toward Mizoram, and its Bengali-Christian villages ring with Christmas hymns each winter.",
-    extra: [],
+    extra: [W("Hailakandi Town symbol.jpg"), W("Silchar.jpg")],
     attractions: [
       { name: "Katkhal Hills", kind: "Landscape", about: "Forest hills on the Mizoram road — the green wall behind the town." },
       { name: "Orange & Pineapple Orchards", kind: "Agro-Tourism", about: "Hillside gardens where the winter citrus of Barak valley ripens." },
@@ -369,7 +369,7 @@ export const DISTRICT_DETAILS = {
   "sribhumi": {
     history:
       "Karimganj was renamed Sribhumi in 2024 — 'the land of Shri'. Its old riverside fort at Badarpur watched the Barak for centuries, and its canals still carry country boats between islands that answer to both bank and tide.",
-    extra: [],
+    extra: [W("Badarpur Fort.jpg"), W("A Village of Karimganj District, Assam..JPG")],
     attractions: [
       { name: "Badarpur Fort", kind: "Historic Fort", about: "Walls and bastions of the old fort guarding the Barak at Badarpur." },
       { name: "Barak River & Islands", kind: "River Experience", about: "Canal rides between the island wards of Sribhumi town." },

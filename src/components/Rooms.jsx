@@ -1,15 +1,14 @@
 import { SUITES } from "../data/content";
+import { useContent } from "../lib/useContent";
 
-/**
- * Rooms & Suites — static responsive card grid (was a pinned horizontal
- * scroll track). Cards zoom their image gently on hover.
- */
+/** Rooms & Suites — header follows the site language. */
 export default function Rooms() {
+  const { t } = useContent();
   return (
-    <section className="rooms" id="suites" aria-label="Rooms and suites">
+    <section className="rooms" id="suites" aria-label="Rooms and suites" data-reveal>
       <div className="rooms__header">
-        <span className="label">CHAPTER 02 · STAYS</span>
-        <h2>Rooms &amp; Suites</h2>
+        <span className="label">{t("rooms_label")}</span>
+        <h2>{t("rooms_title")}</h2>
       </div>
       <div className="rooms__grid">
         {SUITES.map((s) => (

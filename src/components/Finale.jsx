@@ -1,10 +1,9 @@
 import { FINALE } from "../data/content";
+import { useContent } from "../lib/useContent";
 
-/**
- * Finale — simple full-height closing CTA over a still image.
- * No sticky scrub, no dolly-out.
- */
+/** Finale — closing CTA follows the site language. */
 export default function Finale() {
+  const { t } = useContent();
   return (
     <section className="finale" id="finale" aria-label="Book your stay">
       <div className="finale__stage">
@@ -12,14 +11,15 @@ export default function Finale() {
         <div className="finale__veil" />
         <div className="finale__content">
           <h2>
-            {FINALE.title.map((l, i) => (
-              <span className="tr-line" key={l}>
-                <span className="tr-inner">{i === 1 ? <em>{l}</em> : l}</span>
-              </span>
-            ))}
+            <span className="tr-line">
+              <span className="tr-inner">{t("finale_l1")}</span>
+            </span>
+            <span className="tr-line">
+              <span className="tr-inner"><em>{t("finale_l2")}</em></span>
+            </span>
           </h2>
-          <a className="btn btn--solid finale__cta" href="mailto:namaskar@axom.example">
-            Book Your Stay
+          <a className="btn btn--solid finale__cta" href="#/visit">
+            {t("finale_cta")}
           </a>
         </div>
       </div>

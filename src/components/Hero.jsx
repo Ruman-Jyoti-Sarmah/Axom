@@ -1,30 +1,41 @@
 import { ArrowDown } from "lucide-react";
 import { BRAND, HERO } from "../data/content";
+import { useContent } from "../lib/useContent";
 
-/**
- * Hero — static cinematic cover. No scroll animation; content sits
- * confidently in place with CSS-only hover transitions.
- */
+/** Hero — LCP image is a real <img> with fetchpriority=high (not CSS bg).
+ *  Mobile gets the 24KB -sm variant via srcset/sizes; desktop keeps full-res. */
 export default function Hero() {
+  const { hero } = useContent();
   return (
     <section className="hero" id="top" aria-label="Introduction">
-      <div className="hero__bg" style={{ backgroundImage: `url(${HERO.image})` }} role="img" aria-label={HERO.alt} />
-      <div className="hero__veil" />
+      <img
+        className="hero__bg-img"
+        src="/img/hero-brahmaputra-sm.jpg"
+        srcSet="/img/hero-brahmaputra-sm.webp 760w, /img/hero-brahmaputra.webp 1400w, /img/hero-brahmaputra.jpg 1800w"
+        sizes="100vw"
+        alt={HERO.alt}
+        fetchpriority="high"
+        decoding="async"
+        width="1600"
+        height="900"
+      />
+      <div className="hero__veil" aria-hidden="true" />
       <div className="hero__content">
-        <p className="label hero__est">{HERO.established ?? BRAND.established}</p>
+        <p className="label hero__est">{hero.est}</p>
         <h1 className="hero__title">
-          {HERO.headline.map((l, i) => (
-            <span className="tr-line" key={l}>
-              <span className="tr-inner">{i === 1 ? <em>{l}</em> : l}</span>
-            </span>
-          ))}
+          <span className="tr-line">
+            <span className="tr-inner">{hero.l1}</span>
+          </span>
+          <span className="tr-line">
+            <span className="tr-inner"><em>{hero.l2}</em></span>
+          </span>
         </h1>
         <div className="hero__bottom">
-          <p className="hero__support">{HERO.support}</p>
+          <p className="hero__support">{hero.support}</p>
           <div style={{ display: "flex", alignItems: "center", gap: "2.5rem" }}>
-            <a className="btn hero__cta" href="#intro">Discover</a>
+            <a className="btn hero__cta" href="#intro">{hero.discover}</a>
             <span className="hero__scroll">
-              Scroll <span className="hero__scroll-line" aria-hidden="true" />
+              {hero.scroll} <span className="hero__scroll-line" aria-hidden="true" />
             </span>
           </div>
         </div>

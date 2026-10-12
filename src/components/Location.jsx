@@ -1,17 +1,19 @@
 import { LOCATION } from "../data/content";
+import { useContent } from "../lib/useContent";
 import TextReveal from "./TextReveal";
 import DepthImage from "./DepthImage";
 
-/** Location — static two-column composition with a stylized map. */
+/** Location — title, body + CTA follow the site language. */
 export default function Location() {
+  const { t } = useContent();
   return (
-    <section className="location scene" id="location" aria-label="Location">
+    <section className="location scene" id="location" aria-label="Location" data-reveal>
       <div className="location__inner">
         <div className="location__title">
-          <span className="label">CHAPTER 06 · DESTINATION</span>
-          <TextReveal as="h2" lines={LOCATION.title} />
-          <p className="location__body">{LOCATION.body}</p>
-          <a className="btn" href="#finale">Plan Your Arrival</a>
+          <span className="label">{t("loc_label")}</span>
+          <TextReveal as="h2" lines={[t("loc_l1"), t("loc_l2")]} />
+          <p className="location__body">{t("loc_body")}</p>
+          <a className="btn" href="#/visit">{t("loc_cta")}</a>
         </div>
         <div className="location__map">
           <DepthImage
