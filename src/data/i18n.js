@@ -63,7 +63,7 @@ export const STRINGS = {
     zubeen_died: "Died",
     zubeen_age: "Age",
     zubeen_bio:
-      "Zubeen Garg (1972–2025) was a beloved Assamese-Indian singer, composer, actor and filmmaker whose music in Assamese, Hindi, Bengali and more moved millions. Fondly called the Luit Konwar, he gave unforgettable songs like Mayabini, Ya Ali and Boku Duru Duru, and championed the culture of Assam across India and abroad.",
+      "Wrapped in the red-and-white gamosa and sung to the rhythm of the mighty Brahmaputra, Zubeen Garg (1972–2025) was the Luit Konwar — the voice that carried Assam from the muga looms and the sattras of Majuli to the tea gardens and Bihu fields, and on to the world. His songs — Mayabini, Ya Ali, Boku Duru Duru — echo with the soil of Xorai: equal parts Bihu fire, Borgeet devotion and the golden pride of Asomiya culture, forever woven into the fabric of the land he loved.",
     facts_label: "About Assam",
     facts_kicker: "AXOM · SOUL OF ASSAM",
     facts_title: "Things Assam is Famous For",
@@ -430,7 +430,7 @@ export const STRINGS = {
     zubeen_died: "মৃত্যু",
     zubeen_age: "বয়স",
     zubeen_bio:
-      "জুবিন গাৰ্গ (১৯৭২–২০২৫) অসমীয়া-ভাৰতীয় এজন প্ৰিয় গায়ক, সংগীতকাৰ, অভিনেতা আৰু চলচিত্ৰকৰোঁতা। লুইত কোঁৱৰ নামেৰে জনপ্রিয় তেওঁ মায়াবিনী, যা আলী, ব’কু দূৰ দূৰ দিয়া বিশ্বাসী গানেৰে কোটি কোটি মানুহৰ হৃদয় স্পৰ্শ কৰিছিল আৰু ভাৰত-বিদেশত অসমৰ সংস্কৃতি কষ্ট কৰিছিল।",
+      "ৰঙা-বগা গামোচাৰ প্রীতি আৰু ব্ৰহ্মপুত্ৰৰ তৰণিত জিলিকা মায়াবিনীৰ সূৰেৰে জুবিন গাৰ্গ (১৯৭২–২০২৫) আছিল লুইত কোঁৱৰ — যিয়ে মজুলীৰ সত্ৰ, মুগাৰ তাঁত, চাহ বাগান আৰু বিহুৰ পলত অসমক বিশ্বলৈ গৈছিল। মায়াবিনী, যা আলী, ব’কু দূৰ দূৰ দূৰ — ইয়াৰ সূৰত মাতিৰ গন্ধ, বিহুৰ জুই, বৰগীতৰ ভক্তি আৰু অসমীয়া সংস্কৃতিৰ সোণৰ গৌৰৱ লুপ্তি নাথাকে গাঁথি থোৱা হৈছে।",
     facts_label: "অসমৰ বিষয়ে",
     facts_kicker: "অসম · অসমৰ আত্মা",
     facts_title: "অসম যিবোৰৰ বাবে পৰিচিত",
