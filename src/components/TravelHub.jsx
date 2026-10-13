@@ -41,6 +41,9 @@ export default function TravelHub() {
             <a className="thub__btn thub__btn--solid" href="#/journey">
               {t("menu_journey")} <ArrowRight size={16} aria-hidden="true" />
             </a>
+            <a className="thub__btn thub__btn--ghost" href="#/travel/home">
+              {t("home")} <ArrowRight size={16} aria-hidden="true" />
+            </a>
             <a className="thub__btn thub__btn--ghost" href="#/districts">
               <MapPinned size={15} aria-hidden="true" /> {t("culture_all_districts")}
             </a>

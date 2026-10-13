@@ -7,7 +7,7 @@ import CultureHub from "./components/CultureHub";
 import CultureExperience from "./components/CultureExperience";
 import TravelHub from "./components/TravelHub";
 import Footer from "./components/Footer";
-import { HomeFacts } from "./components/HomeFacts";
+import { TravelHome } from "./components/HomeFacts";
 import { useRevealRoot } from "./lib/useReveal";
 import { getSection, CULTURE } from "./lib/section";
 
@@ -73,10 +73,11 @@ function Shell() {
   const section = getSection(hash);
   const cultureKind = (hash || "").match(/^#\/culture\/experiences\/([a-z-]+)/)?.[1] || null;
   const onCultureHub =
-    hash === "#/culture" || hash === "#/culture/";
+    hash === "#/culture" || hash === "#/culture/" || !hash || hash === "#" || hash === "#top" || hash === "#home" || hash === "#/";
   const onCultureExperience = hash?.startsWith("#/culture/experiences/") && cultureKind;
   const onCultureFestivals = hash === "#/culture/festivals";
-  const onTravelHub = hash === "#/travel" || hash === "#/travel/";
+  const onTravelHub = hash === "#/travel" || hash === "#/travel/" || hash === "#home-travel";
+  const onTravelHome = hash === "#/travel/home" || hash === "#/travel-home";
 
 
   // route changes: page title + native scroll (no animation engine)
@@ -126,6 +127,15 @@ function Shell() {
       T.home;
 
     const timeoutId = setTimeout(() => {
+      // Anchor scroll only for plain in-page hashes (#dining, #gallery…).
+      // "#/districts" style route hashes are NOT valid CSS selectors —
+      // querying them throws and breaks the scroll effect ("glitch").
+      if (hash && !hash.startsWith("#/")) {
+        try {
+          document.querySelector(hash)?.scrollIntoView();
+          return;
+        } catch {}
+      }
       if (
         slug || onDistrictsPage || onStaysPage || onJourneyPage || onArtistsPage ||
         onWildlifePage || onVisitPage || onAdminPage || onFactsPage || onCulturePage ||
@@ -134,8 +144,6 @@ function Shell() {
         hash === "#top" || !hash
       ) {
         window.scrollTo(0, 0);
-      } else if (hash) {
-        document.querySelector(hash)?.scrollIntoView();
       }
     }, 60);
     return () => clearTimeout(timeoutId);
@@ -183,6 +191,8 @@ function Shell() {
         <TravelHub key="travel-hub" />
       ) : onVisitPage ? (
         <Visit key="visit" />
+      ) : onTravelHome ? (
+        <TravelHome key="travel-home" />
       ) : slug ? (
         <DistrictDetail slug={slug} key={slug} />
       ) : onDistrictsPage ? (
@@ -208,7 +218,7 @@ function Shell() {
       ) : onSymbolsPage ? (
         <StateSymbols key="symbols" />
       ) : (
-        <HomeFacts />
+        <CultureHub key="culture-default" />
       )}
       </Suspense>
       <Footer />

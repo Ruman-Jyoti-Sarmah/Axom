@@ -127,7 +127,7 @@ export function ThreeDots({ t, pick, onClose, open }) {
                 onClick={() => {
                   onClose();
                   if (link.href.startsWith("#/")) window.location.hash = link.href;
-                  else document.querySelector(link.href)?.scrollIntoView({ behavior: "smooth" });
+                  else try { document.querySelector(link.href)?.scrollIntoView({ behavior: "smooth" }); } catch {}
                 }}
               >
                 <span className="three-dots__row-name">{link.label}</span>

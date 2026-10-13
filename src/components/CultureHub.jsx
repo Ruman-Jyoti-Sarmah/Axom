@@ -122,11 +122,10 @@ function HeroCarousel() {
             muted
             loop
             playsInline
-            preload={idx === i ? "metadata" : "none"}
+            preload="metadata"
             aria-hidden="true"
             tabIndex={-1}
           >
-            <source src={s.hdVideo} type="video/mp4" />
             <source src={s.video} type="video/mp4" />
           </video>
         ))}

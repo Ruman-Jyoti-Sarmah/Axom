@@ -27,7 +27,9 @@ export default function Footer() {
       window.location.hash = href;
       return;
     }
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    try {
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    } catch {}
   };
   return (
     <footer className="footer" aria-label="Footer">

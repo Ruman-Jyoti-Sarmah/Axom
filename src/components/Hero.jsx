@@ -34,7 +34,11 @@ export default function HeroSection() {
           src="/homehero.png"
           alt="Golden sunset over a river and distant hills in Assam"
           fetchPriority="high"
+          decoding="async"
+          width="1600"
+          height="900"
           className="h-full w-full object-cover object-center"
+          onError={(e) => { e.currentTarget.src = "/img/hero-brahmaputra.jpg"; }}
         />
       </div>
 

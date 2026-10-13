@@ -56,7 +56,9 @@ export default function Navbar({ section = "travel" }) {
       window.location.hash = href;
       return;
     }
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    try {
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    } catch {}
   };
 
   const query = q.trim().toLowerCase();

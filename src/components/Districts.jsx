@@ -1,5 +1,5 @@
-import { useMemo, useState } from "react";
-import { Heart, Search, ArrowUpDown, X } from "lucide-react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Heart, Search, ArrowUpDown, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { DISTRICTS, slugify } from "../data/districts";
 import { useApp } from "../store/AppContext";
 import { useDebouncedValue } from "../lib/storage";
@@ -123,14 +123,15 @@ export default function Districts() {
           </button>
         </div>
       ) : searching ? (
-        <div className="dlist__grid dlist__grid--all">
+        <DistrictRail label={t("results", list.length)}>
           {list.map((d, i) => (
             <Card key={d.no} d={d} i={i} slug={slugify(d.name)} isFav={isFav(slugify(d.name))} onFav={() => toggleFav(slugify(d.name))} t={t} pick={pick} />
           ))}
-        </div>
+        </DistrictRail>
       ) : (
         DIVISIONS.slice(1).map((div) => {
           const items = list.filter((d) => d.division === div);
+          if (!items.length) return null;
           return (
             <div className="dlist__group" key={div}>
               <div className="dlist__group-head">
@@ -138,11 +139,11 @@ export default function Districts() {
                 <i className="dlist__rule" aria-hidden="true" />
                 <span className="label">{String(items.length).padStart(2, "0")} {t("dlist_stat_districts")}</span>
               </div>
-              <div className="dlist__grid">
+              <DistrictRail label={`${pick(div)} districts`}>
                 {items.map((d, i) => (
                   <Card key={d.no} d={d} i={i} slug={slugify(d.name)} isFav={isFav(slugify(d.name))} onFav={() => toggleFav(slugify(d.name))} t={t} pick={pick} />
                 ))}
-              </div>
+              </DistrictRail>
             </div>
           );
         })
@@ -180,6 +181,117 @@ function Card({ d, i, slug, isFav, onFav, t, pick }) {
         <a className="dlist__cta" href={`#/district/${slug}`}>{t("dlist_open")} <em>→</em></a>
       </div>
     </article>
+  );
+}
+
+/**
+ * Side-slide rail: horizontal scroll-snap track + arrow buttons +
+ * drag-to-scroll + edge fade + keyboard arrows. Works on all screens.
+ */
+function DistrictRail({ label, children }) {
+  const trackRef = useRef(null);
+  const [canPrev, setCanPrev] = useState(false);
+  const [canNext, setCanNext] = useState(false);
+
+  const updateEdges = useCallback(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    const max = el.scrollWidth - el.clientWidth - 4;
+    setCanPrev(el.scrollLeft > 4);
+    setCanNext(el.scrollLeft < max);
+  }, []);
+
+  useEffect(() => {
+    updateEdges();
+    const el = trackRef.current;
+    if (!el) return;
+    el.addEventListener("scroll", updateEdges, { passive: true });
+    window.addEventListener("resize", updateEdges);
+    // re-check after images load / children change
+    const id = setTimeout(updateEdges, 400);
+    return () => {
+      el.removeEventListener("scroll", updateEdges);
+      window.removeEventListener("resize", updateEdges);
+      clearTimeout(id);
+    };
+  }, [children, updateEdges]);
+
+  const slide = (dir) => {
+    const el = trackRef.current;
+    if (!el) return;
+    const card = el.querySelector(".dlist__card");
+    const step = card ? card.getBoundingClientRect().width + 24 : el.clientWidth * 0.8;
+    el.scrollBy({ left: dir * step, top: 0, behavior: "smooth" });
+  };
+
+  // drag-to-scroll (desktop mouse)
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    let down = false, startX = 0, startL = 0, moved = false;
+    const onDown = (e) => {
+      if (e.button !== 0) return;
+      down = true; moved = false;
+      startX = e.pageX; startL = el.scrollLeft;
+    };
+    const onMove = (e) => {
+      if (!down) return;
+      const dx = e.pageX - startX;
+      if (Math.abs(dx) > 6) {
+        moved = true;
+        el.scrollLeft = startL - dx;
+      }
+    };
+    const end = () => { down = false; };
+    const onClickCapture = (e) => {
+      if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+    };
+    el.addEventListener("mousedown", onDown);
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mouseup", end);
+    el.addEventListener("click", onClickCapture, true);
+    return () => {
+      el.removeEventListener("mousedown", onDown);
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseup", end);
+      el.removeEventListener("click", onClickCapture, true);
+    };
+  }, []);
+
+  return (
+    <div className="drail" data-can-prev={canPrev} data-can-next={canNext}>
+      <div
+        ref={trackRef}
+        className="drail__track"
+        role="region"
+        aria-label={label || "Districts slider"}
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === "ArrowRight") { e.preventDefault(); slide(1); }
+          if (e.key === "ArrowLeft") { e.preventDefault(); slide(-1); }
+        }}
+      >
+        {children}
+      </div>
+      <div className="drail__nav" aria-hidden={!(canPrev || canNext)}>
+        <button
+          className="drail__btn"
+          onClick={() => slide(-1)}
+          disabled={!canPrev}
+          aria-label="Slide districts left"
+        >
+          <ChevronLeft size={18} aria-hidden="true" />
+        </button>
+        <button
+          className="drail__btn"
+          onClick={() => slide(1)}
+          disabled={!canNext}
+          aria-label="Slide districts right"
+        >
+          <ChevronRight size={18} aria-hidden="true" />
+        </button>
+      </div>
+    </div>
   );
 }
 

@@ -4,11 +4,10 @@ import ExperiencesHub from "./ExperiencesHub";
 import { useApp } from "../store/AppContext";
 import { assamHighlights, assamFamous, ASSAM_WORK } from "../data/content";
 
-/** Home page — Assam facts only: Zubeen bio at top, state animal/food/symbols,
- *  celebrated places, then the "Book your Assam journey" call to action.
- *  All above-the-fold imagery is self-hosted (/img/*) so no third-party
- *  cookies or cache penalties hit the home-page Lighthouse score. */
-export function HomeFacts() {
+/** Travel home page (#/travel … actually #home-travel) — trip-planning front
+ *  door: hero + headline attractions + districts rail, facts, booking CTA.
+ *  Culture landing is now the default site home; this is the Travel half. */
+export function TravelHome() {
   const { t, pick } = useApp();
   return (
     <>
@@ -22,14 +21,15 @@ export function HomeFacts() {
         <div className="zubeen__hero">
           <div className="zubeen__img">
             <img
-              src="https://share.google/NrSgkTFABziPncX2x"
-              srcSet="https://share.google/NrSgkTFABziPncX2x 760w, https://share.google/NrSgkTFABziPncX2x 1400w"
+              src="/img/zubeen-garg.jpg"
+              srcSet="/img/zubeen-garg-sm.webp 760w, /img/zubeen-garg.webp 1400w"
               sizes="(max-width: 700px) 100vw, 50vw"
               alt={"Zubeen Garg — " + t("zubeen_label")}
               loading="lazy"
               decoding="async"
               width="800"
               height="600"
+              onError={(e) => { e.currentTarget.src = "/img/zubeen-garg-sm.jpg"; }}
             />
             <div className="zubeen__veil"></div>
           </div>
