@@ -1,4 +1,6 @@
 import Hero from "./Hero";
+import Attractions from "./Attractions";
+import ExperiencesHub from "./ExperiencesHub";
 import { useApp } from "../store/AppContext";
 import { assamHighlights, assamFamous, ASSAM_WORK } from "../data/content";
 
@@ -11,6 +13,10 @@ export function HomeFacts() {
   return (
     <>
       <Hero />
+
+      <Attractions />
+
+      <ExperiencesHub />
 
       <section className="zubeen" id="zubeen" aria-label={t("zubeen_section")}>
         <div className="zubeen__hero">

@@ -5,6 +5,7 @@ import { useApp } from "../store/AppContext";
 import { pick } from "../lib/pick";
 import { DISTRICTS, slugify } from "../data/districts";
 import { ThreeDots } from "./ThreeDots";
+import SectionSwitcher from "./SectionSwitcher";
 
 const LINKS = (t) => [
   { label: t("home"), href: "#home" },
@@ -16,7 +17,7 @@ const LINKS = (t) => [
   { label: t("nav_wildlife"), href: "#/wildlife" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ section = "travel" }) {
   const { t, lang, toggleLang } = useApp();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -88,6 +89,7 @@ export default function Navbar() {
           </ul>
         </nav>
         <div className="nav__tools">
+          <SectionSwitcher section={section} compact />
           <div className="nav__search" ref={boxRef}>
             <Search size={15} aria-hidden="true" />
             <input
@@ -154,6 +156,9 @@ export default function Navbar() {
           {navLinks.map((n) => (
             <a key={n.href} href={n.href} onClick={(e) => go(e, n.href)}>{n.label}</a>
           ))}
+          <div className="nav__menu-switch">
+            <SectionSwitcher section={section} />
+          </div>
           <a href="#/visit" onClick={(e) => go(e, "#/visit")}>{t("reserve")}</a>
           <button className="btn btn--ghost" onClick={toggleLang}>
             {lang === "en" ? "অসমীয়াত চাওক" : "View in English"}

@@ -93,7 +93,7 @@ export default function HeroSection() {
 
           {/* Description */}
           <p
-            className="assam-reveal mt-8 max-w-xl text-base leading-8 text-white/80 sm:text-lg"
+            className="assam-reveal mt-8 max-w-xl text-base leading-8 text-white/90 sm:text-lg"
             style={{ "--delay": "400ms" }}
           >
             Journey through ancient temples, vibrant traditions, mighty rivers,
@@ -134,7 +134,7 @@ export default function HeroSection() {
               <p className="text-lg font-semibold tracking-wide text-white">
                 Heritage
               </p>
-              <p className="mt-1 text-xs tracking-wide text-white/60">
+              <p className="mt-1 text-xs tracking-wide text-white/80">
                 Centuries of stories
               </p>
             </div>
@@ -145,7 +145,7 @@ export default function HeroSection() {
               <p className="text-lg font-semibold tracking-wide text-white">
                 Culture
               </p>
-              <p className="mt-1 text-xs tracking-wide text-white/60">
+              <p className="mt-1 text-xs tracking-wide text-white/80">
                 Traditions that live on
               </p>
             </div>
@@ -156,7 +156,7 @@ export default function HeroSection() {
               <p className="text-lg font-semibold tracking-wide text-white">
                 Nature
               </p>
-              <p className="mt-1 text-xs tracking-wide text-white/60">
+              <p className="mt-1 text-xs tracking-wide text-white/80">
                 Landscapes to remember
               </p>
             </div>
@@ -167,7 +167,7 @@ export default function HeroSection() {
       {/* Bottom-right location label */}
       <div className="assam-reveal absolute bottom-7 right-6 hidden items-center gap-3 text-right sm:flex lg:bottom-10 lg:right-12">
         <div>
-          <p className="text-[10px] uppercase tracking-[0.25em] text-white/60">
+          <p className="text-[10px] uppercase tracking-[0.25em] text-white/80">
             Incredible Northeast India
           </p>
           <p className="mt-1 text-sm font-medium tracking-wide text-white">
@@ -183,7 +183,7 @@ export default function HeroSection() {
       {/* Scroll indicator */}
       <a
         href="#discover"
-        className="absolute bottom-7 left-6 hidden items-center gap-3 text-[10px] uppercase tracking-[0.22em] text-white/70 transition-colors hover:text-amber-200 lg:flex lg:left-16"
+        className="absolute bottom-7 left-6 hidden items-center gap-3 text-[10px] uppercase tracking-[0.22em] text-white/90 transition-colors hover:text-amber-200 lg:flex lg:left-16"
       >
         <span className="assam-scroll-line h-10 w-px bg-amber-300" />
         Scroll to discover

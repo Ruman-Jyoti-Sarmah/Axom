@@ -1,6 +1,9 @@
 import { useApp } from "../store/AppContext";
 import { HERO } from "../data/content";
 
+const W = (file, width = 800) =>
+  `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=${width}`;
+
 /**
  * Assam — Nature & Wildlife — a page about the wild heart of the state:
  * Kaziranga, Manas and Pobitora, the sanctuaries that hold the rhino, tiger & deer.

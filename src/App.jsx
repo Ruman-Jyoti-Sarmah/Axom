@@ -2,9 +2,14 @@ import { Suspense, lazy, useEffect, useState } from "react";
 import { getDistrict } from "./data/districtDetails";
 import { AppProvider, useApp } from "./store/AppContext";
 import Navbar from "./components/Navbar";
+import CultureHeader from "./components/CultureHeader";
+import CultureHub from "./components/CultureHub";
+import CultureExperience from "./components/CultureExperience";
+import TravelHub from "./components/TravelHub";
 import Footer from "./components/Footer";
 import { HomeFacts } from "./components/HomeFacts";
 import { useRevealRoot } from "./lib/useReveal";
+import { getSection, CULTURE } from "./lib/section";
 
 // Route-level code splitting: home shell stays tiny (~React + CSS), every
 // other route loads on demand. This fixes "Reduce unused JavaScript" +
@@ -62,6 +67,18 @@ function Shell() {
   const onHeritagePage = hash === "#/heritage";
   const onSymbolsPage = hash === "#/symbols";
 
+  // ── Two-section routing ──
+  // CULTURE hub (#/culture) is the landing; #/culture/experiences/:kind are its
+  // detail pages; TRAVEL hub (#/travel) is reached via the navbar switcher.
+  const section = getSection(hash);
+  const cultureKind = (hash || "").match(/^#\/culture\/experiences\/([a-z-]+)/)?.[1] || null;
+  const onCultureHub =
+    hash === "#/culture" || hash === "#/culture/";
+  const onCultureExperience = hash?.startsWith("#/culture/experiences/") && cultureKind;
+  const onCultureFestivals = hash === "#/culture/festivals";
+  const onTravelHub = hash === "#/travel" || hash === "#/travel/";
+
+
   // route changes: page title + native scroll (no animation engine)
   useEffect(() => {
     const detail = slug ? getDistrict(slug) : null;
@@ -82,9 +99,17 @@ function Shell() {
       symbols: t("title_symbols"),
       admin: t("title_admin"),
       home: t("title_home"),
+      cultureHub: t("title_culture_hub"),
+      cultureExperience: t("title_culture_experience"),
+      cultureFestivals: t("title_culture"),
+      travelHub: t("title_journey"),
     };
     document.title =
       (slug ? T.detail : null) ||
+      (onCultureHub ? T.cultureHub : null) ||
+      (onCultureExperience ? T.cultureExperience : null) ||
+      (onCultureFestivals ? T.cultureFestivals : null) ||
+      (onTravelHub ? T.travelHub : null) ||
       (onDistrictsPage ? T.districts : null) ||
       (onStaysPage ? T.stays : null) ||
       (onJourneyPage ? T.journey : null) ||
@@ -105,6 +130,7 @@ function Shell() {
         slug || onDistrictsPage || onStaysPage || onJourneyPage || onArtistsPage ||
         onWildlifePage || onVisitPage || onAdminPage || onFactsPage || onCulturePage ||
         onHandicraftsPage || onGuidePage || onHeritagePage || onSymbolsPage ||
+        onCultureHub || onCultureExperience || onCultureFestivals || onTravelHub ||
         hash === "#top" || !hash
       ) {
         window.scrollTo(0, 0);
@@ -113,7 +139,7 @@ function Shell() {
       }
     }, 60);
     return () => clearTimeout(timeoutId);
-  }, [slug, hash, t, lang, pick, onDistrictsPage, onStaysPage, onJourneyPage, onArtistsPage, onWildlifePage, onVisitPage, onAdminPage, onFactsPage, onCulturePage, onHandicraftsPage, onGuidePage, onHeritagePage, onSymbolsPage]);
+  }, [slug, hash, t, lang, pick, onDistrictsPage, onStaysPage, onJourneyPage, onArtistsPage, onWildlifePage, onVisitPage, onAdminPage, onFactsPage, onCulturePage, onHandicraftsPage, onGuidePage, onHeritagePage, onSymbolsPage, onCultureHub, onCultureExperience, onCultureFestivals, onTravelHub]);
 
   // scroll progress indicator
   const [progress, setProgress] = useState(0);
@@ -136,13 +162,25 @@ function Shell() {
   const revealRef = useRevealRoot(revealDep);
 
   return (
-    <main ref={revealRef}>
+    <main ref={revealRef} data-section={section}>
       <a className="skip-link" href="#home-content">Skip to content</a>
       <div className="progress" style={{ transform: `scaleX(${progress})` }} aria-hidden="true" />
-      <Navbar />
+      {section === CULTURE ? (
+        <CultureHeader section={section} />
+      ) : (
+        <Navbar section={section} />
+      )}
       <Suspense fallback={<div className="route-loading" role="status" aria-label="Loading page">…</div>}>
       {onAdminPage ? (
         <Admin key="admin" />
+      ) : onCultureHub ? (
+        <CultureHub key="culture-hub" />
+      ) : onCultureExperience ? (
+        <CultureExperience kind={cultureKind} key={`cexp-${cultureKind}`} />
+      ) : onCultureFestivals ? (
+        <AssamCulture key="culture-festivals" />
+      ) : onTravelHub ? (
+        <TravelHub key="travel-hub" />
       ) : onVisitPage ? (
         <Visit key="visit" />
       ) : slug ? (
