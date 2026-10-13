@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import {
   ArrowRight,
-  Play,
-  MapPin,
-  Users,
-  Compass,
   ChevronLeft,
   ChevronRight,
+  MapPin,
+  Play,
+  Users,
+  Compass,
   Volume2,
   VolumeX,
 } from "lucide-react";
@@ -14,27 +14,20 @@ import { useApp } from "../store/AppContext";
 import {
   CULTURE_HERO,
   HERO_SLIDES,
-  REGIONS,
   SPIRITUAL,
 } from "../data/cultureSections";
 import { assamArtists } from "../data/content";
-import { DISTRICTS, slugify } from "../data/districts";
 import SectionSwitcher from "./SectionSwitcher";
 import ExperiencesHub from "./ExperiencesHub";
 
 /**
- * CultureHub — the landing of the CULTURE section, laid out like the
- * Incredible India state page:
+ * CultureHub — CULTURE section ka home (jaise hai waisa hi rahega).
+ * NOTE: districts yahan NAHI — districts sirf TRAVEL part me hain.
  *   1) full-bleed video hero with overlay headline + stats
  *   2) editorial lede
  *   3) "Experiences" category grid
- *   4) "Destinations" — Assam by region (tabbed district carousel)
- *   5) "Spiritual destinations" highlight strip
- *   6) "People & Culture" (artists) + a nudge into the Travel section
- *
- * The hero video slot uses a poster image (self-hosted) with a <video> that
- * only renders if a local clip exists — so it never ships a broken player,
- * and drops straight in when /video/assam-culture.webm is added.
+ *   4) "Spiritual destinations" highlight strip
+ *   5) "People & Culture" (artists) + a nudge into the Travel section
  */
 export default function CultureHub() {
   const { t, pick } = useApp();
@@ -54,10 +47,7 @@ export default function CultureHub() {
       {/* ── 3. Experiences grid ─────────────────────────────────────── */}
       <ExperiencesHub />
 
-      {/* ── 4. Destinations by region ───────────────────────────────── */}
-      <Destinations />
-
-      {/* ── 5. Spiritual destinations ───────────────────────────────── */}
+      {/* ── 4. Spiritual destinations ───────────────────────────────── */}
       <Spiritual />
 
       {/* ── 6. People & Culture (artists) ───────────────────────────── */}
@@ -248,66 +238,6 @@ function HeroCarousel() {
           </button>
         </div>
       </div>
-    </section>
-  );
-}
-
-/* ── Destinations: Assam by region (tabbed district carousel) ───────── */
-function Destinations() {
-  const { t, pick } = useApp();
-  const [region, setRegion] = useState(REGIONS[0].id);
-  const list = DISTRICTS.filter((d) => d.division === region).slice(0, 6);
-  return (
-    <section className="chub__dest" id="destinations" data-reveal>
-      <div className="chub__head">
-        <span className="chub__sec-kicker">
-          <MapPin size={14} aria-hidden="true" />{" "}
-          {t("culture_destinations_title")}
-        </span>
-        <h2 className="chub__sec-title">{t("culture_destinations_sub")}</h2>
-        <div
-          className="chub__tabs"
-          role="tablist"
-          aria-label={t("culture_destinations_title")}
-        >
-          {REGIONS.map((r) => (
-            <button
-              key={r.id}
-              role="tab"
-              aria-selected={region === r.id}
-              className={`chub__tab ${region === r.id ? "is-active" : ""}`}
-              onClick={() => setRegion(r.id)}
-            >
-              {pick(r)}
-            </button>
-          ))}
-        </div>
-      </div>
-      <div className="chub__dest-grid" key={region}>
-        {list.map((d, i) => (
-          <a
-            key={d.no}
-            className="dest-card"
-            href={`#/district/${slugify(d.name)}`}
-            style={{ "--d": `${0.05 + i * 0.05}s` }}
-            data-reveal
-          >
-            <div className="dest-card__media">
-              <img src={d.image} alt={d.alt} loading="lazy" decoding="async" />
-              <span className="dest-card__num">
-                {String(d.no).padStart(2, "0")}
-              </span>
-            </div>
-            <div className="dest-card__body">
-              <h3>{pick(d.name)}</h3>
-              <span className="label">{pick(d.tag)}</span>
-            </div>
-          </a>
-        ))}
-      </div>
-      <a className="chub__all-link" href="#/districts">
-        {t("culture_all_districts")} <ArrowRight size={15} aria-hidden="true" />
-      </a>
     </section>
   );
 }

@@ -39,7 +39,7 @@ function buildColumns() {
         links: [
           {
             label: { en: "Popular Destinations", as: "জনপ্ৰিয় গন্তব্যস্থান" },
-            href: "#/districts",
+            href: "#/travel",
           },
           {
             label: { en: "Spiritual", as: "আধ্যাত্মিক" },
@@ -55,23 +55,23 @@ function buildColumns() {
       {
         heading: { en: "Regions of Assam", as: "অসমৰ অঞ্চল" },
         links: [
-          { label: { en: "Lower Assam", as: "তলত অসম" }, href: "#/districts" },
+          { label: { en: "Lower Assam", as: "তলত অসম" }, href: "#/travel" },
           {
             label: { en: "North Assam", as: "উত্তৰ অসম" },
-            href: "#/districts",
+            href: "#/travel",
           },
-          { label: { en: "Upper Assam", as: "উপৰ অসম" }, href: "#/districts" },
+          { label: { en: "Upper Assam", as: "উপৰ অসম" }, href: "#/travel" },
           {
             label: { en: "Central Assam", as: "মধ্য অসম" },
-            href: "#/districts",
+            href: "#/travel",
           },
           {
             label: { en: "Barak Valley", as: "বৰাক উপত্যকা" },
-            href: "#/districts",
+            href: "#/travel",
           },
           {
             label: { en: "All 35 districts", as: "সকলো ৩৫ জিলা" },
-            href: "#/districts",
+            href: "#/travel",
           },
         ],
       },

@@ -7,7 +7,6 @@ import CultureHub from "./components/CultureHub";
 import CultureExperience from "./components/CultureExperience";
 import TravelHub from "./components/TravelHub";
 import Footer from "./components/Footer";
-import { TravelHome } from "./components/HomeFacts";
 import { useRevealRoot } from "./lib/useReveal";
 import { getSection, CULTURE } from "./lib/section";
 
@@ -76,8 +75,7 @@ function Shell() {
     hash === "#/culture" || hash === "#/culture/" || !hash || hash === "#" || hash === "#top" || hash === "#home" || hash === "#/";
   const onCultureExperience = hash?.startsWith("#/culture/experiences/") && cultureKind;
   const onCultureFestivals = hash === "#/culture/festivals";
-  const onTravelHub = hash === "#/travel" || hash === "#/travel/" || hash === "#home-travel";
-  const onTravelHome = hash === "#/travel/home" || hash === "#/travel-home";
+  const onTravelHub = hash === "#/travel" || hash === "#/travel/";
 
 
   // route changes: page title + native scroll (no animation engine)
@@ -191,8 +189,6 @@ function Shell() {
         <TravelHub key="travel-hub" />
       ) : onVisitPage ? (
         <Visit key="visit" />
-      ) : onTravelHome ? (
-        <TravelHome key="travel-home" />
       ) : slug ? (
         <DistrictDetail slug={slug} key={slug} />
       ) : onDistrictsPage ? (
