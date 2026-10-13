@@ -11,11 +11,7 @@ import {
   VolumeX,
 } from "lucide-react";
 import { useApp } from "../store/AppContext";
-import {
-  CULTURE_HERO,
-  HERO_SLIDES,
-  SPIRITUAL,
-} from "../data/cultureSections";
+import { CULTURE_HERO, HERO_SLIDES, SPIRITUAL } from "../data/cultureSections";
 import { assamArtists } from "../data/content";
 import SectionSwitcher from "./SectionSwitcher";
 import ExperiencesHub from "./ExperiencesHub";
@@ -107,7 +103,6 @@ function HeroCarousel() {
             key={s.id}
             ref={(el) => (videoRefs.current[idx] = el)}
             className={`chub__hero-video ${idx === i ? "is-active" : ""}`}
-            poster={s.poster}
             autoPlay={idx === 0}
             muted
             loop

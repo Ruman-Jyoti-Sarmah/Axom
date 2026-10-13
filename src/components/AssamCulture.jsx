@@ -1,16 +1,22 @@
 import { useApp } from "../store/AppContext";
 import { ASSAM_CULTURE } from "../data/content";
 
-const W = (file, width = 1400) =>
-  `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=${width}`;
-
 /** Assam Culture & Festivals — Bihu, Sattriya, Borgeet and more. */
 export function AssamCulture() {
   const { t, pick } = useApp();
   return (
     <section className="page" id="top">
       <div className="page__hero">
-        <img src={W("Bihu Dance , Festival of India.jpg", 1400)} alt="" />
+        <video
+          src="/video/hero-3.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          tabIndex={-1}
+        />
         <div className="page__veil"></div>
         <div className="page__hero-content">
           <span className="label">{t("page_culture")}</span>

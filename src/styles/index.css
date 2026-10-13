@@ -1734,6 +1734,9 @@ button {
   .nav__book {
     display: none;
   }
+  .nav__tools > .switch--compact {
+    display: none;
+  }
   .nav__toggle {
     display: flex;
     font-size: 0.7rem;
@@ -1842,6 +1845,20 @@ button {
   }
   .footer__top {
     flex-direction: column;
+  }
+  .footer__top > div:first-child,
+  .footer__cols {
+    width: 100%;
+    min-width: 0;
+  }
+  .footer__cols {
+    gap: 2rem;
+  }
+  .footer__col {
+    min-width: 0;
+  }
+  .news > * {
+    min-width: 0;
   }
 }
 /* Broken images must never leave blank holes: hide globally on error. */
@@ -2045,6 +2062,9 @@ img:not([src]) {
 .news {
   display: grid;
   gap: 0.5rem;
+  width: 100%;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr);
 }
 .news strong {
   font-family: var(--serif);
@@ -3796,11 +3816,15 @@ img:not([src]) {
   display: flex;
   align-items: flex-end;
 }
-.page__hero > img {
+.page__hero > img,
+.page__hero > video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+}
+.page__hero > video {
   object-fit: cover;
 }
 .page__veil {
@@ -5043,6 +5067,13 @@ iframe {
   .zubeen__card {
     padding: 2rem var(--gutter);
   }
+  .news__row {
+    flex-wrap: wrap;
+  }
+  .news__row input,
+  .news__row .btn {
+    width: 100%;
+  }
   .facts__head .facts__title {
     font-size: 1.85rem;
   }
@@ -5850,6 +5881,9 @@ main[data-section="travel"] .trail-card__body em {
   .chead__account {
     display: none;
   }
+  .chead__tools > .switch--compact {
+    display: none;
+  }
   .chead__strip-links {
     display: none;
   }
@@ -5859,6 +5893,44 @@ main[data-section="travel"] .trail-card__body em {
   .chead__mobile.is-open,
   .chead__mobile {
     display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .chead__bar {
+    gap: 0.65rem;
+    padding-block: 0.55rem;
+  }
+  .chead__tools {
+    gap: 0.4rem;
+  }
+  .chead__logo {
+    gap: 0.45rem;
+  }
+  .chead__logo-mark {
+    width: 34px;
+    height: 34px;
+  }
+  .chead__logo-text strong {
+    font-size: 1.2rem;
+  }
+  .chead__logo-text em {
+    font-size: 0.5rem;
+    letter-spacing: 0.12em;
+  }
+  .chead__lang-btn {
+    gap: 0.3rem;
+    padding: 0.4rem 0.55rem;
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .chead__logo-text strong {
+    font-size: 1.1rem;
+  }
+  .chead__logo-text em {
+    letter-spacing: 0.08em;
   }
 }
 
@@ -7318,7 +7390,7 @@ main[data-section="culture"] {
   --accent-glow: rgba(179, 40, 45, 0.25);
   --bronze: #b3282d;
   --bronze-dim: rgba(179, 40, 45, 0.46);
-  --leaf: #8a2d2d;
+  --leaf: #34734b;
   --charcoal: #f7f1e8;
   --charcoal-2: #f2e7dc;
   --hairline: rgba(92, 24, 20, 0.15);
@@ -7346,14 +7418,14 @@ main[data-section="culture"] .chub__hero-veil {
   background:
     linear-gradient(
       to top,
-      rgba(29, 8, 7, 0.9) 0%,
-      rgba(83, 20, 18, 0.62) 48%,
-      rgba(83, 20, 18, 0.27) 100%
+      rgba(12, 25, 17, 0.82) 0%,
+      rgba(18, 34, 23, 0.28) 48%,
+      rgba(18, 34, 23, 0.04) 100%
     ),
     linear-gradient(
       to right,
-      rgba(39, 9, 8, 0.7) 0%,
-      rgba(39, 9, 8, 0.28) 55%,
+      rgba(16, 29, 20, 0.46) 0%,
+      rgba(16, 29, 20, 0.16) 55%,
       transparent 84%
     );
 }
@@ -7424,20 +7496,20 @@ main[data-section="culture"] .chub__hero-credit a {
 }
 
 main[data-section="culture"] .chub__kicker {
-  color: #fbe4d2;
+  color: #d8f0dc;
 }
 
 main[data-section="culture"] .chub__kicker-rule {
-  background-color: #f6c2a3;
+  background-color: #9bcba7;
 }
 
 main[data-section="culture"] .chub__kicker,
 main[data-section="culture"] .chub__kicker-rule {
-  border-color: rgba(246, 194, 163, 0.62);
+  border-color: rgba(155, 203, 167, 0.62);
 }
 
 main[data-section="culture"] .chub__line em {
-  color: #ffd5bd;
+  color: #bde4c5;
 }
 
 main[data-section="culture"] .chub__hero-cat {
@@ -7448,19 +7520,19 @@ main[data-section="culture"] .chub__hero-cat {
 }
 
 main[data-section="culture"] .chub__rail {
-  background: #b3282d;
+  background: #34734b;
 }
 
 main[data-section="culture"] .chub__rail:hover {
-  background: #8f1d22;
+  background: #285b3b;
 }
 
 main[data-section="culture"] .chub__hero-chip.is-active {
-  color: #ffd5bd;
+  color: #bde4c5;
 }
 
 main[data-section="culture"] .chub__hero-chip.is-active::after {
-  background: #ffd5bd;
+  background: #9bcba7;
 }
 
 main[data-section="culture"] .hexp {
