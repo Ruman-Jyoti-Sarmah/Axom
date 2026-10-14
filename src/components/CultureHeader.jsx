@@ -163,8 +163,13 @@ export default function CultureHeader({ section }) {
   }, []);
 
   // Track the route so the flat Travel nav links can show an active state.
+  // Also close the mobile drawer on hash changes (e.g. browser back/forward
+  // while it is open) so it never shows stale section items.
   useEffect(() => {
-    const onHash = () => setHash(window.location.hash);
+    const onHash = () => {
+      setHash(window.location.hash);
+      setMobileOpen(false);
+    };
     window.addEventListener("hashchange", onHash);
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
@@ -438,27 +443,73 @@ export default function CultureHeader({ section }) {
       {/* ── Mobile drawer ─────────────────────────────────────────── */}
       {mobileOpen && (
         <nav className="chead__mobile" aria-label={t("a11y_mobile")}>
-          {pillars.map((p) => (
-            <div key={p.id} className="chead__mgroup">
-              <span className="chead__mghead">{pick(p.label, lang)}</span>
-              {COLUMNS[p.id].map((col) => (
-                <div key={col.heading.en} className="chead__mcol">
-                  <span className="chead__mcolhead">
-                    {pick(col.heading, lang)}
-                  </span>
-                  {col.links.map((l) => (
+          {section === "travel" ? (
+            <>
+              <div className="chead__mgroup">
+                <span className="chead__mghead">{t("menu_districts")}</span>
+                <div className="chead__mcol">
+                  {TRAVEL_LINKS.map((l) => (
                     <a
-                      key={l.label.en}
+                      key={l.href}
                       href={l.href}
                       onClick={(e) => go(e, l.href)}
+                      aria-current={isLinkActive(l.href) ? "page" : undefined}
+                      className={isLinkActive(l.href) ? "is-active" : ""}
                     >
-                      {pick(l.label, lang)}
+                      {l.label}
                     </a>
                   ))}
                 </div>
-              ))}
-            </div>
-          ))}
+              </div>
+              <div className="chead__mgroup">
+                <span className="chead__mghead">{t("menu_pages")}</span>
+                <div className="chead__mcol">
+                  {COLUMNS.travel.map((col) => (
+                    <div key={col.heading.en}>
+                      <span className="chead__mcolhead">
+                        {pick(col.heading, lang)}
+                      </span>
+                      {col.links.map((l) => (
+                        <a
+                          key={l.label.en}
+                          href={l.href}
+                          onClick={(e) => go(e, l.href)}
+                          aria-current={hash === l.href ? "page" : undefined}
+                          className={hash === l.href ? "is-active" : ""}
+                        >
+                          {pick(l.label, lang)}
+                        </a>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
+          ) : (
+            pillars.map((p) => (
+              <div key={p.id} className="chead__mgroup">
+                <span className="chead__mghead">{pick(p.label, lang)}</span>
+                {COLUMNS[p.id].map((col) => (
+                  <div key={col.heading.en} className="chead__mcol">
+                    <span className="chead__mcolhead">
+                      {pick(col.heading, lang)}
+                    </span>
+                    {col.links.map((l) => (
+                      <a
+                        key={l.label.en}
+                        href={l.href}
+                        onClick={(e) => go(e, l.href)}
+                        aria-current={hash === l.href ? "page" : undefined}
+                        className={hash === l.href ? "is-active" : ""}
+                      >
+                        {pick(l.label, lang)}
+                      </a>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            ))
+          )}
           <div className="chead__mfoot">
             <SectionSwitcher section={section} />
             <a className="chead__mtrip" href="#/trip" onClick={(e) => { go(e, "#/trip"); setMobileOpen(false); }}>

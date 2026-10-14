@@ -5984,6 +5984,10 @@ main[data-section="travel"] .trail-card__body em {
   color: var(--ivory);
   border-bottom: 1px solid var(--hairline);
 }
+.chead__mcol a.is-active {
+  color: var(--accent);
+  font-weight: 600;
+}
 .chead__mfoot {
   display: flex;
   align-items: center;
@@ -8779,5 +8783,231 @@ main[data-section="travel"] .chead__logo-mark {
   }
   .chead__mcol a {
     padding: 0.62rem 0;
+  }
+}
+
+/* ============================================================
+   SectionDock — premium floating Culture ⟷ Travel switch
+   Fixed right-edge dock on desktop (vertical stack), compact
+   bottom pill on mobile. Light editorial surface, section-aware
+   accents, no heavy glassmorphism.
+   ============================================================ */
+.section-dock {
+  position: fixed;
+  z-index: 150;
+  right: clamp(0.85rem, 1.8vw, 1.4rem);
+  top: 62%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 196px;
+  max-width: calc(100vw - 2rem);
+  padding: 0.7rem;
+  border: 1px solid var(--hairline);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow:
+    0 18px 40px rgba(27, 22, 17, 0.14),
+    0 2px 8px rgba(27, 22, 17, 0.08);
+}
+.section-dock__eyebrow {
+  padding: 0 0.35rem;
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.section-dock__track {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  background: var(--charcoal);
+  isolation: isolate;
+}
+.section-dock__thumb {
+  position: absolute;
+  z-index: 0;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  right: 3px;
+  height: calc(50% - 4px);
+  border-radius: 11px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(27, 22, 17, 0.12);
+  transition: transform 0.32s var(--ease), background-color 0.32s var(--ease);
+}
+.section-dock__thumb[data-pos="travel"] {
+  transform: translateY(100%);
+}
+.section-dock__btn {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 52px;
+  padding: 0.55rem 0.65rem;
+  border-radius: 11px;
+  color: var(--ivory-dim);
+  transition: color 0.25s var(--ease), background-color 0.25s var(--ease);
+}
+.section-dock__btn:hover {
+  color: var(--ivory);
+}
+.section-dock__btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.section-dock__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  border: 1px solid var(--hairline);
+  background: #fff;
+  color: var(--ivory-dim);
+  transition: color 0.25s var(--ease), border-color 0.25s var(--ease),
+    background-color 0.25s var(--ease);
+}
+.section-dock__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+  line-height: 1.3;
+}
+.section-dock__label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: inherit;
+  white-space: nowrap;
+}
+.section-dock__hint {
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--ivory-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 118px;
+}
+.section-dock__btn.is-active {
+  color: var(--ivory);
+}
+.section-dock__btn--culture.is-active .section-dock__icon {
+  color: #b3282d;
+  border-color: rgba(179, 40, 45, 0.35);
+  background: rgba(179, 40, 45, 0.08);
+}
+.section-dock__btn--travel.is-active .section-dock__icon {
+  color: #0c6fb1;
+  border-color: rgba(14, 124, 199, 0.35);
+  background: rgba(14, 124, 199, 0.09);
+}
+main[data-section="travel"] .section-dock__thumb[data-pos="travel"] {
+  background: #fff;
+}
+
+/* Avoid two competing desktop switches: the floating dock replaces the
+   compact header switch on wide screens. Mobile drawer + all header
+   links (language, Login, My Trip) are untouched. */
+@media (min-width: 1081px) {
+  .chead__tools > .switch--compact {
+    display: none !important;
+  }
+}
+
+/* Tablet: slimmer dock, hints hidden to stay compact */
+@media (max-width: 1080px) and (min-width: 721px) {
+  .section-dock {
+    width: 168px;
+  }
+  .section-dock__hint {
+    display: none;
+  }
+  .section-dock__btn {
+    min-height: 46px;
+  }
+}
+
+/* Mobile: compact bottom-center two-option pill above safe-area */
+@media (max-width: 720px) {
+  .section-dock {
+    top: auto;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 0.9rem);
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: auto;
+    max-width: calc(100vw - 1.5rem);
+    padding: 0.45rem;
+    border-radius: 999px;
+    gap: 0;
+  }
+  .section-dock__eyebrow {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .section-dock__track {
+    grid-template-columns: 1fr 1fr;
+    border-radius: 999px;
+  }
+  .section-dock__thumb {
+    top: 3px;
+    bottom: 3px;
+    left: 3px;
+    right: auto;
+    width: calc(50% - 3px);
+    height: auto;
+    border-radius: 999px;
+  }
+  .section-dock__thumb[data-pos="travel"] {
+    transform: translateX(100%);
+  }
+  .section-dock__btn {
+    min-height: 48px;
+    min-width: 132px;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+  }
+  .section-dock__hint {
+    display: none;
+  }
+  .section-dock__icon {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-dock__thumb,
+  .section-dock__btn,
+  .section-dock__icon {
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
   }
 }

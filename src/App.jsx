@@ -3,6 +3,7 @@ import { getDistrict } from "./data/districtDetails";
 import { AppProvider, useApp } from "./store/AppContext";
 import { TripProvider } from "./store/TripContext";
 import CultureHeader from "./components/CultureHeader";
+import SectionDock from "./components/SectionDock";
 import CultureHub from "./components/CultureHub";
 import CultureExperience from "./components/CultureExperience";
 import Footer from "./components/Footer";
@@ -237,6 +238,7 @@ function Shell() {
         <CultureHub key="culture-default" />
       )}
       </Suspense>
+      <SectionDock section={section} />
       <Footer />
     </main>
   );
