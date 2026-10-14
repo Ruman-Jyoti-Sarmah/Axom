@@ -31,10 +31,9 @@ export default function TravelHub() {
     <div className="thub thub--home" id="top">
       <section className="thub__hero">
         <div className="thub__hero-media">
-          <video className="thub__video" poster="/img/hero-brahmaputra.jpg" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" tabIndex={-1}>
+          <video className="thub__video" autoPlay muted loop playsInline preload="auto" aria-hidden="true" tabIndex={-1}>
             <source src="/video/hero-2.mp4" type="video/mp4" />
           </video>
-          <img src="/img/hero-brahmaputra.jpg" alt="" aria-hidden="true" className="thub__poster" loading="eager" decoding="async" />
           <div className="thub__veil" aria-hidden="true" />
         </div>
         <div className="thub__hero-inner">

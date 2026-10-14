@@ -1,14 +1,13 @@
 import { Suspense, lazy, useEffect, useState } from "react";
 import { getDistrict } from "./data/districtDetails";
 import { AppProvider, useApp } from "./store/AppContext";
-import Navbar from "./components/Navbar";
+import { TripProvider } from "./store/TripContext";
 import CultureHeader from "./components/CultureHeader";
 import CultureHub from "./components/CultureHub";
 import CultureExperience from "./components/CultureExperience";
-import TravelHub from "./components/TravelHub";
 import Footer from "./components/Footer";
 import { useRevealRoot } from "./lib/useReveal";
-import { getSection, CULTURE } from "./lib/section";
+import { getSection } from "./lib/section";
 
 // Route-level code splitting: home shell stays tiny (~React + CSS), every
 // other route loads on demand. This fixes "Reduce unused JavaScript" +
@@ -33,6 +32,10 @@ const AssamFacts = lazy(() => import("./components/AssamFacts").then((m) => ({ d
 const AssamCulture = lazy(() => import("./components/AssamCulture").then((m) => ({ default: m.AssamCulture })));
 const AssamHandicrafts = lazy(() => import("./components/AssamHandicrafts").then((m) => ({ default: m.AssamHandicrafts })));
 const AssamTravelGuide = lazy(() => import("./components/AssamTravelGuide").then((m) => ({ default: m.AssamTravelGuide })));
+const TripCart = lazy(() => import("./components/TripCart"));
+const TripPlanner = lazy(() => import("./components/TripPlanner"));
+const ItineraryView = lazy(() => import("./components/ItineraryView"));
+const TravelHome = lazy(() => import("./components/TravelHome"));
 const AssamHeritage = lazy(() => import("./components/AssamHeritage").then((m) => ({ default: m.AssamHeritage })));
 const StateSymbols = lazy(() => import("./components/StateSymbols").then((m) => ({ default: m.StateSymbols })));
 
@@ -66,6 +69,12 @@ function Shell() {
   const onHeritagePage = hash === "#/heritage";
   const onSymbolsPage = hash === "#/symbols";
 
+  // ── Travel trip-planning routes ──
+  const onTravelHome = hash === "#/travel" || hash === "#/travel/";
+  const onTripPage = hash === "#/trip";
+  const onTripPlanPage = hash === "#/trip/plan";
+  const onTripItineraryPage = hash === "#/trip/itinerary";
+
   // ── Two-section routing ──
   // CULTURE hub (#/culture) is the landing; #/culture/experiences/:kind are its
   // detail pages; TRAVEL hub (#/travel) is reached via the navbar switcher.
@@ -75,7 +84,6 @@ function Shell() {
     hash === "#/culture" || hash === "#/culture/" || !hash || hash === "#" || hash === "#top" || hash === "#home" || hash === "#/";
   const onCultureExperience = hash?.startsWith("#/culture/experiences/") && cultureKind;
   const onCultureFestivals = hash === "#/culture/festivals";
-  const onTravelHub = hash === "#/travel" || hash === "#/travel/";
 
 
   // route changes: page title + native scroll (no animation engine)
@@ -102,13 +110,19 @@ function Shell() {
       cultureExperience: t("title_culture_experience"),
       cultureFestivals: t("title_culture"),
       travelHub: t("title_journey"),
+      tripCart: t("trip_title"),
+      tripPlan: t("plan_title"),
+      tripItinerary: t("itin_title"),
     };
     document.title =
       (slug ? T.detail : null) ||
       (onCultureHub ? T.cultureHub : null) ||
       (onCultureExperience ? T.cultureExperience : null) ||
       (onCultureFestivals ? T.cultureFestivals : null) ||
-      (onTravelHub ? T.travelHub : null) ||
+      (onTravelHome ? T.travelHub : null) ||
+      (onTripPage ? T.tripCart : null) ||
+      (onTripPlanPage ? T.tripPlan : null) ||
+      (onTripItineraryPage ? T.tripItinerary : null) ||
       (onDistrictsPage ? T.districts : null) ||
       (onStaysPage ? T.stays : null) ||
       (onJourneyPage ? T.journey : null) ||
@@ -138,14 +152,15 @@ function Shell() {
         slug || onDistrictsPage || onStaysPage || onJourneyPage || onArtistsPage ||
         onWildlifePage || onVisitPage || onAdminPage || onFactsPage || onCulturePage ||
         onHandicraftsPage || onGuidePage || onHeritagePage || onSymbolsPage ||
-        onCultureHub || onCultureExperience || onCultureFestivals || onTravelHub ||
+        onCultureHub || onCultureExperience || onCultureFestivals || onTravelHome ||
+        onTripPage || onTripPlanPage || onTripItineraryPage ||
         hash === "#top" || !hash
       ) {
         window.scrollTo(0, 0);
       }
     }, 60);
     return () => clearTimeout(timeoutId);
-  }, [slug, hash, t, lang, pick, onDistrictsPage, onStaysPage, onJourneyPage, onArtistsPage, onWildlifePage, onVisitPage, onAdminPage, onFactsPage, onCulturePage, onHandicraftsPage, onGuidePage, onHeritagePage, onSymbolsPage, onCultureHub, onCultureExperience, onCultureFestivals, onTravelHub]);
+  }, [slug, hash, t, lang, pick, onDistrictsPage, onStaysPage, onJourneyPage, onArtistsPage, onWildlifePage, onVisitPage, onAdminPage, onFactsPage, onCulturePage, onHandicraftsPage, onGuidePage, onHeritagePage, onSymbolsPage, onCultureHub, onCultureExperience, onCultureFestivals, onTravelHome, onTripPage, onTripPlanPage, onTripItineraryPage]);
 
   // scroll progress indicator
   const [progress, setProgress] = useState(0);
@@ -171,11 +186,10 @@ function Shell() {
     <main ref={revealRef} data-section={section}>
       <a className="skip-link" href="#home-content">Skip to content</a>
       <div className="progress" style={{ transform: `scaleX(${progress})` }} aria-hidden="true" />
-      {section === CULTURE ? (
-        <CultureHeader section={section} />
-      ) : (
-        <Navbar section={section} />
-      )}
+      {/* One shared header for BOTH sections (Incredible-India style).
+          Accents/buttons auto-flip to the section colour via --accent, so
+          Travel keeps its blue buttons while sharing Culture's navbar. */}
+      <CultureHeader section={section} />
       <Suspense fallback={<div className="route-loading" role="status" aria-label="Loading page">…</div>}>
       {onAdminPage ? (
         <Admin key="admin" />
@@ -185,8 +199,14 @@ function Shell() {
         <CultureExperience kind={cultureKind} key={`cexp-${cultureKind}`} />
       ) : onCultureFestivals ? (
         <AssamCulture key="culture-festivals" />
-      ) : onTravelHub ? (
-        <TravelHub key="travel-hub" />
+      ) : onTripItineraryPage ? (
+        <ItineraryView key="itinerary" />
+      ) : onTripPlanPage ? (
+        <TripPlanner key="trip-plan" />
+      ) : onTripPage ? (
+        <TripCart key="trip-cart" />
+      ) : onTravelHome ? (
+        <TravelHome key="travel-hub" />
       ) : onVisitPage ? (
         <Visit key="visit" />
       ) : slug ? (
@@ -225,7 +245,9 @@ function Shell() {
 export default function App() {
   return (
     <AppProvider>
-      <Shell />
+      <TripProvider>
+        <Shell />
+      </TripProvider>
     </AppProvider>
   );
 }

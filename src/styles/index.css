@@ -97,8 +97,7 @@ button {
   color: var(--ivory-dim);
 }
 
-/* section kickers: thin red rule + wide-tracked label — the portal's
-   signature opening line for every chapter */
+/* Section kickers: thin red rules and wide-tracked labels. */
 .rooms__header .label,
 .exp__head .label,
 .gallery__head .label,
@@ -130,7 +129,7 @@ button {
   background: var(--bronze);
 }
 
-/* headline rhythm: tight serif, generous top margin, balanced lines */
+/* Balanced heading rhythm across editorial sections. */
 .hero__title,
 .intro__title,
 .arch__caption h3,
@@ -301,18 +300,19 @@ button {
 }
 /* primary links centered in the middle of the bar */
 .nav > nav {
-  flex: 1;
+  flex: 1 1 auto;
+  min-width: 0;
   display: flex;
   justify-content: center;
 }
 .nav__links {
   display: flex;
-  gap: 2.4rem;
+  gap: clamp(0.75rem, 1.35vw, 1.35rem);
   list-style: none;
 }
 .nav__links a {
-  font-size: 0.64rem;
-  letter-spacing: 0.3em;
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ivory-dim);
   position: relative;
@@ -339,18 +339,25 @@ button {
   transform-origin: left;
 }
 .nav__book {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0.55rem 0.9rem;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0d6eb6, #f2901f);
+  color: #fff;
   font-size: 0.64rem;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  border-bottom: 1px solid var(--bronze-dim);
-  padding-bottom: 3px;
   transition:
     color 0.4s,
-    border-color 0.4s;
+    transform 0.2s;
 }
 .nav__book:hover {
-  color: var(--bronze);
-  border-color: var(--bronze);
+  color: #fff;
+  transform: translateY(-1px);
 }
 .nav__toggle {
   display: none;
@@ -360,7 +367,6 @@ button {
   justify-content: center;
   padding: 0.6rem 0.8rem;
 }
-
 /* ---------- hero ---------- */
 .hero {
   height: 100vh;
@@ -1734,7 +1740,8 @@ button {
   .nav__book {
     display: none;
   }
-  .nav__tools > .switch--compact {
+  .nav__tools > .switch--compact,
+  .nav__tools .three-dots-toggle {
     display: none;
   }
   .nav__toggle {
@@ -2654,6 +2661,34 @@ img:not([src]) {
 .nav__search--mobile {
   margin: 0 1rem;
   min-width: 0;
+}
+@media (max-width: 1200px) {
+  .nav > nav,
+  .nav__tools > .switch--compact,
+  .nav__tools .nav__search,
+  .nav__tools .nav__lang,
+  .nav__tools .nav__book {
+    display: none;
+  }
+  .nav__toggle {
+    display: flex;
+  }
+  .nav__menu {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.97);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.2rem;
+    z-index: 99;
+  }
+  .nav__menu a {
+    font-family: var(--serif);
+    font-size: 2rem;
+    letter-spacing: 0.1em;
+  }
 }
 @media (max-width: 900px) {
   .nav__tools .nav__search,
@@ -5346,19 +5381,20 @@ main[data-section="culture"] {
   --accent-glow: rgba(179, 40, 45, 0.28);
 }
 main[data-section="travel"] {
+  /* Travel = Brahmaputra blue (primary) + marigold orange (secondary) */
   --accent: #0e7cc7;
   --accent-dim: rgba(14, 124, 199, 0.45);
-  --accent-glow: rgba(21, 163, 176, 0.24);
+  --accent-glow: rgba(242, 144, 31, 0.24);
   --bronze: #0e7cc7;
   --bronze-dim: rgba(14, 124, 199, 0.45);
-  --leaf: #12a77d;
+  --leaf: #f2901f;
   --charcoal: #edf8fb;
   --charcoal-2: #dfeff8;
   --hairline: rgba(12, 62, 89, 0.14);
 }
 
 main[data-section="travel"] .switch__thumb {
-  background: linear-gradient(135deg, #0d6eb6, #12a77d);
+  background: linear-gradient(135deg, #0d6eb6, #f2901f);
 }
 
 main[data-section="travel"] .thub {
@@ -5366,25 +5402,24 @@ main[data-section="travel"] .thub {
     180deg,
     #effbff 0%,
     #ffffff 18%,
-    #eefcf8 52%,
+    #fef3e8 52%,
     #ffffff 100%
   );
 }
 
+/* Hero: no colour wash behind the video — the video fills the frame. */
 main[data-section="travel"] .thub__hero {
-  background: linear-gradient(
-    135deg,
-    rgba(6, 39, 75, 0.84),
-    rgba(7, 75, 72, 0.72)
-  );
+  background: transparent;
 }
 
+/* Veil: keep it almost fully transparent so the hero video shows
+   clearly; only a soft darkening toward the bottom for text legibility. */
 main[data-section="travel"] .thub__veil {
   background: linear-gradient(
     to top,
-    rgba(4, 22, 34, 0.88),
-    rgba(4, 52, 60, 0.42) 54%,
-    rgba(9, 87, 110, 0.26)
+    rgba(4, 18, 30, 0.66) 0%,
+    rgba(4, 18, 30, 0.22) 42%,
+    rgba(4, 18, 30, 0) 72%
   );
 }
 
@@ -5396,13 +5431,13 @@ main[data-section="travel"] .thub__all-link {
 }
 
 main[data-section="travel"] .thub__title em {
-  color: #9eead7;
+  color: #ffcf99;
 }
 
 main[data-section="travel"] .thub__btn--solid {
-  background: linear-gradient(135deg, #0d8dc9, #14a67d);
+  background: linear-gradient(135deg, #0d8dc9, #f2901f);
   color: #ffffff;
-  box-shadow: 0 14px 30px rgba(13, 109, 182, 0.28);
+  box-shadow: 0 14px 30px rgba(217, 119, 6, 0.28);
 }
 
 main[data-section="travel"] .thub__btn--ghost {
@@ -5411,7 +5446,7 @@ main[data-section="travel"] .thub__btn--ghost {
 }
 
 main[data-section="travel"] .tool-card__icon {
-  background: linear-gradient(135deg, #0d6eb6, #12a77d);
+  background: linear-gradient(135deg, #0d6eb6, #f2901f);
   color: #ffffff;
 }
 
@@ -5425,7 +5460,7 @@ main[data-section="travel"] .thub__culture-inner {
   background: linear-gradient(
     135deg,
     rgba(14, 124, 199, 0.08),
-    rgba(18, 167, 125, 0.12)
+    rgba(242, 144, 31, 0.12)
   );
   border: 1px solid rgba(14, 124, 199, 0.15);
 }
@@ -5446,13 +5481,13 @@ main[data-section="travel"] .season-card__icon {
   background: linear-gradient(
     135deg,
     rgba(14, 124, 199, 0.12),
-    rgba(18, 167, 125, 0.12)
+    rgba(242, 144, 31, 0.12)
   );
   color: #0d6eb6;
 }
 
 main[data-section="travel"] .trail-card__body em {
-  color: #0d8d72;
+  color: #e0690c;
 }
 
 /* ── SectionSwitcher (navbar toggle) ─────────────────────────── */
@@ -5481,7 +5516,7 @@ main[data-section="travel"] .trail-card__body em {
 }
 .switch__thumb[data-pos="travel"] {
   transform: translateX(100%);
-  background: #0f6f6a;
+  background: linear-gradient(135deg, #0f6f9c, #f2901f);
 }
 .switch__btn {
   position: relative;
@@ -5647,6 +5682,26 @@ main[data-section="travel"] .trail-card__body em {
 .chead__item.is-open .chead__chev {
   transform: rotate(180deg);
 }
+/* Flat nav links (TRAVEL section) — same rhythm as the mega-menu triggers,
+   but plain links with a hover underline, no dropdown. */
+.chead__menu--flat .chead__link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.85rem 1.05rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--ivory);
+  border-bottom: 2px solid transparent;
+  transition:
+    color 0.25s var(--ease),
+    border-color 0.25s var(--ease);
+}
+.chead__menu--flat .chead__link:hover,
+.chead__menu--flat .chead__link.is-active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
 .chead__panel {
   position: absolute;
   top: calc(100% + 8px);
@@ -5708,26 +5763,35 @@ main[data-section="travel"] .trail-card__body em {
 .chead__tools {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
+  gap: 0.75rem;
 }
 .chead__search {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 0.85rem;
+  height: 36px;
+  padding: 0 0.9rem;
   border: 1px solid var(--hairline);
   border-radius: 999px;
   background: var(--charcoal);
   color: var(--ivory-dim);
+  transition: border-color 0.25s var(--ease);
+}
+.chead__search:focus-within {
+  border-color: var(--accent);
 }
 .chead__search input {
-  width: 150px;
+  width: 170px;
   border: none;
   background: none;
   font-family: var(--sans);
   font-size: 0.82rem;
   color: var(--ivory);
   outline: none;
+}
+.chead__search input::placeholder {
+  color: var(--ivory-faint);
+  opacity: 1;
 }
 /* language dropdown */
 .chead__lang {
@@ -5737,7 +5801,8 @@ main[data-section="travel"] .trail-card__body em {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.5rem 0.8rem;
+  height: 36px;
+  padding: 0 0.85rem;
   border: 1px solid var(--hairline);
   border-radius: 6px;
   font-size: 0.8rem;
@@ -5795,7 +5860,8 @@ main[data-section="travel"] .trail-card__body em {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.5rem 0.9rem;
+  height: 36px;
+  padding: 0 0.95rem;
   border-radius: 6px;
   background: var(--accent);
   color: #fff;
@@ -5810,6 +5876,61 @@ main[data-section="travel"] .trail-card__body em {
   transform: translateY(-2px);
   box-shadow: 0 10px 22px var(--accent-glow);
   filter: brightness(1.05);
+}
+
+/* My Trip — the single persistent trip action (label + count badge) */
+.chead__trip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 36px;
+  padding: 0 0.9rem;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  color: var(--ivory);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition:
+    border-color 0.25s var(--ease),
+    color 0.25s var(--ease),
+    background 0.25s var(--ease);
+}
+.chead__trip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+.chead__trip-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 0.32rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.chead__trip-count[data-empty="true"] {
+  background: var(--charcoal);
+  color: var(--ivory-dim);
+}
+/* mobile drawer variant */
+.chead__mtrip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ivory);
+}
+.chead__mtrip:hover {
+  color: var(--accent);
 }
 .chead__maccount {
   display: inline-flex;
@@ -5902,6 +6023,14 @@ main[data-section="travel"] .trail-card__body em {
     padding-block: 0.55rem;
   }
   .chead__tools {
+    gap: 0.4rem;
+  }
+  /* Keep one compact My Trip action (icon + badge) without crowding the bar */
+  .chead__trip-label {
+    display: none;
+  }
+  .chead__trip {
+    padding: 0 0.6rem;
     gap: 0.4rem;
   }
   .chead__logo {
@@ -6806,7 +6935,9 @@ main[data-section="travel"] .trail-card__body em {
 }
 .thub__hero {
   position: relative;
-  min-height: calc(100svh - 74px);
+  /* match the shared header height (strip + bar) so the hero — including the
+     date planner — sits fully above the fold on first paint */
+  min-height: calc(100svh - 96px);
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -6834,11 +6965,13 @@ main[data-section="travel"] .trail-card__body em {
 .thub__veil {
   position: absolute;
   inset: 0;
+  /* keeps the headline, CTAs and date planner readable over moving footage
+     without flattening the scenery */
   background: linear-gradient(
     to top,
-    rgba(6, 20, 22, 0.85),
-    rgba(6, 20, 22, 0.3) 55%,
-    rgba(6, 20, 22, 0.4)
+    rgba(6, 20, 22, 0.88),
+    rgba(6, 20, 22, 0.42) 55%,
+    rgba(6, 20, 22, 0.45)
   );
 }
 .thub__hero-inner {
@@ -6891,9 +7024,10 @@ main[data-section="travel"] .trail-card__body em {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.95rem 1.7rem;
+  min-height: 46px;
+  padding: 0.7rem 1.45rem;
   border-radius: 6px;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -6918,6 +7052,706 @@ main[data-section="travel"] .trail-card__body em {
 .thub__btn--ghost:hover {
   background: rgba(255, 255, 255, 0.14);
   border-color: #fff;
+}
+
+/* ── Hero date planner — a designed entry point into the trip planner ── */
+.thub__quick {
+  max-width: 720px;
+  margin-top: 1.7rem;
+  padding: 0.9rem 1.05rem 1.05rem;
+  background: rgba(6, 20, 22, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+.thub__quick-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.7rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+.thub__quick-label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.thub__quick-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+.thub__quick-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1 1 170px;
+  min-width: 0;
+}
+.thub__quick-field > span {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+}
+.thub__quick-field input {
+  height: 46px;
+  width: 100%;
+  padding: 0 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color-scheme: dark; /* keeps the native date picker readable on dark glass */
+  transition:
+    border-color 0.2s var(--ease),
+    background 0.2s var(--ease);
+}
+.thub__quick-field input:focus-visible {
+  outline: none;
+  border-color: #8fe0d8;
+  box-shadow: 0 0 0 3px rgba(143, 224, 216, 0.28);
+}
+.thub__quick-field input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.8;
+  cursor: pointer;
+}
+.thub__quick-go {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  align-self: flex-end;
+  height: 46px;
+  padding: 0 1.35rem;
+  border-radius: 8px;
+  background: #8fe0d8;
+  color: #0b2f2c;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    filter 0.2s var(--ease),
+    transform 0.2s var(--ease);
+}
+.thub__quick-go:hover {
+  filter: brightness(1.06);
+  transform: translateY(-2px);
+}
+.thub__quick-go:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+.thub__quick-err {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.65rem 0 0;
+  font-size: 0.8rem;
+  color: #ffb4a3;
+}
+@media (max-width: 640px) {
+  .thub__quick {
+    max-width: none;
+  }
+  .thub__quick-row {
+    flex-direction: column;
+  }
+  .thub__quick-field {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+  .thub__quick-go {
+    align-self: stretch;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   Travel homepage sections B–G (district rail, filters, build steps,
+   experiences, guide, final CTA). Light editorial theme: paper/cream
+   alternating sections, serif headings, var(--accent) = Brahmaputra
+   blue in the Travel section.
+   ══════════════════════════════════════════════════════════════════ */
+.thub--home {
+  background: var(--ink);
+}
+.thub__sec-sub {
+  max-width: 64ch;
+  margin-top: -0.9rem;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--ivory-dim);
+}
+/* paper ↔ cream rhythm between sections */
+.thub__popular,
+.texp,
+.tfinal {
+  padding: clamp(2.4rem, 5.5vw, 4.5rem) 0;
+  background: var(--ink);
+}
+.tbuild,
+.tguide {
+  padding: clamp(2.4rem, 5.5vw, 4.5rem) 0;
+  background: var(--charcoal);
+}
+/* these two heads have no sub-paragraph — keep the title close to content */
+.tbuild .thub__sec-title,
+.tguide .thub__sec-title {
+  margin-bottom: 0;
+}
+
+/* division filter chips above the district rail (dark section — light
+   text/hairline, white pill when selected so the active option reads) */
+.tdist-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 1.7rem var(--gutter) 0;
+}
+.tdist-filters__chip {
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition:
+    border-color 0.2s var(--ease),
+    background 0.2s var(--ease),
+    color 0.2s var(--ease);
+}
+.tdist-filters__chip:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.tdist-filters__chip.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--ivory);
+}
+.tdist-filters__chip:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ── B. Explore by district — cinematic full-bleed carousel rail ── */
+.tdist-rail {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  padding: 0.4rem var(--gutter) 1rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+}
+.tdist-rail::-webkit-scrollbar {
+  display: none;
+}
+.tdist-rail:active {
+  cursor: grabbing;
+}
+.tdist-rail:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  border-radius: 12px;
+}
+.tdist-card {
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(250px, 21vw, 320px);
+  aspect-ratio: 3 / 4;
+  border-radius: 16px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background: var(--charcoal-2);
+  box-shadow: 0 14px 36px rgba(27, 22, 17, 0.16);
+  transition:
+    transform 0.45s var(--ease),
+    box-shadow 0.45s var(--ease);
+}
+.tdist-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 48px rgba(27, 22, 17, 0.22);
+}
+.tdist-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.tdist-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+.tdist-card:hover img {
+  transform: scale(1.06);
+}
+.tdist-card__veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(8, 18, 16, 0.84),
+    rgba(8, 18, 16, 0.2) 48%,
+    rgba(8, 18, 16, 0.06)
+  );
+}
+.tdist-card__body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1.3rem 1.2rem 1.4rem;
+  color: #fff;
+}
+.tdist-card__division {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+.tdist-card__name {
+  font-family: var(--serif);
+  font-size: clamp(1.45rem, 1.8vw, 1.8rem);
+  font-weight: 600;
+  line-height: 1.05;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+.tdist-card__tag {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.78);
+}
+/* shared carousel controls — used by both the district and destination
+   rails (one definition, no duplicate overrides) */
+.trail-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1.1rem;
+  padding: 0 var(--gutter);
+}
+.trail-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid var(--hairline);
+  background: var(--ink);
+  color: var(--ivory);
+  cursor: pointer;
+  transition:
+    border-color 0.25s var(--ease),
+    color 0.25s var(--ease),
+    transform 0.25s var(--ease);
+}
+.trail-arrow:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+.trail-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.tdist-rail-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.6rem;
+  padding: 0 var(--gutter);
+}
+@media (max-width: 900px) {
+  .tdist-card {
+    width: clamp(230px, 42vw, 300px);
+  }
+}
+@media (max-width: 560px) {
+  .tdist-card {
+    width: 76vw;
+  }
+  .tdist-card__body {
+    padding: 1.1rem 1rem 1.2rem;
+  }
+}
+
+/* ── C. Popular destinations: search + filters + destination carousel ── */
+.tfilters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.9rem 1rem;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 1.7rem var(--gutter) 0;
+}
+.tfilters__search {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex: 1 1 230px;
+  max-width: 330px;
+  height: 44px;
+  padding: 0 1rem;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  background: var(--charcoal);
+  color: var(--ivory-dim);
+  transition: border-color 0.2s var(--ease);
+}
+.tfilters__search:focus-within {
+  border-color: var(--accent);
+}
+.tfilters__search input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: none;
+  outline: none;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--ivory);
+}
+.tfilters__search input::placeholder {
+  color: var(--ivory-faint);
+  opacity: 1;
+}
+.tfilters__select {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.tfilters__select > span {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+}
+.tfilters__select select {
+  height: 44px;
+  min-width: 185px;
+  padding: 0 0.9rem;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--ivory);
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+.tfilters__select select:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+.tfilters__cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tfilters__cat {
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ivory-dim);
+  background: transparent;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition:
+    border-color 0.2s var(--ease),
+    background 0.2s var(--ease),
+    color 0.2s var(--ease);
+}
+.tfilters__cat:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.tfilters__cat.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.tempty {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 2.6rem var(--gutter) 0;
+  text-align: center;
+  color: var(--ivory-dim);
+}
+.thub__popular {
+  overflow-x: clip; /* the carousel can never widen the page */
+}
+/* Horizontal sliding rail for the filtered destination cards. Fixed card
+   widths (never stretched) + scroll-snap; scroll-padding keeps snapped
+   cards aligned with the gutters/filters above. Arrow buttons reuse the
+   shared .trail-controls / .trail-arrow styles defined with the
+   district rail. */
+.ddest-rail {
+  display: flex;
+  gap: 1.25rem;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 1.7rem var(--gutter) 0.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: var(--gutter);
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+}
+.ddest-rail::-webkit-scrollbar {
+  display: none;
+}
+.ddest-rail:active {
+  cursor: grabbing;
+}
+.ddest-rail:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  border-radius: 12px;
+}
+.ddest-rail > .dcard {
+  flex: 0 0 auto;
+  width: clamp(255px, 20.2vw, 290px);
+  scroll-snap-align: start;
+}
+/* tablet: ~2 full cards + a peek of the next */
+@media (max-width: 900px) {
+  .ddest-rail > .dcard {
+    width: clamp(240px, 40vw, 300px);
+  }
+}
+/* phone: one prominent card + a portion of the next */
+@media (max-width: 560px) {
+  .ddest-rail > .dcard {
+    width: 78vw;
+  }
+}
+
+/* ── D. Build your own trip (4 steps) ── */
+.tbuild__steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+  gap: 1.1rem;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 1.7rem var(--gutter) 0;
+}
+.tbuild__step {
+  padding: 1.5rem 1.35rem;
+  background: var(--ink);
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(27, 22, 17, 0.05);
+}
+.tbuild__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 0.9rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+.tbuild__step h3 {
+  margin: 0 0 0.4rem;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.tbuild__step p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--ivory-dim);
+}
+.tbuild__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 2rem var(--gutter) 0;
+}
+.tbuild__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 0.35rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ── E. Featured experiences ── */
+.texp__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+  gap: 1.1rem;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 1.7rem var(--gutter) 0;
+}
+.texp__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 1.6rem 1.45rem;
+  background: var(--charcoal);
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  transition:
+    transform 0.3s var(--ease),
+    box-shadow 0.3s var(--ease);
+}
+.texp__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(27, 22, 17, 0.09);
+}
+.texp__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
+}
+.texp__card h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.14rem;
+  font-weight: 600;
+}
+.texp__card p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--ivory-dim);
+}
+.texp__add {
+  margin-top: auto;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font: inherit;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid var(--accent-dim);
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  transition:
+    background 0.2s var(--ease),
+    border-color 0.2s var(--ease),
+    color 0.2s var(--ease);
+}
+.texp__add:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* ── F. Practical travel guide ── */
+.tguide__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+  gap: 1.1rem;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 1.7rem var(--gutter) 0;
+}
+.tguide__card {
+  padding: 1.5rem 1.4rem;
+  background: var(--ink);
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+}
+.tguide__card h3 {
+  margin: 0 0 0.5rem;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.tguide__card p {
+  margin: 0;
+  font-size: 0.87rem;
+  line-height: 1.65;
+  color: var(--ivory-dim);
+}
+
+/* ── G. Final CTA ── */
+.tfinal {
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+.tfinal__inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: clamp(2.4rem, 5vw, 3.4rem) clamp(1.3rem, 4vw, 3rem);
+  text-align: center;
+  background: var(--charcoal);
+  border: 1px solid var(--hairline);
+  border-radius: 18px;
+  box-shadow: 0 18px 44px rgba(27, 22, 17, 0.07);
+}
+.tfinal__title {
+  margin: 1rem 0 0.7rem;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+  line-height: 1.15;
+}
+.tfinal__sub {
+  max-width: 56ch;
+  margin: 0 auto 1.7rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ivory-dim);
 }
 .thub__stats {
   display: flex;
@@ -7037,8 +7871,24 @@ main[data-section="travel"] .trail-card__body em {
 }
 /* ── Travel districts: division side-slide rails ── */
 .thub__districts {
-  padding: clamp(2rem, 5vw, 4rem) 0;
+  position: relative;
+  overflow: hidden;
+  padding: clamp(2.4rem, 5.5vw, 4.5rem) 0;
   background: var(--charcoal);
+}
+/* subtle desaturated Assam backdrop (existing local asset) for depth —
+   kept very low-contrast so it never competes with the district cards */
+.thub__districts::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/img/hero-brahmaputra.jpg") center / cover no-repeat;
+  filter: grayscale(1);
+  opacity: 0.07;
+  pointer-events: none;
+}
+.thub__districts > * {
+  position: relative;
 }
 .thub__districts .thub__head,
 .thub__districts .thub__all-link {
@@ -7335,10 +8185,31 @@ main[data-section="travel"] .trail-card__body em {
 @media (prefers-reduced-motion: reduce) {
   .chub__hero-video,
   .thub__poster,
+  .thub__video,
   .chub__line,
   .dest-card,
   .feat-card {
     animation: none !important;
+    transform: none !important;
+  }
+  /* travel homepage: no hover lift / image zoom when motion is reduced */
+  .tdist-card,
+  .tdist-card img,
+  .trail-arrow,
+  .tdist-filters__chip,
+  .texp__card,
+  .thub__btn,
+  .thub__quick-go {
+    transition: none !important;
+  }
+  .tdist-card:hover,
+  .trail-arrow:hover,
+  .texp__card:hover,
+  .thub__btn:hover,
+  .thub__quick-go:hover {
+    transform: none !important;
+  }
+  .tdist-card:hover img {
     transform: none !important;
   }
   .chub__hero-video {
@@ -7588,4 +8459,325 @@ main[data-section="culture"] .cexp__veil {
 
 main[data-section="culture"] .cexp__tagline {
   color: #ffd7b2;
+}
+
+/* Travel navbar: compact brand, clear routes, and one primary action. */
+main[data-section="travel"] .nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(0.75rem, 1.5vw, 1.35rem);
+  padding: 0.8rem clamp(1.25rem, 3vw, 3rem);
+}
+
+main[data-section="travel"] .nav--scrolled {
+  padding-block: 0.65rem;
+}
+
+main[data-section="travel"] .nav__logo {
+  flex: 0 0 auto;
+  font-size: 1.35rem;
+  letter-spacing: 0.26em;
+}
+
+main[data-section="travel"] .nav > nav {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin-inline: clamp(0.75rem, 1.6vw, 1.5rem);
+}
+
+main[data-section="travel"] .nav__links {
+  gap: clamp(0.75rem, 1.25vw, 1.25rem);
+}
+
+main[data-section="travel"] .nav__links a {
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+
+main[data-section="travel"] .nav__tools {
+  flex: 0 0 auto;
+  gap: 0.5rem;
+  margin-left: 0;
+}
+
+main[data-section="travel"] .nav__search {
+  width: clamp(145px, 14vw, 185px);
+  min-width: 0;
+  padding: 0.35rem 0.55rem;
+}
+
+main[data-section="travel"] .nav__lang {
+  gap: 0.3rem;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+main[data-section="travel"] .switch--compact .switch__btn {
+  gap: 0.3rem;
+  padding: 0.35rem 0.55rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+}
+
+main[data-section="travel"] .nav__book {
+  min-height: 36px;
+  padding: 0.5rem 0.8rem;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0d6eb6, #f2901f);
+  color: #fff;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+}
+
+main[data-section="travel"] .three-dots-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #315a59;
+}
+
+@media (max-width: 1200px) {
+  main[data-section="travel"] .nav {
+    padding: 0.65rem 1.25rem;
+  }
+
+  main[data-section="travel"] .nav__tools {
+    display: none;
+  }
+
+  main[data-section="travel"] .nav__toggle {
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--hairline);
+    border-radius: 50%;
+    color: #155f61;
+  }
+}
+
+@media (max-width: 380px) {
+  main[data-section="travel"] .nav__logo {
+    font-size: 1.2rem;
+    letter-spacing: 0.2em;
+  }
+}
+
+/* ============================================================
+   UNIFIED "CULTURE" TEXT STYLE — applied site-wide
+   ------------------------------------------------------------
+   The Culture portal styles every heading as a BOLD serif
+   (font-weight: 600). The rest of the site used the same
+   Cormorant Garamond face but at lighter weights (300/400/500),
+   so its words read thinner than Culture. This block lifts every
+   serif heading / sub-heading / card name to 600 so the WHOLE
+   website shares Culture's bold-serif "words" style.
+
+   Body copy is intentionally untouched — it already matches
+   Culture everywhere (same --sans face, same --ivory-dim ink,
+   same ~0.9–0.95rem sizing), so only heading weight needed
+   unifying. Tracking/size are left as-is so each tuned display
+   title keeps its balanced rhythm.
+
+   Appended last so it wins the cascade over the lighter rules
+   above (equal specificity, later source order).
+   ============================================================ */
+
+/* --- Display + section titles (were 300) --- */
+.hero__title,
+.intro__title,
+.finale__content h2,
+.dlist__title,
+.dpage__title,
+.dpage__history h2,
+.dpage__spots-head h2,
+.dpage--missing h1,
+.admin h1,
+.booking__inner h2,
+.visit__title,
+.stays__head h2,
+.zubeen__name,
+.facts__title,
+.page__title,
+.page__headline,
+.symbols__title,
+.artists__title,
+.artists__headline,
+.journey__title,
+.journey__step > h2.journey__step-title {
+  font-weight: 600;
+}
+
+/* --- Section / card headings (were 400) --- */
+.arch__caption h3,
+.rooms__header h2,
+.room__name,
+.dining__content h2,
+.exp__head h2,
+.exp__card h3,
+.gallery__head h2,
+.location__title h2,
+.footer__logo,
+.dlist__stats strong,
+.dlist__body h3,
+.dpage__spot h3,
+.facts__card-name {
+  font-weight: 600;
+}
+
+/* --- Sub-headings / card names (were 500) --- */
+.news strong,
+.dpage__pagebtn strong,
+.dpage__relcard strong,
+.visit__card h3,
+.stay__name,
+.attr__name,
+.attr__dist-body strong,
+.facts__famous-name,
+.page__culture-name,
+.page__food-name,
+.symbol__name,
+.artists__card-name,
+.journey__step-title {
+  font-weight: 600;
+}
+
+/* ============================================================
+   Shared header — give the TRAVEL section its own identity
+   ------------------------------------------------------------
+   CultureHeader now renders in BOTH sections. Buttons/kickers
+   already follow --accent (blue in Travel), so travel keeps its
+   blue buttons. These rules re-skin the header's chrome to the
+   Travel palette (navy utility strip + blue→orange logo mark)
+   so the shared navbar still reads as "Travel" at a glance.
+   ============================================================ */
+main[data-section="travel"] .chead__strip {
+  background: #0a2233;
+}
+main[data-section="travel"] .chead__strip-links a:hover {
+  color: #ffcf99;
+}
+main[data-section="travel"] .chead__strip-brand {
+  color: #ffcf99;
+}
+main[data-section="travel"] .chead__logo-mark {
+  background: linear-gradient(145deg, #0d6eb6, #f2901f);
+}
+
+/* ============================================================
+   MOBILE REFINEMENTS (≤640px) — appended for the mobile UX pass.
+   Desktop-first rules above are untouched; everything here only
+   applies on phones/small tablets.
+   ============================================================ */
+@media (max-width: 640px) {
+  /* safety: carousels/chip rows scroll inside themselves; nothing may
+     push the page itself sideways */
+  main {
+    overflow-x: clip;
+  }
+
+  /* ── Travel hero: shorter rhythm, tighter type, full-width CTAs ── */
+  .thub__hero {
+    min-height: calc(100svh - 84px);
+  }
+  .thub__hero-inner {
+    padding-bottom: 2.4rem;
+  }
+  .thub__kicker {
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+  }
+  .thub__title {
+    margin: 0.8rem 0;
+    font-size: clamp(2.05rem, 9.5vw, 2.6rem);
+  }
+  .thub__sub {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .thub__cta {
+    gap: 0.7rem;
+    margin-top: 1.4rem;
+  }
+  .thub__btn {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+  .thub__stats {
+    gap: 1.5rem 2rem;
+    margin-top: 1.8rem;
+  }
+  .thub__stats strong {
+    font-size: 1.8rem;
+  }
+  .thub__quick {
+    margin-top: 1.3rem;
+    padding: 0.8rem 0.9rem 0.95rem;
+  }
+  .thub__quick-label,
+  .thub__quick-field > span {
+    font-size: 0.66rem;
+  }
+  .thub__quick-field input {
+    font-size: 1rem;
+  }
+
+  /* ── Popular-destination filters: search + district dropdown go
+     full width; category chips wrap with roomier tap targets ── */
+  .tfilters {
+    gap: 0.75rem;
+    padding-top: 1.4rem;
+  }
+  .tfilters__search {
+    flex: 1 1 100%;
+    max-width: none;
+  }
+  .tfilters__select {
+    flex: 1 1 100%;
+  }
+  .tfilters__select select {
+    width: 100%;
+    min-width: 0;
+  }
+  .tfilters__cats {
+    gap: 0.45rem;
+  }
+  .tfilters__cat {
+    padding: 0.6rem 1rem;
+  }
+
+  /* ── District division chips: roomier tap targets, tighter rhythm ── */
+  .tdist-filters {
+    gap: 0.45rem;
+    padding-top: 1.4rem;
+  }
+  .tdist-filters__chip {
+    padding: 0.6rem 1.05rem;
+  }
+
+  /* ── section head rhythm on small screens ── */
+  .thub__sec-title {
+    margin-bottom: 1.3rem;
+  }
+  .thub__sec-sub {
+    margin-top: -0.5rem;
+  }
+  .tfinal__inner {
+    border-radius: 14px;
+  }
+
+  /* ── shared header touch targets ── */
+  .chead__burger {
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+  .chead__mcol a {
+    padding: 0.62rem 0;
+  }
 }

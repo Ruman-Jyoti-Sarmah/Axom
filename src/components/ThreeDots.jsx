@@ -27,19 +27,36 @@ export function ThreeDots({ t, pick, onClose, open }) {
   const groups = groupDistricts(
     query.length < 2
       ? DISTRICTS
-      : DISTRICTS.filter((d) => find(d.name) || find(d.hq) || find(d.division) || find(d.tag))
+      : DISTRICTS.filter(
+          (d) => find(d.name) || find(d.hq) || find(d.division) || find(d.tag),
+        ),
   );
 
   return (
-    <div className="three-dots" onClick={(e) => e.target === e.currentTarget && onClose()}>
-      <div className="three-dots__backdrop" onClick={onClose} aria-hidden="true" />
-      <div className="three-dots__panel" role="dialog" aria-label={t("menu") || "Menu"}>
+    <div
+      className="three-dots"
+      onClick={(e) => e.target === e.currentTarget && onClose()}
+    >
+      <div
+        className="three-dots__backdrop"
+        onClick={onClose}
+        aria-hidden="true"
+      />
+      <div
+        className="three-dots__panel"
+        role="dialog"
+        aria-label={t("menu") || "Menu"}
+      >
         <div className="three-dots__head">
           <div className="three-dots__heading">
             <span className="three-dots__title">{t("menu")}</span>
             <span className="three-dots__tagline">{t("menu_tagline")}</span>
           </div>
-          <button className="three-dots__close" onClick={onClose} aria-label={t("close")}>
+          <button
+            className="three-dots__close"
+            onClick={onClose}
+            aria-label={t("close")}
+          >
             ✕
           </button>
         </div>
@@ -47,8 +64,6 @@ export function ThreeDots({ t, pick, onClose, open }) {
         <div className="three-dots__quick">
           {[
             { icon: "🏛️", label: t("menu_symbols"), href: "#/symbols" },
-            { icon: "🎭", label: t("menu_artists"), href: "#/artists" },
-            { icon: "🦏", label: t("menu_wildlife"), href: "#/wildlife" },
             { icon: "🍽️", label: t("menu_facts"), href: "#/facts" },
           ].map((q) => (
             <button
@@ -60,7 +75,9 @@ export function ThreeDots({ t, pick, onClose, open }) {
                 window.location.hash = q.href;
               }}
             >
-              <span className="three-dots__chip-icon" aria-hidden="true">{q.icon}</span>
+              <span className="three-dots__chip-icon" aria-hidden="true">
+                {q.icon}
+              </span>
               <span className="three-dots__chip-label">{q.label}</span>
             </button>
           ))}
@@ -79,11 +96,15 @@ export function ThreeDots({ t, pick, onClose, open }) {
         <div className="three-dots__section">
           <h2 className="three-dots__section-title">{t("menu_districts")}</h2>
           {groups.length === 0 && (
-            <p className="three-dots__empty">{t("no_results") || "No districts found."}</p>
+            <p className="three-dots__empty">
+              {t("no_results") || "No districts found."}
+            </p>
           )}
           {groups.map((g) => (
             <div key={g.division} className="three-dots__group">
-              <span className="three-dots__group-name">{pick ? pick(g.division) : g.division}</span>
+              <span className="three-dots__group-name">
+                {pick ? pick(g.division) : g.division}
+              </span>
               <div className="three-dots__rows">
                 {g.items.map((d) => (
                   <button
@@ -95,8 +116,13 @@ export function ThreeDots({ t, pick, onClose, open }) {
                       window.location.hash = `#/district/${slugify(d.name)}`;
                     }}
                   >
-                    <span className="three-dots__row-name">{pick ? pick(d.name) : d.name}</span>
-                    <span className="three-dots__row-sub">{pick ? pick(d.hq) : d.hq} · {pick ? pick(d.division) : d.division}</span>
+                    <span className="three-dots__row-name">
+                      {pick ? pick(d.name) : d.name}
+                    </span>
+                    <span className="three-dots__row-sub">
+                      {pick ? pick(d.hq) : d.hq} ·{" "}
+                      {pick ? pick(d.division) : d.division}
+                    </span>
                   </button>
                 ))}
               </div>
@@ -108,7 +134,7 @@ export function ThreeDots({ t, pick, onClose, open }) {
           <h2 className="three-dots__section-title">{t("menu_pages")}</h2>
           <div className="three-dots__rows">
             {[
-              { label: t("menu_home"), href: "#top" },
+              { label: t("menu_home"), href: "#/travel" },
               { label: t("menu_symbols"), href: "#/symbols" },
               { label: t("menu_facts"), href: "#/facts" },
               { label: t("menu_culture"), href: "#/culture" },
@@ -116,8 +142,6 @@ export function ThreeDots({ t, pick, onClose, open }) {
               { label: t("menu_guide"), href: "#/guide" },
               { label: t("menu_heritage"), href: "#/heritage" },
               { label: t("menu_journey"), href: "#/journey" },
-              { label: t("menu_artists"), href: "#/artists" },
-              { label: t("menu_wildlife"), href: "#/wildlife" },
               { label: t("menu_visit"), href: "#/visit" },
             ].map((link) => (
               <button
@@ -126,8 +150,14 @@ export function ThreeDots({ t, pick, onClose, open }) {
                 className="three-dots__row"
                 onClick={() => {
                   onClose();
-                  if (link.href.startsWith("#/")) window.location.hash = link.href;
-                  else try { document.querySelector(link.href)?.scrollIntoView({ behavior: "smooth" }); } catch {}
+                  if (link.href.startsWith("#/"))
+                    window.location.hash = link.href;
+                  else
+                    try {
+                      document
+                        .querySelector(link.href)
+                        ?.scrollIntoView({ behavior: "smooth" });
+                    } catch {}
                 }}
               >
                 <span className="three-dots__row-name">{link.label}</span>
@@ -140,7 +170,7 @@ export function ThreeDots({ t, pick, onClose, open }) {
           <a href="#/journey" className="btn btn--solid" onClick={onClose}>
             {t("reserve")}
           </a>
-          <a href="#top" className="btn btn--ghost" onClick={onClose}>
+          <a href="#/travel" className="btn btn--ghost" onClick={onClose}>
             {t("home")}
           </a>
         </div>

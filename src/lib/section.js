@@ -12,6 +12,9 @@ export const TRAVEL = "travel";
 /** Routes that belong to the TRAVEL section (trip planning). */
 const TRAVEL_HASHES = new Set([
   "#/travel",
+  "#/trip",
+  "#/trip/plan",
+  "#/trip/itinerary",
   "#/districts",
   "#/stays",
   "#/journey",
