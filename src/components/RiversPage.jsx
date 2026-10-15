@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { ArrowRight } from "lucide-react";
 import { useApp } from "../store/AppContext";
 import {
   searchRivers,
@@ -85,7 +86,7 @@ export default function RiversPage() {
                         {(r.aliases?.en?.[0] || r.aliases?.as?.[0]) ? <p className="rh-card-aliases">{pick(r.aliases.en[0] || r.aliases.as[0])}</p> : null}
                         <span className="rh-card-side">{pick(sideLabel(r.side, "en"))}</span>
                         <span className="rh-card-system">{pick(riverSystemLabel(r.system, "en"))}</span>
-                        <a className="rh-card-link" href={`#/river/${r.id}`}>{t("rivers_view")}</a>
+                        <a className="rh-card-link" href={`#/river/${r.id}`}>{t("rivers_view")}: {pick(r.name, "en")} <ArrowRight size={14} aria-hidden="true" /></a>
                       </div>
                     </article>
                   ))}

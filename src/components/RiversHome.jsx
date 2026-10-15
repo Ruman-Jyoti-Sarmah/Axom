@@ -63,7 +63,7 @@ export default function RiversHome() {
           <p>{t("rivers_intro")}</p>
           <div className="chome__cta-actions">
             <a className="btn btn--solid" href="#/rivers">
-              {t("rivers_view")} <ArrowRight size={15} aria-hidden="true" />
+              {t("rivers_view")}: {t("rivers_title")} <ArrowRight size={15} aria-hidden="true" />
             </a>
             <a className="btn btn--ghost" href="#/travel">
               {t("switch_to_travel")}

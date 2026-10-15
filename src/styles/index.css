@@ -4236,7 +4236,9 @@ img:not([src]) {
   color: var(--ivory-dim);
 }
 .rh-card-link {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   margin-top: 1rem;
   font-size: 0.78rem;
   font-weight: 600;

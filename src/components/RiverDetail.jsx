@@ -55,6 +55,7 @@ export default function RiverDetail({ id: defaultId }) {
       </div>
 
       <div className="rivers__body">
+        <p><a className="rh-card-link" href="#/rivers">← {t("rivers_title")}</a></p>
         {!river ? (
           <p className="rivers__empty">{t("rivers_not_found")}</p>
         ) : (
