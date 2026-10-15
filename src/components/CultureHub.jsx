@@ -353,6 +353,7 @@ function Spiritual() {
     <section className="chub__spiritual" data-reveal>
       <div className="chub__head">
         <span className="chub__sec-kicker">
+          <span className="chome__index" aria-hidden="true">07</span>
           <Landmark size={14} aria-hidden="true" />
           {t("culture_spiritual_kicker")}
         </span>
@@ -446,6 +447,7 @@ function People() {
     <section className="chub__people" data-reveal>
       <div className="chub__head">
         <span className="chub__sec-kicker">
+          <span className="chome__index" aria-hidden="true">08</span>
           <Users size={14} aria-hidden="true" /> {t("culture_people_title")}
         </span>
         <h2 className="chub__sec-title">{t("culture_people_sub")}</h2>

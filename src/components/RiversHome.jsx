@@ -29,7 +29,7 @@ export default function RiversHome() {
     <section className="chome chome--rivers" id="rivers-home-cta">
       <div className="chome__head">
         <div className="chome__eyebrow">
-          <span className="chome__index" aria-hidden="true">07</span>
+          <span className="chome__index" aria-hidden="true">05</span>
           <span className="chome__kicker chome__kicker--light">{t("rivers_hero_kicker")}</span>
         </div>
         <h2 className="chome__title">{t("rivers_title")}</h2>

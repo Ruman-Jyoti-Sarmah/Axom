@@ -48,7 +48,7 @@ export function Cuisine() {
     <section className="chome chome--food chome--major">
       <div className="chome__head">
         <div className="chome__eyebrow">
-          <span className="chome__index" aria-hidden="true">05</span>
+          <span className="chome__index" aria-hidden="true">06</span>
           <span className="chome__kicker">{t("culture_food_kicker")}</span>
         </div>
         <h2 className="chome__title chome__title--major">{t("culture_food_title")}</h2>
@@ -82,7 +82,7 @@ export function Explore() {
     <section className="chome chome--explore chome--major">
       <div className="chome__head">
         <div className="chome__eyebrow">
-          <span className="chome__index" aria-hidden="true">06</span>
+          <span className="chome__index" aria-hidden="true">09</span>
           <span className="chome__kicker">{t("culture_explore_kicker")}</span>
         </div>
         <h2 className="chome__title chome__title--major">{t("culture_explore_title")}</h2>
