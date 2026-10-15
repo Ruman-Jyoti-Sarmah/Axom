@@ -76,6 +76,7 @@ export default function Footer() {
       <div className="footer__bottom">
         <span>{pick(BRAND.established, lang)}</span>
         <span>{t("foot_legal")}</span>
+        <span><a href="#/credits">{t("foot_credits")}</a></span>
       </div>
     </footer>
   );

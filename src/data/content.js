@@ -1,6 +1,16 @@
 const w = (file, width = 1600) =>
   `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=${width}`;
 
+/** Local verified artist portraits (identity-checked on Commons). */
+const ARTIST_IMG = {
+  bhupen: "/images/artists/bhupen-hazarika.jpg",
+  rabha: "/images/artists/bishnu-rabha.jpg",
+  jyoti: "/images/artists/jyoti-prasad-agarwala.jpg",
+  bezbaroa: "/images/artists/lakshminath-bezbaroa.jpg",
+  sankardev: "/images/artists/sankardev.jpg",
+  zubeen: "/img/zubeen-garg.jpg",
+};
+
 export const BRAND = {
   name: { en: "AXOM", as: "অসম" },
   tagline: {
@@ -175,7 +185,7 @@ export const ZUBEEN_GARG = {
 
 export const assamArtists = [
   {
-    image: w("Dr. Bhupen Hazarika, Assam, India.jpg", 700),
+    image: ARTIST_IMG.bhupen,
     name: "Bhupen Hazarika",
     born: "1926",
     died: "2011",
@@ -183,7 +193,7 @@ export const assamArtists = [
     bio: "Mahapurush Bhupen Hazarika is Assam's most celebrated cultural icon. Composer of 'Jiyori', 'O Mor Apunar Dekh' and 'Bhey Bhikhari', he carried Assam's pain and pride to the nation and beyond.",
   },
   {
-    image: w("Bishnu Prasad Rabha 2009 stamp of India.jpg", 700),
+    image: ARTIST_IMG.rabha,
     name: "Bishnu Prasad Rabha",
     born: "1909",
     died: "1969",
@@ -191,7 +201,7 @@ export const assamArtists = [
     bio: "Rupkonwar Bishnu Prasad Rabha shaped modern Assamese culture — music, drama, the Sattriya renaissance and the Assam trunk road (BRT). A true Renaissance man of Assam.",
   },
   {
-    image: w("Jyoti Prasad Agarwala.jpg", 700),
+    image: ARTIST_IMG.jyoti,
     name: "Jyoti Prasad Agarwala",
     born: "1903",
     died: "1961",
@@ -199,7 +209,8 @@ export const assamArtists = [
     bio: "The first filmmaker of Assam — directed, wrote and composed the first Assamese feature film 'Joymati' (1935) and wrote the classic 'Jiyori'. A colossus of Assamese literature and theatre.",
   },
   {
-    image: w("Dr. Anima Choudhury.jpg", 700),
+    // No verified reusable portrait found — honest text card (no photo).
+    image: null,
     name: "Dr. Anima Choudhury",
     born: "1932",
     died: "",
@@ -207,10 +218,8 @@ export const assamArtists = [
     bio: "A rare living link to Assam's sacred musical heritage — a noted vocalist of Borgeets and Manipuri music, carrying forward the musical lineage of Assam's greatest tradition.",
   },
   {
-    image: w(
-      "Portrait of Zubeen Garg the Legendary Singer, Composer, Actor, Music Director, Poet of Assam by Sanjib Borah Artist.jpg",
-      700
-    ),
+    // Project's existing local Zubeen photo (already identity-correct).
+    image: ARTIST_IMG.zubeen,
     name: "Zubeen Garg",
     born: "1972",
     died: "2025",
@@ -219,7 +228,7 @@ export const assamArtists = [
   },
 
   {
-    image: w("Sankaradeva.jpg", 700),
+    image: ARTIST_IMG.sankardev,
     name: "Srimanta Sankardev",
     born: "1449",
     died: "1568",
@@ -227,7 +236,8 @@ export const assamArtists = [
     bio: "The 15th-century saint, poet and playwright who unified Assam under Vaishnavism — founder of Sattriya dance, Borgeet and the Bhaona theatre.",
   },
   {
-    image: w("Krishnakahi Kashyap performing Sattriya Dance.jpg", 700),
+    // Old slot mislabelled a Sattriya dancer photo as Madhavdeva — honest text card.
+    image: null,
     name: "Mahapurush Madhavdeva",
     born: "1489",
     died: "1596",
@@ -235,7 +245,7 @@ export const assamArtists = [
     bio: "The soul of Assamese devotional music — composed the Bhawaiya and Borgeet, and wrote the devotional play Patassara.",
   },
   {
-    image: w("Laksminath Bezbaruah.jpg", 700),
+    image: ARTIST_IMG.bezbaroa,
     name: "Lakshminath Bezbaroa",
     born: "1864",
     died: "1938",
@@ -243,7 +253,8 @@ export const assamArtists = [
     bio: "Assam's national poet, writer and journalist — author of the state song 'O Mur Apunar Dekh' and the iconic 'Joi Aai Axom'.",
   },
   {
-    image: w("Bihu Dance 2.jpg", 700),
+    // Old slot mislabelled a generic Bihu dance photo as this singer — honest text card.
+    image: null,
     name: "Sheila K. Bharali",
     born: "1960",
     died: "",

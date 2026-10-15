@@ -7,11 +7,20 @@
  * Wildlife, Handicrafts, State Symbols, Facts) become the linked destinations,
  * so this hub is a curated front-door over real pages — nothing is lost.
  *
- * Images: Wikimedia Commons (Special:FilePath), same pattern as the rest of
- * the app. All copy is bilingual { en, as }.
+ * Images: local verified photographs in public/images/culture/
+ * (see cultureImages.js). All copy is bilingual { en, as }.
  */
-const W = (file, width = 1400) =>
+import CULTURE_IMG from "./cultureImages";
+
+/* ── Wikimedia Commons (Special:FilePath) helper ─────────────────────────
+ * Nature / wildlife / adventure / heritage entries with no local photo in
+ * cultureImages.js fall back to a verified Commons file at the requested
+ * width. Same helper as used in districts.js, destinations.js,
+ * stateSymbols.js, content.js and the experience pages.
+ */
+const W = (file, width = 900) =>
   `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=${width}`;
+
 
 /* ── The three mega-menu pillars ─────────────────────────────────────── */
 export const PILLARS = {
@@ -60,7 +69,7 @@ export const EXPERIENCES = [
       en: "Rang Ghar, Talatal Ghar and the Ahom capital of Sivasagar.",
       as: "ৰংঘৰ, তলাতাল ঘৰ আৰু শিৱসাগৰৰ আহোম ৰাজধানী।",
     },
-    image: W("Rang Ghar 1.jpg", 1000),
+    image: CULTURE_IMG.rangGhar,
     href: "#/heritage",
   },
   {
@@ -72,7 +81,7 @@ export const EXPERIENCES = [
       en: "Kamakhya, Umananda, Hajo and the sattras of Majuli.",
       as: "কামাখ্যা, উমানন্দা, হাজো আৰু মাজুলীৰ সাত্ৰ।",
     },
-    image: W("Kamakhya Temple, Guwahati, Assam.jpg", 1000),
+    image: CULTURE_IMG.kamakhyaTemple,
     href: "#/culture/experiences/spiritual",
   },
   {
@@ -84,7 +93,7 @@ export const EXPERIENCES = [
       en: "The voices and makers who carried Assam to the world.",
       as: "অসমক বিশ্বলৈ গৈছিল স্বৰ আৰু সৃষ্টিকৰ্তা।",
     },
-    image: W("Krishnakahi Kashyap performing Sattriya Dance.jpg", 1000),
+    image: CULTURE_IMG.sattriyaPerformance,
     href: "#/artists",
   },
   {
@@ -96,7 +105,7 @@ export const EXPERIENCES = [
       en: "Sour, smoky and herbaceous — the Assamese table on bell-metal.",
       as: "টক, ধোঁৱাৰ আৰু তেজপাতাৰ — কাহৰত অসমীয়া টেবুল।",
     },
-    image: W("Assamese Thali (Jorhat).JPG", 1000),
+    image: CULTURE_IMG.assameseThali,
     href: "#/culture/experiences/cuisine",
   },
   {
@@ -120,7 +129,7 @@ export const EXPERIENCES = [
       en: "Golden muga silk, jaapi hats and terracotta of the looms.",
       as: "সোণীয় মুগা ৰেশম, জাপী টুপী আৰু মাটিৰ শিল্প।",
     },
-    image: W("Manchester of Assam- Sualkuchi.jpg", 1000),
+    image: CULTURE_IMG.sualkuchiHandloom,
     href: "#/handicrafts",
   },
   {
@@ -132,7 +141,7 @@ export const EXPERIENCES = [
       en: "The three Bihus and the rites of the Brahmaputra year.",
       as: "তিনিটা বিহু আৰু ব্ৰহ্মপুত্ৰ বৰ্ষৰ আচাৰ।",
     },
-    image: W("Bihu Dance , Festival of India.jpg", 1000),
+    image: CULTURE_IMG.bihuDance,
     href: "#/culture/festivals",
   },
   {
@@ -147,63 +156,14 @@ export const EXPERIENCES = [
     image: W("Barail Range in Dima Hasao district.jpg", 1000),
     href: "#/culture/experiences/adventure",
   },
-  {
-    id: "yoga",
-    icon: "🧘",
-    name: { en: "Yoga & Wellness", as: "যোগ আৰু সুস্থতা" },
-    kind: { en: "Sattra calm", as: "সাত্ৰৰ শান্তি" },
-    blurb: {
-      en: "Meditative stillness of the naamghars and river islands.",
-      as: "নামঘৰ আৰু নদীয় দ্বীপৰ ধ্যানময় শান্তি।",
-    },
-    image: W("Doriya River of Majuli.jpg", 1000),
-    href: "#/culture/experiences/yoga",
-  },
 ];
 
-/* ── Spiritual destinations ──────────────────────────────────────────── */
-export const SPIRITUAL = [
-  {
-    name: { en: "Kamakhya Temple", as: "কামাখ্যা মন্দিৰ" },
-    place: { en: "Guwahati · Nilachal Hill", as: "গুৱাহাটী · নীলাচল পাহাৰ" },
-    kind: { en: "Shakti Pitha", as: "শক্তি পীঠ" },
-    about: {
-      en: "Among the oldest of the 51 Shakti pithas, Kamakhya atop Nilachal Hill is the heart of Tantric Shakti worship, drawing pilgrims through the Ambubachi Mela each June.",
-      as: "৫১টাও শক্তি পীঠৰ মাজত আটাইতকৈ পুৰণি, নীলাচল পাহাৰৰ কামাখ্যা তান্ত্ৰিক শক্তি-পূজাৰ হৃদয় — প্ৰতি জুনই আম্বুবাচী মেলাত যজমানে আকৰ্ষিত হয়।",
-    },
-    image: W("Kamakhya Temple - DEV 8829.jpg", 900),
-  },
-  {
-    name: { en: "Umananda Island", as: "উমানন্দা দ্বীপ" },
-    place: { en: "Guwahati · Brahmaputra", as: "গুৱাহাটী · ব্ৰহ্মপুত্ৰ" },
-    kind: { en: "Shiva shrine", as: "শিৱ মন্দিৰ" },
-    about: {
-      en: "The world's smallest inhabited river island, reached by ferry, holds a Shiva temple built by the Ahom king Gadadhar Singha in 1694, and is home to the rare golden langur.",
-      as: "বোটে গৈ পোৱা জগতৰ আটাইতকৈ সৰু জনবসতি নদীয় দ্বীপত আহোম ৰাজা গদাধৰ সিংহে ১৬৯৪ চনত শিৱ মন্দিৰ বাসালে আৰু এই ঠাইত দুৰ্লভ সোণালি হানুহ পোৱা যায়।",
-    },
-    image: W("Umananda Island temple.JPG", 900),
-  },
-  {
-    name: { en: "Hayagriva Madhava, Hajo", as: "হয়গ্ৰীৱ মাধৱ, হাজো" },
-    place: { en: "Hajo · Kamrup", as: "হাজো · কামৰূপ" },
-    kind: { en: "Where faiths meet", as: "ধৰ্ম মিলা স্থান" },
-    about: {
-      en: "On one hill at Hajo, a Vishnu temple, a Muslim shrine of Pir Giyasuddin Auliya and a Buddhist stupa stand together — a living symbol of Assam's shared sanctity.",
-      as: "হাজোৰ একেটা পাহাৰত বিষ্ণু মন্দিৰ, মুছলমান সূফি পীৰ গিয়াসুদ্দীন আউলিয়াৰ মজাৰ আৰু বৌদ্ধ স্তুপা একেলগে থিয় হয় — অসমৰ যুক্ত বিশ্বাসৰ জীৱন্ত প্ৰতীক।",
-    },
-    image: W("Hayagriva Madhava Temple, Hajo.jpg", 900),
-  },
-  {
-    name: { en: "The Sattras of Majuli", as: "মাজুলীৰ সাত্ৰ" },
-    place: { en: "Majuli · Upper Assam", as: "মাজুলী · উপৰ অসম" },
-    kind: { en: "Vaishnavite estates", as: "বৈষ্ণৱ পীঠ" },
-    about: {
-      en: "Majuli's monastic sattras — Auniati, Dakhinpat, Samaguri — are the living homes of Sattriya dance, mask-making and the Borgeet tradition founded by Srimanta Sankardev.",
-      as: "মাজুলীৰ আউনিয়াটি, দক্ষিণপাট, সমাগুৰি সাত্ৰ সাত্ৰীয় নৃত্য, মুখৌটা শিল্প আৰু স্ৰীমন্ত শঙ্কৰদেৱে স্থাপিত বৰগীত পৰম্পৰাৰ জীৱন্ত ঘৰ।",
-    },
-    image: W("Doriya River of Majuli.jpg", 900),
-  },
-];
+/* ── Spiritual destinations ─────────────────────────────────────────────── */
+/* Re-exported from the verified catalogue in `spiritualDestinations.js` so
+   this file keeps exporting the same `SPIRITUAL` shape (`name`, `place`,
+   `kind`, `about`, `image`) every existing consumer expects, while the page
+   itself gains district, tradition, alt-text and provenance metadata. */
+export { SPIRITUAL_DESTINATIONS as SPIRITUAL } from "./spiritualDestinations";
 
 /* ── Cuisine (Food & Cuisine experience) ─────────────────────────────── */
 export const CUISINE = {
@@ -219,7 +179,7 @@ export const CUISINE = {
         en: "Raw papaya and pulses cooked with filtered plantain-ash water — the signature first course of every Assamese meal.",
         as: "কাঁচা ওঁবাৰ আৰু ডাল চুটি কৰা কলপাতীৰ ছাঁৰ পানী মিহি কৰি — প্ৰতিটো অসমীয়া খাদ্যৰ প্ৰথম পথ।",
       },
-      image: W("Assamese food thali.jpg", 700),
+      image: CULTURE_IMG.assameseThali,
     },
     {
       name: { en: "Masor Tenga", as: "মাছৰ টেঙা" },
@@ -228,7 +188,8 @@ export const CUISINE = {
         en: "Rohu or catfish in a light, tangy broth of ou tenga (elephant apple) or tomato.",
         as: "ঔ টেঙা (কাঠ এলেং) বা বিলাহীৰ হালকা টক ঝোলত ৰুহী মাছ।",
       },
-      image: W("Masor Tenga Assam.jpg", 700),
+      // No verified reusable Masor Tenga photo found — honest text card.
+      image: null,
     },
     {
       name: { en: "Kharoli", as: "খাৰলি" },
@@ -237,7 +198,8 @@ export const CUISINE = {
         en: "Toasted mustard flour whipped with khar water into a smoky, pungent dip for rice.",
         as: "ভাজা সৰিয়হৰ পিঠা খাৰৰ পানীৰ সৈতে মিহি কৰি তৈয়াৰি ধোঁৱাৰ টক চাটনী।",
       },
-      image: W("Kharoli.jpg", 700),
+      // No verified reusable Kharoli photo found — honest text card.
+      image: null,
     },
     {
       name: { en: "Duck with Bamboo Shoot", as: "বাঁহৰ কঁৰাৰ হাঁহ" },
@@ -246,7 +208,9 @@ export const CUISINE = {
         en: "Slow-cooked duck with tender bamboo shoot and ash gourd — an Ahom kitchen heirloom.",
         as: "বাঁহৰ কঁৰা আৰু কুমুড়াৰ সৈতে লাহে লাহে ৰন্ধা হাঁহ — আহোম ৰান্ধিঘৰৰ ঐতিহ্য।",
       },
-      image: W("Assamese Thali (Jorhat).JPG", 700),
+      // No verified dish-specific photo — reuse the verified thali rather
+      // than attach an unrelated food image.
+      image: CULTURE_IMG.assameseThali,
     },
     {
       name: { en: "Pitha", as: "পিঠা" },
@@ -255,7 +219,7 @@ export const CUISINE = {
         en: "Til (sesame), narikol (coconut) and ghila pitha — the sweets of Magh Bihu and every welcome.",
         as: "তিল, নাৰিকল আৰু ঘিলা পিঠা — মাঘ বিহু আৰু প্ৰতিটো সদৰখুৰাৰ মিঠাই।",
       },
-      image: W("Til Pitha.jpg", 700),
+      image: CULTURE_IMG.assamesePitha,
     },
     {
       name: { en: "Assam Tea", as: "অসম চাহ" },
@@ -264,7 +228,8 @@ export const CUISINE = {
         en: "Strong, malty and golden — from the Brahmaputra's floodplains that grow over half of India's tea.",
         as: "বলীয়, মল্টী আৰু সোণীয় — ব্ৰহ্মপুত্ৰৰ লাহেটা ভূমিৰ পৰা, য'ত ভাৰতৰ আধিৰো অধিক চাহ জন্মে।",
       },
-      image: W("Cup of Assam tea.jpg", 700),
+      // No verified reusable tea-cup photo found — honest text card.
+      image: null,
     },
   ],
 };

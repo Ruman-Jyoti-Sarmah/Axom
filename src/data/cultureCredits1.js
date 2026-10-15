@@ -1,0 +1,14 @@
+/** Credits part 1: heritage, festivals, crafts, performance. */
+export const PART1 = [
+  { file: "rang-ghar.jpg", author: "Aateesh Bangia", source: "https://commons.wikimedia.org/wiki/File:The_Rang_Ghar_of_Assam.jpg", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/" },
+  { file: "talatal-ghar.jpg", author: "Joli Rumi", source: "https://commons.wikimedia.org/wiki/File:Talatal_Ghar_in_Sivasagar,_Assam.jpg", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/" },
+  { file: "bihu-dance.jpg", author: "BhuyanBhaskar", source: "https://commons.wikimedia.org/wiki/File:The_Bihu_dance_in_Assam.jpg", license: "CC0 1.0", licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/" },
+  { file: "ali-aye-ligang.jpg", author: "Deni789", source: "https://commons.wikimedia.org/wiki/File:Women_dancing_on_Ali_Ay%C3%A9_L%C3%ADgang.jpg", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/" },
+  { file: "ambubachi-mela.jpg", author: "Vikramjit Kakati", source: "https://commons.wikimedia.org/wiki/File:Ambubachi_Mela_at_Kamakhya_Temple_by_Vikramjit_Kakati.jpg", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/" },
+  { file: "sualkuchi-handloom.jpg", author: "JyotiPN", source: "https://commons.wikimedia.org/wiki/File:Handloom_industry_of_Sualkuchi,_Assam.jpg", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/" },
+  { file: "gamosa-assam.jpg", author: "Salil Kumar Mukherjee", source: "https://commons.wikimedia.org/wiki/File:Gamosa_of_Assam.jpg", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/" },
+  { file: "cane-bamboo-crafts.jpg", author: "Ishanjyotibora", source: "https://commons.wikimedia.org/wiki/File:Cane_and_Bamboo_handicrafts_of_Assam.jpg", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/" },
+  { file: "majuli-mask-making.jpg", author: "Nskjnv", source: "https://commons.wikimedia.org/wiki/File:Majuli_mask_making_culture.jpg", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/" },
+  { file: "samaguri-masks.jpg", author: "BhuyanBhaskar", source: "https://commons.wikimedia.org/wiki/File:Mask_Culture_of_Assam,_Majuli,_Samoguri_Satra.jpg", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/" },
+  { file: "sattriya-dance.jpg", author: "Sattriya.nritya", source: "https://commons.wikimedia.org/wiki/File:Sattriya_Dance.jpg", license: "CC0 1.0", licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/" },
+];

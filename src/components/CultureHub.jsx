@@ -3,6 +3,7 @@ import {
   ArrowRight,
   ChevronLeft,
   ChevronRight,
+  Landmark,
   MapPin,
   Play,
   Users,
@@ -14,16 +15,25 @@ import { useApp } from "../store/AppContext";
 import { CULTURE_HERO, HERO_SLIDES, SPIRITUAL } from "../data/cultureSections";
 import { assamArtists } from "../data/content";
 import SectionSwitcher from "./SectionSwitcher";
-import ExperiencesHub from "./ExperiencesHub";
+import ScrollHint from "./ScrollHint";
+import CultureHomeSections from "./CultureHomeSections";
+import RiversHome from "./RiversHome";
+import { Cuisine, Explore } from "./CultureHomeMore";
 
 /**
  * CultureHub — CULTURE section ka home (jaise hai waisa hi rahega).
  * NOTE: districts yahan NAHI — districts sirf TRAVEL part me hain.
  *   1) full-bleed video hero with overlay headline + stats
  *   2) editorial lede
- *   3) "Experiences" category grid
- *   4) "Spiritual destinations" highlight strip
- *   5) "People & Culture" (artists) + a nudge into the Travel section
+ *   3) editorial heritage / festival / craft / performance sections
+ *   4) Cuisine band
+ *   5) "Spiritual destinations" highlight strip
+ *   6) "People & Culture" (artists) + Explore tiles
+ *   7) a nudge into the Travel section
+ *
+ * The "Experiences" category grid is intentionally NOT rendered here (it
+ * duplicated the dedicated experience pages). ExperiencesHub itself is
+ * untouched and still powers the legacy HomeFacts shell.
  */
 export default function CultureHub() {
   const { t, pick } = useApp();
@@ -40,14 +50,29 @@ export default function CultureHub() {
         <p className="chub__lede-text">{t("culture_hub_lede")}</p>
       </section>
 
-      {/* ── 3. Experiences grid ─────────────────────────────────────── */}
-      <ExperiencesHub />
+      {/* ── 3. New editorial sections (below preserved hero + lede) ── */}
+      <CultureHomeSections />
+      <RiversHome />
 
-      {/* ── 4. Spiritual destinations ───────────────────────────────── */}
+      {/* ── 4. Cuisine band ─────────────────────────────────────────── */}
+      {/* The "Experiences" category grid deliberately does NOT appear on
+          the Culture home any more: it duplicated the dedicated experience
+          pages (Heritage, Spiritual, Cuisine…) that each have their own
+          route. The editorial sections above and the Cuisine / Spiritual /
+          People / Explore sections below now sit directly against each
+          other, so there is no gap where it used to be.
+          NOTE: ExperiencesHub is still used by the legacy HomeFacts shell —
+          the component and its routes are untouched. */}
+      <Cuisine />
+
+      {/* ── 5. Spiritual destinations ───────────────────────────────── */}
       <Spiritual />
 
       {/* ── 6. People & Culture (artists) ───────────────────────────── */}
       <People />
+
+      {/* ── 7. Explore tiles + restrained CTA (end of culture home) ─── */}
+      <Explore />
 
       {/* ── Nudge into the Travel section ───────────────────────────── */}
       <TravelNudge />
@@ -237,36 +262,178 @@ function HeroCarousel() {
   );
 }
 
-/* ── Spiritual destinations highlight strip ────────────────────────── */
+/* ── Spiritual destinations — cinematic horizontal photo rail ─────────── */
 function Spiritual() {
   const { t, pick } = useApp();
+  const trackRef = useRef(null);
+  const [canPrev, setCanPrev] = useState(true);
+  const [canNext, setCanNext] = useState(true);
+
+  const reducedMotion = useCallback(
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches,
+    []
+  );
+
+  // track scroll position -> enable/disable end-cap controls
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    const refresh = () => {
+      setCanPrev(el.scrollLeft > 2);
+      setCanNext(el.scrollLeft < el.scrollWidth - el.clientWidth - 2);
+    };
+    refresh();
+    window.addEventListener("resize", refresh);
+    el.addEventListener("scroll", refresh, { passive: true });
+    return () => {
+      window.removeEventListener("resize", refresh);
+      el.removeEventListener("scroll", refresh);
+    };
+  }, []);
+
+  // smooth horizontal pan (flat when reduced motion is preferred)
+  const go = useCallback(
+    (dir) => {
+      const el = trackRef.current;
+      if (!el) return;
+      const unit = el.querySelector(".sp-card");
+      const gap = parseFloat(getComputedStyle(el).gap) || 16;
+      const step = (unit?.offsetWidth ?? el.clientWidth) + gap;
+      el.scrollBy({ left: dir * step, behavior: reducedMotion() ? "auto" : "smooth" });
+    },
+    [reducedMotion],
+  );
+
+  //drag-to-scroll for mice (mirrors the project's side-slide-rail pattern)
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    let down = false;
+    let startX = 0;
+    let startL = 0;
+    let moved = false;
+    const onDown = (e) => {
+      if (e.button !== 0) return;
+      down = true;
+      moved = false;
+      startX = e.pageX;
+      startL = el.scrollLeft;
+    };
+    const onMove = (e) => {
+      if (!down) return;
+      const dx = e.pageX - startX;
+      if (Math.abs(dx) > 6) {
+        moved = true;
+        el.scrollLeft = startL - dx;
+      }
+    };
+    const onUp = () => {
+      down = false;
+    };
+    const onCapture = (e) => {
+      if (moved) {
+        e.preventDefault();
+        e.stopPropagation();
+        moved = false;
+      }
+    };
+    el.addEventListener("mousedown", onDown);
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mouseup", onUp);
+    el.addEventListener("click", onCapture, true);
+    return () => {
+      el.removeEventListener("mousedown", onDown);
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseup", onUp);
+      el.removeEventListener("click", onCapture, true);
+    };
+  }, []);
+
   return (
     <section className="chub__spiritual" data-reveal>
       <div className="chub__head">
         <span className="chub__sec-kicker">
-          <Users size={14} aria-hidden="true" /> {t("culture_spiritual_title")}
+          <Landmark size={14} aria-hidden="true" />
+          {t("culture_spiritual_kicker")}
         </span>
         <h2 className="chub__sec-title">{t("culture_spiritual_title")}</h2>
+        <p className="chub__sec-sub">{t("culture_spiritual_sub")}</p>
       </div>
-      <div className="chub__spiritual-grid">
-        {SPIRITUAL.map((s) => (
-          <article key={s.name.en} className="sp-card" data-reveal>
-            <div className="sp-card__media">
+
+      <div className="chub__srail-wrap">
+        <div
+          ref={trackRef}
+          className="chub__srail-track"
+          role="region"
+          aria-label={t("culture_spiritual_rail")}
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === "ArrowLeft") {
+              e.preventDefault();
+              go(-1);
+            }
+            if (e.key === "ArrowRight") {
+              e.preventDefault();
+              go(1);
+            }
+          }}
+        >
+          {SPIRITUAL.map((s) => (
+            <a
+              key={s.id}
+              className="sp-card"
+              href={`#/district/${s.slug}`}
+              aria-label={`${pick(s.name)} — ${pick(s.place)} — ${t("culture_spiritual_card_explore")}`}
+            >
               <img
                 src={s.image}
-                alt={pick(s.name)}
+                alt={pick(s.alt)}
                 loading="lazy"
                 decoding="async"
               />
-            </div>
-            <div className="sp-card__body">
-              <span className="label sp-card__kind">{pick(s.kind)}</span>
-              <h3 className="sp-card__name">{pick(s.name)}</h3>
-              <span className="sp-card__place">{pick(s.place)}</span>
-              <p className="sp-card__about">{pick(s.about)}</p>
-            </div>
-          </article>
-        ))}
+              <span className="sp-card__shade" aria-hidden="true" />
+              <span className="sp-card__body">
+                <span className="sp-card__kind">{pick(s.kind)}</span>
+                <span className="sp-card__name">{pick(s.name)}</span>
+                <span className="sp-card__place">{pick(s.place)}</span>
+              </span>
+              <span className="sp-card__go" aria-hidden="true">
+                <ArrowRight size={12} aria-hidden="true" />
+                {t("culture_spiritual_go")}
+              </span>
+            </a>
+          ))}
+        </div>
+
+        <div className="chub__ctrl-row">
+          <button
+            type="button"
+            className="chub__ctrl chub__ctrl--prev"
+            aria-label={t("culture_spiritual_prev")}
+            disabled={!canPrev}
+            onClick={() => go(-1)}
+          >
+            <ChevronLeft size={18} aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            className="chub__ctrl chub__ctrl--next"
+            aria-label={t("culture_spiritual_next")}
+            disabled={!canNext}
+            onClick={() => go(1)}
+          >
+            <ChevronRight size={18} aria-hidden="true" />
+          </button>
+        </div>
+
+        <div className="chub__rail-cta-row">
+          <a className="chub__cta" href="#/culture/experiences/spiritual">
+            {t("culture_spiritual_cta")}
+            <ArrowRight size={16} className="arrow" aria-hidden="true" />
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -276,6 +443,7 @@ function Spiritual() {
 function People() {
   const { t, pick } = useApp();
   const featured = assamArtists.slice(0, 6);
+  const railRef = useRef(null);
   return (
     <section className="chub__people" data-reveal>
       <div className="chub__head">
@@ -284,7 +452,7 @@ function People() {
         </span>
         <h2 className="chub__sec-title">{t("culture_people_sub")}</h2>
       </div>
-      <div className="chub__people-grid">
+      <div className="chub__people-grid" ref={railRef}>
         {featured.map((a) => (
           <a key={a.name} className="ppl-card" href="#/artists" data-reveal>
             <div className="ppl-card__media">
@@ -302,8 +470,9 @@ function People() {
           </a>
         ))}
       </div>
+      <ScrollHint targetRef={railRef} />
       <a className="chub__all-link" href="#/artists">
-        {t("menu_artists")} <ArrowRight size={15} aria-hidden="true" />
+        {t("culture_people_cta")} <ArrowRight size={15} className="arrow" aria-hidden="true" />
       </a>
     </section>
   );

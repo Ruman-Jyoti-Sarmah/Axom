@@ -41,6 +41,118 @@ export const CATEGORIES = [
 export const destId = (districtSlug, name) =>
   `${districtSlug}--${slugify(name)}`;
 
+/* ── Spiritual tradition taxonomy ───────────────────────────────────────── */
+/*
+ * A second, finer axis than `category`, used by the Travel home's
+ * "Choose Spiritual Traditions" filter. It exists because `category:
+ * "spiritual"` lumps every kind of sacred place together — a gurdwara, a
+ * namghar and a dargah are all "spiritual", but they are not
+ * interchangeable for a visitor looking for one particular tradition.
+ *
+ * Stable IDENTIFIERS are used, never free-text matching on names, districts
+ * or descriptions: a place is tagged through SPIRITUAL_TRADITION_TAGS below,
+ * which is keyed by destination id and asserted against the project's own
+ * verified attraction copy. Nothing here is inferred from a photograph or a
+ * district, and nothing is defaulted to "hindu".
+ *
+ * A place may carry SEVERAL tags when it genuinely belongs to several
+ * traditions — Hajo's hilltop shrine is Hindu, Buddhist and Muslim at once,
+ * and is recorded as all three.
+ *
+ * A place whose affiliation could not be verified is deliberately left
+ * untagged (empty array). An untagged destination never appears under a
+ * tradition filter, but still shows under "All traditions".
+ * availableSpiritualTraditions() hides any tradition with no match, so the
+ * UI can never present an empty or misleading category.
+ */
+export const SPIRITUAL_TRADITIONS = [
+  {
+    id: "hindu",
+    label: { en: "Hindu temples & pilgrimage", as: "হিন্দু মন্দিৰ আৰু তীৰ্থস্থান" },
+    short: { en: "Hindu", as: "হিন্দু" },
+  },
+  {
+    id: "islam",
+    label: { en: "Islamic heritage — mosques & dargahs", as: "ইছলামিক ঐতিহ্য — মছজিদ আৰু দৰ্গাহ" },
+    short: { en: "Islamic", as: "ইছলামিক" },
+  },
+  {
+    id: "sikh",
+    label: { en: "Sikh heritage — gurdwaras", as: "শিখ ঐতিহ্য — গুৰুদুৱাৰা" },
+    short: { en: "Sikh", as: "শিখ" },
+  },
+  {
+    id: "christian",
+    label: { en: "Christian heritage — churches", as: "খ্ৰীষ্টান ঐতিহ্য — গীৰ্জা" },
+    short: { en: "Christian", as: "খ্ৰীষ্টান" },
+  },
+  {
+    id: "buddhist",
+    label: { en: "Buddhist sites & monasteries", as: "বৌদ্ধ স্থান আৰু বিহাৰ" },
+    short: { en: "Buddhist", as: "বৌদ্ধ" },
+  },
+  {
+    id: "jain",
+    label: { en: "Jain religious sites", as: "জৈন ধৰ্মীয় স্থান" },
+    short: { en: "Jain", as: "জৈন" },
+  },
+  {
+    id: "vaishnavite",
+    label: { en: "Vaishnavite satras & namghars", as: "বৈষ্ণৱ সাত্ৰ আৰু নামঘৰ" },
+    short: { en: "Satras & Namghars", as: "সাত্ৰ আৰু নামঘৰ" },
+  },
+  {
+    id: "indigenous",
+    label: { en: "Indigenous & community sacred sites", as: "আদিবাসী আৰু সামাজিক পবিত্ৰ স্থান" },
+    short: { en: "Community", as: "সামাজিক" },
+  },
+];
+
+/** Valid tradition ids — the whitelist used to sanitise any selection. */
+const TRADITION_IDS = new Set(SPIRITUAL_TRADITIONS.map((t) => t.id));
+
+/**
+ * Tradition tags keyed by stable destination id.
+ *
+ * Every assignment below is supported by the destination's own verified
+ * `about` copy in districtDetails.js (and, where one exists, its curated
+ * note) — no affiliation is guessed. Multi-faith places carry every
+ * tradition they genuinely serve.
+ */
+const SPIRITUAL_TRADITION_TAGS = {
+  /* ── Hindu ───────────────────────────────────────────────────────────── */
+  [destId("kamrup-metropolitan", "Kamakhya Temple")]: ["hindu"],
+  [destId("dhubri", "Dhubri Devi Temple")]: ["hindu"],
+  [destId("nalbari", "Daul Mandir")]: ["hindu"],
+  [destId("south-salmara-mankachar", "Mankachar Kamakhya Shrine")]: ["hindu"],
+  [destId("biswanath", "Biswanath Ghat & Shiva Temple")]: ["hindu"],
+  [destId("sonitpur", "Mahabhairav Temple")]: ["hindu"],
+  [destId("bajali", "Tukraibleswar Than")]: ["hindu"],
+  [destId("sivasagar", "Joysagar")]: ["hindu"],
+
+  /* ── Assam's Vaishnavite tradition (satras & namghars) ───────────────── */
+  [destId("barpeta", "Barpeta Satra")]: ["vaishnavite"],
+  [destId("barpeta", "Bata Kamala Kshetra")]: ["vaishnavite"],
+  [destId("barpeta", "Barpeta Town")]: ["vaishnavite"],
+  [destId("bajali", "Baradiha Satra")]: ["vaishnavite"],
+  [destId("nalbari", "Ghosha Satras & Naamghars")]: ["vaishnavite"],
+  [destId("lakhimpur", "Basudeva Than")]: ["vaishnavite"],
+  [destId("majuli", "Auniati Satra")]: ["vaishnavite"],
+  [destId("majuli", "Kamalabari Satra")]: ["vaishnavite"],
+  [destId("nagaon", "Batadrava Than")]: ["vaishnavite"],
+
+  /* ── Islamic ─────────────────────────────────────────────────────────── */
+  [destId("kamrup", "Powa Makkah, Hajo")]: ["islam"],
+
+  /* ── Sikh ────────────────────────────────────────────────────────────── */
+  [destId("dhubri", "Sri Sri Gurdwara")]: ["sikh"],
+
+  /* ── Shared by several traditions ────────────────────────────────────── */
+  /* Hajo's hilltop shrine is revered by Hindus, Buddhists and Muslims
+     alike — the destination's own copy says so, so all three are recorded. */
+  [destId("kamrup", "Hayagriva Madhava Temple, Hajo")]: ["hindu", "buddhist", "islam"],
+};
+
 const WILDLIFE_BEST = "Nov – Apr (park open)";
 const DEFAULT_BEST = "Oct – Mar";
 
@@ -276,6 +388,10 @@ function buildDestinations() {
       const id = destId(slug, a.name);
       const curated = CURATED[id];
       const category = curated?.category || classify(a.kind);
+      // Tradition tags come only from the verified id-keyed table above.
+      // Every destination gets the field (so consumers never see `undefined`),
+      // but it is an empty array unless the place's affiliation is verified.
+      const spiritualTraditions = SPIRITUAL_TRADITION_TAGS[id] || [];
       out.push({
         id,
         name: a.name,
@@ -283,6 +399,7 @@ function buildDestinations() {
         districtName: district.name,
         division: district.division,
         category,
+        spiritualTraditions,
         summary: a.about,
         image: curated?.image || district.image,
         alt: curated?.alt || district.alt,
@@ -321,12 +438,98 @@ export function categoryLabel(id, lang = "en") {
   return c.label[lang] || c.label.en;
 }
 
-/** Simple search + filter over destinations (name, district, summary, category). */
-export function searchDestinations({ query = "", district = "all", category = "all" } = {}) {
+/**
+ * Normalise a tradition selection into a clean array of known ids.
+ * Accepts a single id, an array, or null/undefined. Unknown ids and duplicates
+ * are dropped, so a stale or malformed selection can never silently match
+ * everything (or nothing).
+ */
+export function normalizeTraditions(selection) {
+  if (!selection) return [];
+  const list = Array.isArray(selection) ? selection : [selection];
+  const out = [];
+  for (const id of list) {
+    if (TRADITION_IDS.has(id) && !out.includes(id)) out.push(id);
+  }
+  return out;
+}
+
+/** Long label for a tradition id (used for the option text). */
+export function spiritualTraditionLabel(id, lang = "en") {
+  const t = SPIRITUAL_TRADITIONS.find((x) => x.id === id);
+  if (!t) return id;
+  return t.label[lang] || t.label.en;
+}
+
+/** Compact label for a tradition id (used for the selected-state chips). */
+export function spiritualTraditionShort(id, lang = "en") {
+  const t = SPIRITUAL_TRADITIONS.find((x) => x.id === id);
+  if (!t) return id;
+  return t.short[lang] || t.short.en;
+}
+
+/** Does a destination match the given tradition selection? (OR across ids.) */
+function matchesTraditions(destination, traditions) {
+  const wanted = normalizeTraditions(traditions);
+  if (wanted.length === 0) return true; // no selection = no constraint
+  const tags = destination.spiritualTraditions || [];
+  return wanted.some((id) => tags.includes(id));
+}
+
+/**
+ * Traditions that actually have a matching destination, in taxonomy order,
+ * optionally scoped to the current district + query.
+ *
+ * This is what keeps the filter honest: a tradition only appears as an option
+ * if choosing it would return at least one real destination. Traditions with
+ * no verified place in Assam (Christian, Jain, Indigenous in the current
+ * catalogue) are never shown as an empty category.
+ */
+export function availableSpiritualTraditions({ district = "all", query = "" } = {}) {
   const q = query.trim().toLowerCase();
+  const scoped = DESTINATIONS.filter((d) => {
+    if (d.category !== "spiritual") return false;
+    if (district !== "all" && d.district !== district) return false;
+    if (!q) return true;
+    return (
+      d.name.toLowerCase().includes(q) ||
+      d.districtName.toLowerCase().includes(q) ||
+      d.summary.toLowerCase().includes(q)
+    );
+  });
+  return SPIRITUAL_TRADITIONS.filter((t) =>
+    scoped.some((d) => (d.spiritualTraditions || []).includes(t.id)),
+  );
+}
+
+/**
+ * Search + filter over destinations (name, district, summary, category) with
+ * an optional spiritual-tradition filter on top.
+ *
+ * The tradition filter is deliberately applied ONLY to destinations that
+ * carry tags. It never re-categorises a place, and it never applies outside
+ * the spiritual category — passing `category: "wildlife"` with a tradition
+ * selected returns nothing, because a tradition filter is meaningless for a
+ * national park.
+ *
+ * `traditions` is OR'd (any selected tradition matches) and composes with the
+ * existing search + district filters. Results keep their data order and every
+ * destination id is unique, so no duplicate cards can appear.
+ */
+export function searchDestinations({
+  query = "",
+  district = "all",
+  category = "all",
+  traditions = [],
+} = {}) {
+  const q = query.trim().toLowerCase();
+  const wanted = normalizeTraditions(traditions);
+  const traditionFilterActive = wanted.length > 0;
+
   return DESTINATIONS.filter((d) => {
     if (district !== "all" && d.district !== district) return false;
     if (category !== "all" && d.category !== category) return false;
+    if (traditionFilterActive && !matchesTraditions(d, wanted)) return false;
     if (!q) return true;
     return (
       d.name.toLowerCase().includes(q) ||

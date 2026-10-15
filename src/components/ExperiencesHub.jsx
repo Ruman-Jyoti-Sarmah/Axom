@@ -5,7 +5,6 @@ import {
   EXPERIENCES,
   SPIRITUAL,
   ADVENTURE,
-  WELLNESS,
   CUISINE,
 } from "../data/cultureSections";
 import {
@@ -15,7 +14,10 @@ import {
   ASSAM_HERITAGE,
 } from "../data/content";
 
-// Wikimedia Commons (Special:FilePath) — same pattern as the rest of the app.
+import CULTURE_IMG from "../data/cultureImages";
+
+// Wikimedia Commons (Special:FilePath) — only for legacy Travel/wildlife
+// images outside the Culture scope. Culture slots use CULTURE_IMG locals.
 const W = (file, width = 900) =>
   `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=${width}`;
 
@@ -47,12 +49,12 @@ const WILDLIFE = [
 /* Representative Commons images for the heritage detail set (reused filenames
    already present elsewhere in the app so they resolve reliably). */
 const HERITAGE_IMG = {
-  "The Ahom kingdom": W("Rang Ghar 1.jpg"),
-  "Srimanta Sankardev": W("Sankaradeva.jpg"),
-  "The sattras of Majuli": W("Doriya River of Majuli.jpg"),
-  "Kamakhya Devi": W("Kamakhya Temple - DEV 8829.jpg"),
-  Sivasagar: W("Shiva Dol.jpg"),
-  "Hajo & Sualkuchi": W("Manchester of Assam- Sualkuchi.jpg"),
+  "The Ahom kingdom": CULTURE_IMG.talatalGhar,
+  "Srimanta Sankardev": CULTURE_IMG.bordowaThan,
+  "The sattras of Majuli": CULTURE_IMG.auniatiSatra,
+  "Kamakhya Devi": CULTURE_IMG.kamakhyaTemple,
+  Sivasagar: CULTURE_IMG.shivaDol,
+  "Hajo & Sualkuchi": CULTURE_IMG.hayagrivaMadhava,
 };
 
 const CARD_ARROW = (
@@ -120,8 +122,8 @@ export default function Experiences() {
         about: a.bio,
       })),
       cuisine: CUISINE.dishes.map((d) => ({
-        image: d.image,
-        fallbackImage: "/img/assamese-thali.webp",
+        ...(d.image ? { image: d.image } : {}),
+        fallbackImage: CULTURE_IMG.assameseThali,
         name: pick(d.name),
         sub: pick(d.kind),
         about: pick(d.about),
@@ -149,12 +151,6 @@ export default function Experiences() {
         name: pick(a.name),
         sub: pick(a.place),
         about: pick(a.about),
-      })),
-      yoga: WELLNESS.map((w) => ({
-        image: w.image,
-        name: pick(w.name),
-        sub: pick(w.place),
-        about: pick(w.about),
       })),
     };
   }, [pick]);
@@ -201,9 +197,6 @@ export default function Experiences() {
               height="520"
             />
             <span className="hexp__cat-veil" aria-hidden="true" />
-            <span className="hexp__cat-icon" aria-hidden="true">
-              {c.icon}
-            </span>
             <span className="hexp__cat-name">{pick(c.name)}</span>
           </button>
         ))}

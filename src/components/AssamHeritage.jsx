@@ -1,16 +1,24 @@
 import { useApp } from "../store/AppContext";
 import { ASSAM_HERITAGE } from "../data/content";
+import CULTURE_IMG from "../data/cultureImages";
 
-const W = (file, width = 1400) =>
-  `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=${width}`;
+const IMAGES = [
+  CULTURE_IMG.rangGhar,
+  CULTURE_IMG.talatalGhar,
+  CULTURE_IMG.majuliRiver,
+  CULTURE_IMG.kamakhyaTemple,
+  CULTURE_IMG.shivaDol,
+  CULTURE_IMG.sualkuchiHandloom,
+];
 
-/** Assam Heritage & Kings — Ahom dynasty, Sankardev, Satras, Kamakhya. */
+/** Assam Heritage — feature + ledger rows, distinct from other pages. Routes unchanged. */
 export function AssamHeritage() {
   const { t, pick } = useApp();
+  const [first, ...rest] = ASSAM_HERITAGE;
   return (
     <section className="page" id="top">
       <div className="page__hero">
-        <img src={W("Rang Ghar 1.jpg", 1400)} alt="" />
+        <img src={CULTURE_IMG.rangGhar} alt="" />
         <div className="page__veil"></div>
         <div className="page__hero-content">
           <span className="label">{t("page_heritage")}</span>
@@ -18,16 +26,31 @@ export function AssamHeritage() {
           <p className="page__tagline">{t("page_heritage_intro")}</p>
         </div>
       </div>
-      <div className="page__body">
-        <div className="page__heritage">
-          <h2 className="page__headline">{t("heritage_headline")}</h2>
-          <div className="page__culture-grid">
-            {ASSAM_HERITAGE.map((h) => (
-              <div key={h.name} className="page__culture-card">
-                <span className="page__culture-name">{pick(h.name)}</span>
-                <span className="page__culture-kind">{pick(h.kind)}</span>
-                <p className="page__culture-about">{pick(h.about)}</p>
-              </div>
+      <div className="page__body page__body--wide">
+        <div className="herit2">
+          <h2 className="page__headline" data-reveal>{t("heritage_headline")}</h2>
+          <article className="herit2__feature" data-reveal>
+            <div className="herit2__feature-media">
+              <img src={IMAGES[0]} alt={pick(first.name)} loading="lazy" decoding="async" />
+            </div>
+            <div className="herit2__feature-body">
+              <span className="page__culture-kind">{pick(first.kind)}</span>
+              <h3>{pick(first.name)}</h3>
+              <p>{pick(first.about)}</p>
+            </div>
+          </article>
+          <div className="herit2__ledger">
+            {rest.map((h, idx) => (
+              <article key={h.name} className="herit2__row" data-reveal>
+                <div className="herit2__thumb">
+                  <img src={IMAGES[idx + 1]} alt={pick(h.name)} loading="lazy" decoding="async" />
+                </div>
+                <div>
+                  <span className="page__culture-kind">{pick(h.kind)}</span>
+                  <h3>{pick(h.name)}</h3>
+                  <p>{pick(h.about)}</p>
+                </div>
+              </article>
             ))}
           </div>
         </div>

@@ -5,10 +5,12 @@ import {
 } from "../data/cultureSections";
 
 /**
- * CultureExperience — a detail page for the culture-only experiences that
+ * CultureExperience — detail pages for culture-only experiences that
  * don't already have a full page: spiritual, cuisine, adventure, yoga.
- * Each is an editorial hero + an intro + a card list, matching the tone of
- * the rest of the portal. Unknown ids fall back to the Spiritual page.
+ * Editorial hero + lead + VARIED layouts per kind (no repeated grids):
+ *  spiritual = ledger rows · cuisine = numbered band ·
+ *  adventure = photo essay · yoga = calm centred list.
+ * Unknown ids fall back to Spiritual. Routes unchanged.
  */
 export default function CultureExperience({ kind = "spiritual" }) {
   const { t, pick } = useApp();
@@ -60,7 +62,6 @@ export default function CultureExperience({ kind = "spiritual" }) {
         <div className="cexp__veil" aria-hidden="true" />
         <div className="cexp__hero-content">
           <a className="label cexp__back" href="#/culture">{t("culture_back_hub")}</a>
-          <span className="cexp__icon" aria-hidden="true">{meta.icon}</span>
           <h1 className="cexp__title">{view.title}</h1>
           <p className="cexp__tagline">{pick(meta.kind)}</p>
         </div>
@@ -68,20 +69,70 @@ export default function CultureExperience({ kind = "spiritual" }) {
 
       <div className="cexp__body">
         <p className="cexp__lead">{view.lead}</p>
-        <div className="cexp__grid">
-          {view.items.map((it) => (
-            <article className="cexp__card" key={pick(it.name)} data-reveal>
-              <div className="cexp__card-media">
+        {kind === "spiritual" ? (
+          <div className="cexp__ledger">
+            {view.items.map((it, idx) => (
+              <article key={pick(it.name)} className="cexp__ledger-row" data-reveal>
+                <span className="cexp__ledger-num" aria-hidden="true">{String(idx + 1).padStart(2, "0")}</span>
+                <div className="cexp__ledger-media">
+                  <img src={it.image} alt={pick(it.name)} loading="lazy" decoding="async" />
+                </div>
+                <div className="cexp__ledger-body">
+                  <span className="label">{pick(it[view.fields.sub])}</span>
+                  <h3 className="cexp__card-name">{pick(it.name)}</h3>
+                  <p className="cexp__card-about">{pick(it.about)}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : kind === "cuisine" ? (
+          <div className="cexp__band2">
+            {view.items.map((it, idx) => (
+              <article className={`cexp__band2-row${idx % 2 ? " cexp__band2-row--flip" : ""}${it.image ? "" : " cexp__band2-row--text"}`} key={pick(it.name)} data-reveal>
+                {it.image ? (
+                <div className="cexp__band2-media">
+                  <img src={it.image} alt={pick(it.name)} loading="lazy" decoding="async"
+                    onError={it.fallbackImage ? (e) => { const im = e.currentTarget; if (!im.src.endsWith(it.fallbackImage)) im.src = it.fallbackImage; } : undefined} />
+                </div>
+                ) : null}
+                <div className="cexp__band2-body">
+                  <span className="cexp__band2-num" aria-hidden="true">0{idx + 1}</span>
+                  <span className="label">{pick(it[view.fields.sub])}</span>
+                  <h3 className="cexp__card-name">{pick(it.name)}</h3>
+                  <p className="cexp__card-about">{pick(it.about)}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : kind === "adventure" ? (
+          <div className="cexp__essay">
+            {view.items.map((it, idx) => (
+              <figure className={`cexp__essay-shot cexp__essay-shot--${idx % 3}`} key={pick(it.name)} data-reveal>
                 <img src={it.image} alt={pick(it.name)} loading="lazy" decoding="async" />
-              </div>
-              <div className="cexp__card-body">
-                <span className="label">{pick(it[view.fields.sub])}</span>
-                <h3 className="cexp__card-name">{pick(it.name)}</h3>
-                <p className="cexp__card-about">{pick(it.about)}</p>
-              </div>
-            </article>
-          ))}
-        </div>
+                <figcaption>
+                  <span className="label">{pick(it[view.fields.sub])}</span>
+                  <strong>{pick(it.name)}</strong>
+                  <span>{pick(it.about)}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        ) : (
+          <div className="cexp__calm">
+            {view.items.map((it) => (
+              <article className="cexp__calm-row" key={pick(it.name)} data-reveal>
+                <div className="cexp__calm-media">
+                  <img src={it.image} alt={pick(it.name)} loading="lazy" decoding="async" />
+                </div>
+                <div className="cexp__calm-body">
+                  <span className="label">{pick(it[view.fields.sub])}</span>
+                  <h3 className="cexp__card-name">{pick(it.name)}</h3>
+                  <p className="cexp__card-about">{pick(it.about)}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
         <div className="cexp__foot">
           <a className="btn btn--ghost" href="#/culture">
             <ArrowLeft size={15} aria-hidden="true" /> {t("culture_back_hub")}

@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://axom-assam.example/sitemap.xml

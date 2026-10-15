@@ -31,6 +31,7 @@ const ArtistsPage = lazy(() => import("./components/ArtistsPage").then((m) => ({
 const WildlifePage = lazy(() => import("./components/WildlifePage").then((m) => ({ default: m.WildlifePage })));
 const AssamFacts = lazy(() => import("./components/AssamFacts").then((m) => ({ default: m.AssamFacts })));
 const AssamCulture = lazy(() => import("./components/AssamCulture").then((m) => ({ default: m.AssamCulture })));
+const ImageCredits = lazy(() => import("./components/AssamCulture").then((m) => ({ default: m.ImageCredits })));
 const AssamHandicrafts = lazy(() => import("./components/AssamHandicrafts").then((m) => ({ default: m.AssamHandicrafts })));
 const AssamTravelGuide = lazy(() => import("./components/AssamTravelGuide").then((m) => ({ default: m.AssamTravelGuide })));
 const TripCart = lazy(() => import("./components/TripCart"));
@@ -39,6 +40,8 @@ const ItineraryView = lazy(() => import("./components/ItineraryView"));
 const TravelHome = lazy(() => import("./components/TravelHome"));
 const AssamHeritage = lazy(() => import("./components/AssamHeritage").then((m) => ({ default: m.AssamHeritage })));
 const StateSymbols = lazy(() => import("./components/StateSymbols").then((m) => ({ default: m.StateSymbols })));
+const RiversPage = lazy(() => import("./components/RiversPage").then((m) => ({ default: m.RiversPage })));
+const RiverDetail = lazy(() => import("./components/RiverDetail").then((m) => ({ default: m.RiverDetail })));
 
 /** #/district/kamrup -> "kamrup", anything else -> null */
 const slugFromHash = (hash) =>
@@ -85,6 +88,12 @@ function Shell() {
     hash === "#/culture" || hash === "#/culture/" || !hash || hash === "#" || hash === "#top" || hash === "#home" || hash === "#/";
   const onCultureExperience = hash?.startsWith("#/culture/experiences/") && cultureKind;
   const onCultureFestivals = hash === "#/culture/festivals";
+  const onCreditsPage = hash === "#/credits";
+  const onRiversPage = hash === "#/rivers" || hash === "#/rivers/";
+  // Matches both "#/river/<id>" and "#/rivers/<id>" — "#/rivers" alone (no slug) is the index.
+  const riverSlug = (hash || "").match(/^#\/rivers?\/([a-z0-9-]+)/)?.[1] || null;
+  const onRiverDetail = riverSlug !== null;
+  const riverTitle = onRiverDetail ? ({ brahmaputra: "riversBrahmaputra", barak: "riversBarak" }[riverSlug] ?? null) : null;
 
 
   // route changes: page title + native scroll (no animation engine)
@@ -107,6 +116,9 @@ function Shell() {
       symbols: t("title_symbols"),
       admin: t("title_admin"),
       home: t("title_home"),
+      rivers: t("title_rivers"),
+      riversBrahmaputra: t("title_rivers_brahmaputra"),
+      riversBarak: t("title_rivers_barak"),
       cultureHub: t("title_culture_hub"),
       cultureExperience: t("title_culture_experience"),
       cultureFestivals: t("title_culture"),
@@ -137,6 +149,8 @@ function Shell() {
       (onGuidePage ? T.guide : null) ||
       (onHeritagePage ? T.heritage : null) ||
       (onSymbolsPage ? T.symbols : null) ||
+      (onRiversPage ? T.rivers : null) ||
+      (onRiverDetail ? (riverTitle ? T[riverTitle] : null) : null) ||
       T.home;
 
     const timeoutId = setTimeout(() => {
@@ -200,6 +214,8 @@ function Shell() {
         <CultureExperience kind={cultureKind} key={`cexp-${cultureKind}`} />
       ) : onCultureFestivals ? (
         <AssamCulture key="culture-festivals" />
+      ) : onCreditsPage ? (
+        <ImageCredits key="credits" />
       ) : onTripItineraryPage ? (
         <ItineraryView key="itinerary" />
       ) : onTripPlanPage ? (
@@ -234,6 +250,10 @@ function Shell() {
         <AssamHeritage key="heritage" />
       ) : onSymbolsPage ? (
         <StateSymbols key="symbols" />
+      ) : onRiverDetail ? (
+        <RiverDetail key={riverSlug || "river-detail"} />
+      ) : onRiversPage ? (
+        <RiversPage key="rivers" />
       ) : (
         <CultureHub key="culture-default" />
       )}

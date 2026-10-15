@@ -1,13 +1,15 @@
 import { useMemo, useState, useRef, useEffect } from "react";
 import {
   ArrowRight, ArrowLeft, Compass, MapPin, CalendarDays, Check, Route, Leaf, Utensils,
-  Landmark, Camera, Ship, Search, Sparkles, AlertTriangle,
+  Landmark, Camera, Ship, Search, Sparkles, AlertTriangle, ChevronDown,
 } from "lucide-react";
 import { useApp } from "../store/AppContext";
 import { useTrip } from "../store/TripContext";
 import { DISTRICTS, slugify } from "../data/districts";
 import {
   FEATURED, CATEGORIES, districtsWithDestinations, searchDestinations, categoryLabel,
+  availableSpiritualTraditions, normalizeTraditions,
+  spiritualTraditionLabel, spiritualTraditionShort,
 } from "../data/destinations";
 import DestinationCard from "./DestinationCard";
 import SectionSwitcher from "./SectionSwitcher";
@@ -50,12 +52,17 @@ const todayISO = () => new Date().toISOString().slice(0, 10);
 const DIVISIONS = [...new Set(DISTRICTS.map((d) => d.division))];
 
 export default function TravelHome() {
-  const { t } = useApp();
+  const { t, lang } = useApp();
   const { addDestination, count, details, updateDetails } = useTrip();
 
   const [query, setQuery] = useState("");
   const [district, setDistrict] = useState("all");
   const [category, setCategory] = useState("all");
+  /* Selected spiritual traditions (ids). Only meaningful while the Spiritual
+     category is active — see setCategorySafe below. */
+  const [traditions, setTraditions] = useState([]);
+  // Tradition dropdown open/closed (a compact popover, not a row of chips).
+  const [tradOpen, setTradOpen] = useState(false);
   // Division chip selection for the districts rail ("all" = no filter).
   const [tdiv, setTdiv] = useState("all");
   // Prefill from the live trip details (preserves saved/prefilled dates).
@@ -73,10 +80,61 @@ export default function TravelHome() {
   }, []);
 
   const districts = useMemo(() => districtsWithDestinations(), []);
-  const results = useMemo(
-    () => searchDestinations({ query, district, category }),
-    [query, district, category]
+
+  /* The tradition filter only exists for the Spiritual category. Selecting
+     any other category clears it, so a tradition can never silently constrain
+     an unrelated result set. */
+  const spiritualActive = category === "spiritual";
+  const selectCategory = (next) => {
+    setCategory(next);
+    if (next !== "spiritual") {
+      setTraditions([]);
+      setTradOpen(false);
+    }
+  };
+
+  /* Traditions that genuinely have a match for the current district + query.
+     Traditions with no verified place are never offered as an option. */
+  const traditionOptions = useMemo(
+    () => (spiritualActive ? availableSpiritualTraditions({ district, query }) : []),
+    [spiritualActive, district, query]
   );
+
+  /* Drop any selected tradition that the current district/query can no longer
+     satisfy, so the selection can't strand the visitor on an empty result. */
+  const activeTraditions = useMemo(() => {
+    const valid = normalizeTraditions(traditions);
+    const offered = new Set(traditionOptions.map((o) => o.id));
+    return valid.filter((id) => offered.has(id));
+  }, [traditions, traditionOptions]);
+
+  const results = useMemo(
+    () => searchDestinations({ query, district, category, traditions: activeTraditions }),
+    [query, district, category, activeTraditions]
+  );
+
+  const toggleTradition = (id) =>
+    setTraditions((prev) =>
+      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+    );
+
+  const clearTraditions = () => setTraditions([]);
+
+  // Close the popover on Escape or an outside click (accessible by default).
+  const tradRef = useRef(null);
+  useEffect(() => {
+    if (!tradOpen) return undefined;
+    const onKey = (e) => { if (e.key === "Escape") setTradOpen(false); };
+    const onClick = (e) => {
+      if (tradRef.current && !tradRef.current.contains(e.target)) setTradOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onClick);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onClick);
+    };
+  }, [tradOpen]);
   // Districts shown in the rail — filtered by the selected division chip.
   const railDistricts = useMemo(
     () => (tdiv === "all" ? DISTRICTS : DISTRICTS.filter((d) => d.division === tdiv)),
@@ -444,17 +502,130 @@ export default function TravelHome() {
               <button
                 key={c.id} type="button"
                 className={`tfilters__cat ${category === c.id ? "is-active" : ""}`}
-                onClick={() => setCategory(c.id)}
+                onClick={() => selectCategory(c.id)}
                 aria-pressed={category === c.id}
               >
-                {categoryLabel(c.id)}
+                {categoryLabel(c.id, lang)}
               </button>
             ))}
           </div>
+
+          {/* Spiritual tradition filter — appears only for the Spiritual
+              category. A compact popover keeps the control to one row on
+              mobile instead of squeezing eight chips side by side. */}
+          {spiritualActive && (
+            <div className="tfilters__trad" ref={tradRef}>
+              <span className="tfilters__trad-label" id="tfilters-trad-label">
+                {t("travel_tradition_label")}
+              </span>
+              <div className="tfilters__trad-control">
+                <button
+                  type="button"
+                  className="tfilters__trad-btn"
+                  onClick={() => setTradOpen((o) => !o)}
+                  aria-expanded={tradOpen}
+                  aria-haspopup="true"
+                  aria-labelledby="tfilters-trad-label"
+                  aria-controls="tfilters-trad-menu"
+                >
+                  <span className="tfilters__trad-value">
+                    {activeTraditions.length === 0
+                      ? t("travel_tradition_all")
+                      : activeTraditions.length === 1
+                        ? spiritualTraditionShort(activeTraditions[0], lang)
+                        : activeTraditions.map((id) => spiritualTraditionShort(id, lang)).join(", ")}
+                  </span>
+                  <ChevronDown
+                    size={15}
+                    aria-hidden="true"
+                    className={`tfilters__trad-chev ${tradOpen ? "is-open" : ""}`}
+                  />
+                </button>
+
+                {tradOpen && (
+                  <div
+                    className="tfilters__trad-menu"
+                    id="tfilters-trad-menu"
+                    role="group"
+                    aria-label={t("travel_tradition_group")}
+                  >
+                    {traditionOptions.length === 0 ? (
+                      <p className="tfilters__trad-empty">
+                        {t("travel_tradition_none_available")}
+                      </p>
+                    ) : (
+                      <>
+                        {/* "All traditions" — the explicit way back. */}
+                        <button
+                          type="button"
+                          className={`tfilters__trad-opt ${activeTraditions.length === 0 ? "is-active" : ""}`}
+                          onClick={clearTraditions}
+                          aria-pressed={activeTraditions.length === 0}
+                        >
+                          <span className="tfilters__trad-box" aria-hidden="true">
+                            {activeTraditions.length === 0 && <Check size={12} />}
+                          </span>
+                          {t("travel_tradition_all")}
+                        </button>
+
+                        <div className="tfilters__trad-sep" role="presentation" />
+
+                        {traditionOptions.map((o) => {
+                          const on = activeTraditions.includes(o.id);
+                          return (
+                            <button
+                              key={o.id}
+                              type="button"
+                              className={`tfilters__trad-opt ${on ? "is-active" : ""}`}
+                              onClick={() => toggleTradition(o.id)}
+                              aria-pressed={on}
+                            >
+                              <span className="tfilters__trad-box" aria-hidden="true">
+                                {on && <Check size={12} />}
+                              </span>
+                              {spiritualTraditionLabel(o.id, lang)}
+                            </button>
+                          );
+                        })}
+
+                        {activeTraditions.length > 0 && (
+                          <>
+                            <div className="tfilters__trad-sep" role="presentation" />
+                            <button
+                              type="button"
+                              className="tfilters__trad-clear"
+                              onClick={clearTraditions}
+                            >
+                              {t("travel_tradition_clear")}
+                            </button>
+                          </>
+                        )}
+
+                        <p className="tfilters__trad-hint">{t("travel_tradition_hint")}</p>
+                      </>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              {/* Selected-state summary for screen readers and quick scanning. */}
+              {activeTraditions.length > 0 && (
+                <span className="tfilters__trad-count">
+                  {activeTraditions.length === 1
+                    ? t("travel_tradition_selected_one")
+                    : t("travel_tradition_selected", activeTraditions.length)}
+                </span>
+              )}
+            </div>
+          )}
         </div>
 
         {results.length === 0 ? (
-          <p className="tempty">{t("travel_no_match")}</p>
+          <p className="tempty">
+            {spiritualActive && activeTraditions.length > 0
+              ? t("travel_tradition_empty")
+              : t("travel_no_match")}
+          </p>
         ) : (
           <>
             <div
