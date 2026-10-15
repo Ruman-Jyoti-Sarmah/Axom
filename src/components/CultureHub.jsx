@@ -17,7 +17,6 @@ import { assamArtists } from "../data/content";
 import SectionSwitcher from "./SectionSwitcher";
 import ScrollHint from "./ScrollHint";
 import CultureHomeSections from "./CultureHomeSections";
-import RiversHome from "./RiversHome";
 import { Cuisine, Explore } from "./CultureHomeMore";
 
 /**
@@ -52,7 +51,6 @@ export default function CultureHub() {
 
       {/* ── 3. New editorial sections (below preserved hero + lede) ── */}
       <CultureHomeSections />
-      <RiversHome />
 
       {/* ── 4. Cuisine band ─────────────────────────────────────────── */}
       {/* The "Experiences" category grid deliberately does NOT appear on
