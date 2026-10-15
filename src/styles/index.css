@@ -6018,9 +6018,17 @@ main[data-section="travel"] .trail-card__body em {
   transition: color 0.2s var(--ease);
   white-space: nowrap;
 }
-.chead__strip-links a:hover {
+.chead__strip-link--home {
+  color: #f3c98a;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.chead__strip-link--home:hover {
   color: #fff;
 }
+.chead__strip-links a:hover { color: #fff; }
 /* main white bar */
 .chead__bar {
   display: flex;
@@ -6422,6 +6430,7 @@ main[data-section="travel"] .trail-card__body em {
   color: var(--accent);
   font-weight: 600;
   text-decoration: none;
+  flex-shrink: 0;
   transition: color 0.2s var(--ease);
 }
 .chead__mfoot-link:hover {

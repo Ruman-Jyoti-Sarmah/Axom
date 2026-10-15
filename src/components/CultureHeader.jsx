@@ -517,14 +517,14 @@ export default function CultureHeader({ section }) {
               </div>
             ))
           )}
-              <a
-                className="chead__mfoot-link"
-                href="#/culture"
-                onClick={(e) => go(e, "#/culture")}
-              >
-                {t("home")}
-              </a>
           <div className="chead__mfoot">
+            <a
+              className="chead__mfoot-link"
+              href="#/culture"
+              onClick={(e) => go(e, "#/culture")}
+            >
+              {t("home")}
+            </a>
             <SectionSwitcher section={section} />
             <a className="chead__mtrip" href="#/trip" onClick={(e) => { go(e, "#/trip"); setMobileOpen(false); }}>
               <MapPin size={15} aria-hidden="true" />
