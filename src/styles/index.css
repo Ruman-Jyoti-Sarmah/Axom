@@ -6438,7 +6438,7 @@ main[data-section="travel"] .trail-card__body em {
   text-decoration: underline;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 900px) {
   .chead__nav {
     display: none;
   }
@@ -6448,14 +6448,14 @@ main[data-section="travel"] .trail-card__body em {
   .chead__account {
     display: none;
   }
-  .chead__tools > .switch--compact {
-    display: none;
-  }
   .chead__strip-links {
-    display: none;
+    display: flex;
   }
-  .chead__burger {
+  .chead__strip-links .chead__strip-link--home {
     display: inline-flex;
+  }
+  .chead__strip-links a:not(.chead__strip-link--home) {
+    display: none;
   }
   .chead__mobile.is-open,
   .chead__mobile {
