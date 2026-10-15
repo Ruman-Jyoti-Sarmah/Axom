@@ -6418,6 +6418,16 @@ main[data-section="travel"] .trail-card__body em {
   margin-top: 1.4rem;
   flex-wrap: wrap;
 }
+.chead__mfoot-link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s var(--ease);
+}
+.chead__mfoot-link:hover {
+  color: var(--bronze);
+  text-decoration: underline;
+}
 
 @media (max-width: 1080px) {
   .chead__nav {
