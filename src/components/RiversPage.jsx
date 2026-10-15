@@ -8,10 +8,6 @@ import {
 } from "../data/rivers";
 import RiversAtlas from "./RiversAtlas";
 
-/** Wikimedia media-file source (same helper as the rest of the app). */
-const W = (file, width = 800) =>
-  `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=${width}`;
-
 const sideLabel = (s, lang = "en") =>
   s === "main" ? "Main river" : s === "north" ? "North-bank tributary" : s === "south" ? "South-bank tributary" : "Barak Valley tributary";
 
@@ -45,7 +41,7 @@ export default function RiversPage() {
   return (
     <div className="rivers" id="top">
       <div className="rivers__hero">
-        <img className="rivers__hero-bg" src={W("brahmaputra-guwahati.jpg")} alt="" aria-hidden="true" />
+        <img className="rivers__hero-bg" src="/images/rivers/brahmaputra-guwahati.jpg" alt="" aria-hidden="true" />
         <div className="rivers__veil" />
         <div className="rivers__hero-content">
           <p className="label">{t("rivers_hero_kicker")}</p>
@@ -83,7 +79,7 @@ export default function RiversPage() {
                 <div className="rivers__grid">
                   {g.rows.map((r) => (
                     <article className="rh-card" key={r.id}>
-                      <img className="rh-card-media" src={W(r.image)} alt={pick(r.alt, "en")} loading="lazy" />
+                      <img className="rh-card-media" src={r.image} alt={pick(r.alt, "en")} loading="lazy" />
                       <div className="rh-card-body">
                         <h3 className="rh-card-name">{pick(r.name, "en")}</h3>
                         {(r.aliases?.en?.[0] || r.aliases?.as?.[0]) ? <p className="rh-card-aliases">{pick(r.aliases.en[0] || r.aliases.as[0])}</p> : null}

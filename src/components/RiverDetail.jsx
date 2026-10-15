@@ -4,9 +4,6 @@ import { riverById, riverSystemLabel, riverSideLabel } from "../data/rivers";
 import { riverCreditFor } from "../data/riverImageCredits";
 import RiversAtlas from "./RiversAtlas";
 
-const W = (file, width = 800) =>
-  `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=${width}`;
-
 export default function RiverDetail({ id: defaultId }) {
   const { t, pick } = useApp();
   const [id, setId] = useState(defaultId || "");
@@ -36,7 +33,7 @@ export default function RiverDetail({ id: defaultId }) {
       <div className="rivers__hero">
         {river ? (
           <>
-            <img className="rivers__hero-bg" src={W(river.image)} alt="" aria-hidden="true" />
+            <img className="rivers__hero-bg" src={river.image} alt="" aria-hidden="true" />
             <div className="rivers__veil" />
           </>
         ) : null}

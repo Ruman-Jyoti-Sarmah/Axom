@@ -5,9 +5,6 @@ import { RIVERS, riverSystemLabel } from "../data/rivers";
 import { riverCreditFor } from "../data/riverImageCredits";
 import ScrollHint from "./ScrollHint";
 
-const W = (file, width = 800) =>
-  `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=${width}`;
-
 const sideLabel = (s, lang = "en") =>
   s === "main"
     ? "Main river"
@@ -46,7 +43,7 @@ export default function RiversHome() {
               className={`chome__tile chome__tile--r${idx}`}
               data-reveal
             >
-              <img src={W(r.image)} alt={pick(r.alt, "en")} loading="lazy" decoding="async" />
+              <img src={r.image} alt={pick(r.alt, "en")} loading="lazy" decoding="async" />
               <span className="chome__tile-veil" aria-hidden="true" />
               <span className="chome__tile-copy">
                 <span className="chome__tile-sub">{pick(riverSystemLabel(r.system, "en"))}</span>
