@@ -400,7 +400,7 @@ function Spiritual() {
               </span>
               <span className="sp-card__go" aria-hidden="true">
                 <ArrowRight size={12} aria-hidden="true" />
-                {t("culture_spiritual_go")}
+                {pick(s.place)}
               </span>
             </a>
           ))}
@@ -429,7 +429,7 @@ function Spiritual() {
 
         <div className="chub__rail-cta-row">
           <a className="chub__cta" href="#/culture/experiences/spiritual">
-            {t("culture_spiritual_cta")}
+            {t("culture_spiritual_title")}
             <ArrowRight size={16} className="arrow" aria-hidden="true" />
           </a>
         </div>
@@ -472,7 +472,7 @@ function People() {
       </div>
       <ScrollHint targetRef={railRef} />
       <a className="chub__all-link" href="#/artists">
-        {t("culture_people_cta")} <ArrowRight size={15} className="arrow" aria-hidden="true" />
+        {t("culture_people_title")} <ArrowRight size={15} className="arrow" aria-hidden="true" />
       </a>
     </section>
   );

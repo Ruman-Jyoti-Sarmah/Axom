@@ -7628,7 +7628,7 @@ main[data-section="travel"] .trail-card__body em {
   border-top: 1px solid var(--hairline);
 }
 .chome__row:first-child { border-top: 0; padding-top: 0; }
-.chome__row-media { overflow: hidden; aspect-ratio: 4 / 3; background: #e9e1cf; }
+.chome__row-media { overflow: hidden; aspect-ratio: 4 / 3; background: #e9e1cf; border-radius: 12px; }
 .chome__row-media img,
 .chome__strip-media img,
 .chome__split-media img,
@@ -7705,10 +7705,11 @@ main[data-section="travel"] .trail-card__body em {
   border: 1px solid var(--hairline);
   background: #fff;
   overflow: hidden;
+  border-radius: 12px;
   transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
 .chome__strip-card:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(60, 35, 20, 0.14); }
-.chome__strip-media { aspect-ratio: 3 / 4; overflow: hidden; background: #ece3cf; }
+.chome__strip-media { aspect-ratio: 3 / 4; overflow: hidden; background: #ece3cf; border-radius: 12px; }
 .chome__strip-media img { transition: transform 0.6s var(--ease); }
 .chome__strip-card:hover .chome__strip-media img { transform: scale(1.05); }
 .chome__strip-body { padding: 1.05rem 1.15rem 1.25rem; }
@@ -7720,8 +7721,8 @@ main[data-section="travel"] .trail-card__body em {
   gap: clamp(1.2rem, 2.5vw, 2.2rem);
   margin-top: 2rem;
 }
-.chome__split-card { border: 1px solid var(--hairline); background: #fff; overflow: hidden; }
-.chome__split-media { aspect-ratio: 16 / 10; overflow: hidden; background: #ece3cf; }
+.chome__split-card { border: 1px solid var(--hairline); background: #fff; overflow: hidden; border-radius: 12px; }
+.chome__split-media { aspect-ratio: 16 / 10; overflow: hidden; background: #ece3cf; border-radius: 12px; }
 .chome__split-media img { transition: transform 0.6s var(--ease); }
 .chome__split-card:hover .chome__split-media img { transform: scale(1.04); }
 .chome__split-body { padding: 1.4rem 1.5rem 1.6rem; }
@@ -7793,11 +7794,11 @@ main[data-section="travel"] .trail-card__body em {
   gap: 1.2rem; margin-top: 2rem;
 }
 .chome__band-card {
-  background: #fffdf8; border: 1px solid var(--hairline); overflow: hidden;
+  background: #fffdf8; border: 1px solid var(--hairline); overflow: hidden; border-radius: 12px;
   transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
 .chome__band-card:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(60, 35, 20, 0.13); }
-.chome__band-media { aspect-ratio: 4 / 3; overflow: hidden; background: #ece3cf; }
+.chome__band-media { aspect-ratio: 4 / 3; overflow: hidden; background: #ece3cf; border-radius: 12px; }
 .chome__band-media img { transition: transform 0.6s var(--ease); }
 .chome__band-card:hover .chome__band-media img { transform: scale(1.05); }
 .chome__band-body { padding: 1.2rem 1.3rem 1.35rem; }
@@ -7815,7 +7816,7 @@ main[data-section="travel"] .trail-card__body em {
   gap: 0.85rem;
   margin-top: 2rem;
 }
-.chome__tile { position: relative; overflow: hidden; display: block; color: #fff; background: #2c2318; }
+.chome__tile { position: relative; overflow: hidden; display: block; color: #fff; background: #2c2318; border-radius: 12px; }
 .chome__tile img { position: absolute; inset: 0; transition: transform 0.7s var(--ease); }
 .chome__tile:hover img { transform: scale(1.05); }
 .chome__tile:focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; }
@@ -7937,6 +7938,28 @@ main[data-section="travel"] .trail-card__body em {
   .chome__tile--3, .chome__tile--4, .chome__tile--5 { grid-column: span 1; }
   .chome__cta { flex-direction: column; align-items: stretch; }
   .chome__cta-actions .btn { flex: 1 1 auto; text-align: center; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; }
+/* Mobile side-sliding rail for rivers section */
+.chome--rivers .chome__mosaic {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+  padding-bottom: 1.2rem;
+}
+.chome--rivers .chome__mosaic::-webkit-scrollbar {
+  display: none;
+}
+.chome--rivers .chome__mosaic .chome__tile {
+  flex: 0 0 200px;
+  scroll-snap-align: start;
+  height: 200px;
+}
+.chome--rivers .chome__mosaic .chome__tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 }
 
 /* "Scroll to explore →" hint under every mobile-only Culture carousel.
