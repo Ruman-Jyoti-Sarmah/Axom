@@ -72,8 +72,8 @@ export default function RiversPage() {
           </div>
 
           <div className="rivers__cards">
-            {hasFilters ? <p className="rivers__result-count">{pick(t("rivers_results", { count: filtered.length }))}</p> : null}
-            {groups.length === 0 ? <p className="rivers__empty">{pick(t("rivers_empty"))}</p> : null}
+            {hasFilters ? <p className="rivers__result-count">{t("rivers_results", { count: filtered.length })}</p> : null}
+            {groups.length === 0 ? <p className="rivers__empty">{t("rivers_empty")}</p> : null}
             {groups.map((g) => (
               <div key={g.side} className="rivers__group">
                 <p className="rivers__group-title">{pick(sideLabel(g.side, "en"))}</p>
@@ -86,7 +86,7 @@ export default function RiversPage() {
                         {(r.aliases?.en?.[0] || r.aliases?.as?.[0]) ? <p className="rh-card-aliases">{pick(r.aliases.en[0] || r.aliases.as[0])}</p> : null}
                         <span className="rh-card-side">{pick(sideLabel(r.side, "en"))}</span>
                         <span className="rh-card-system">{pick(riverSystemLabel(r.system, "en"))}</span>
-                        <a className="rh-card-link" href={`#/river/${r.id}`}>{t("rivers_view")}: {pick(r.name, "en")} <ArrowRight size={14} aria-hidden="true" /></a>
+                        <a className="rh-card-link" href={`#/river/${r.id}`}>{t("rivers_view")} <ArrowRight size={14} aria-hidden="true" /> {pick(r.name)}</a>
                       </div>
                     </article>
                   ))}
