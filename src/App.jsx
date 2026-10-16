@@ -204,7 +204,7 @@ function Shell() {
       {/* One shared header for BOTH sections (Incredible-India style).
           Accents/buttons auto-flip to the section colour via --accent, so
           Travel keeps its blue buttons while sharing Culture's navbar. */}
-      <CultureHeader section={section} />
+      <CultureHeader section={section} isCultureHome={onCultureHub} />
       <Suspense fallback={<div className="route-loading" role="status" aria-label="Loading page">…</div>}>
       {onAdminPage ? (
         <Admin key="admin" />

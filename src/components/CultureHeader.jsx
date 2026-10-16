@@ -144,7 +144,7 @@ const COLUMNS = buildColumns();
  * a search field, a language dropdown and an account control. The section
  * switcher lives at the right so Culture ⟷ Travel is always one tap away.
  */
-export default function CultureHeader({ section }) {
+export default function CultureHeader({ section, isCultureHome = false }) {
   const { t, lang, toggleLang } = useApp();
   const { count: tripCount } = useTrip();
   const [scrolled, setScrolled] = useState(false);
@@ -243,13 +243,6 @@ export default function CultureHeader({ section }) {
                 {pick(u, lang)}
               </a>
             ))}
-            <a
-              className="chead__strip-link chead__strip-link--home"
-              href="#/culture"
-              onClick={(e) => go(e, "#/culture")}
-            >
-              {t("home")}
-            </a>
           </nav>
         </div>
       </div>
@@ -293,6 +286,16 @@ export default function CultureHeader({ section }) {
             </ul>
           ) : (
             <ul className="chead__menu">
+              <li className="chead__item">
+                <a
+                  className={`chead__link${isCultureHome ? " is-active" : ""}`}
+                  href="#/culture"
+                  onClick={(e) => go(e, "#/culture")}
+                  aria-current={isCultureHome ? "page" : undefined}
+                >
+                  {t("home")}
+                </a>
+              </li>
               {pillars.map((p) => {
                 const isOpen = openPillar === p.id;
                 return (
@@ -518,13 +521,6 @@ export default function CultureHeader({ section }) {
             ))
           )}
           <div className="chead__mfoot">
-            <a
-              className="chead__mfoot-link"
-              href="#/culture"
-              onClick={(e) => go(e, "#/culture")}
-            >
-              {t("home")}
-            </a>
             <SectionSwitcher section={section} />
             <a className="chead__mtrip" href="#/trip" onClick={(e) => { go(e, "#/trip"); setMobileOpen(false); }}>
               <MapPin size={15} aria-hidden="true" />
