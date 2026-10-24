@@ -1,0 +1,40 @@
+{
+  "HERO": {
+    "image": "/img/hero-brahmaputra.jpg",
+    "alt": {
+      "en": "Golden sunset over the mighty Brahmaputra river in Guwahati, Assam",
+      "as": "গুৱাহাটী, অসমৰ প্ৰবল ব্ৰহ্মপুত্ৰ নদীয়ে সোণৰাস্তাৰ ৰূপ"
+    },
+    "headline": [
+      { "en": "DISCOVER", "as": "চিনক" },
+      { "en": "ASSAM", "as": "অসম" }
+    ],
+    "support": {
+      "en": "Welcome to the official cultural gateway of Assam — explore 35 districts, living heritage, tea gardens and the mighty Brahmaputra.",
+      "as": "অসমৰ আনুষ্ঠানিক সাংস্কৃতিক সোমাইদুৱাৰলৈ স্বাগতম — ৩৫ জিলা, জীৱন্ত ঐতিহ্য, চাহ বাগান আৰু প্ৰবল ব্ৰহ্মপুত্ৰ অন্বেষণ কৰক।"
+    },
+    "cta": { "en": "Begin the Journey", "as": "যাত্ৰা আৰম্ভ কৰক" }
+  },
+  "INTRO": {
+    "label": { "en": "CHAPTER 01 — THE ARRIVAL · NOMOSKAR", "as": "অধ্যায় ০১ — আগমন · নমস্কাৰ" },
+    "lines": [
+      { "en": "WHERE ASSAM", "as": "য'ত অসম" },
+      { "en": "MEETS", "as": "মিলে" },
+      { "en": "TIMELESS SOUL", "as": "কালজয়ী আত্মা" }
+    ],
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Kamakhya%20Temple%2C%20Guwahati%2C%20Assam.jpg?width=1600",
+    "imageAlt": {
+      "en": "Kamakhya Temple atop Nilachal Hill — heart of Shakti worship in Assam",
+      "as": "নীলাচল পাহাৰৰ মূৰত কামাখ্যা মন্দিৰ — অসমৰ শক্তি-পূজাৰ হৃদয়"
+    },
+    "image2": "https://commons.wikimedia.org/wiki/Special:FilePath/Jaapi%20of%20Assam.jpg?width=1200",
+    "image2Alt": {
+      "en": "Colourful Jaapi — traditional conical hat of Assam, symbol of honour",
+      "as": "ৰঙাৰ জাপী — অসমৰ পৰম্পৰাগত শঙালী টুপী, সন্মানৰ প্ৰতীক"
+    },
+    "body": {
+      "en": "Every gamosa here is hand-woven with love. Every naam-ghosha still echoes from the sattras of Majuli. This is not a hotel. It is Axom — land of Bihu, tea, silk and the one-horned rhino.",
+      "as": "ইয়াত প্ৰতিজন গামোচা প্ৰেমেৰে হাতেৰে বোৱা। মাজুলীৰ সাত্ৰসমূহৰ পৰা এতিয়াও প্ৰতিটো নামঘোষা গুঞ্জুৰি আহে। এইটো হোটেল নহয়। এই অসম — বিহু, চাহ, ৰেশম আৰু একালো গঁড়ৰাগীৰ দেশ।"
+    }
+  }
+}

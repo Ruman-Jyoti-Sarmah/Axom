@@ -1,0 +1,100 @@
+{
+  "ASSAM_FOOD": [
+    {
+      "name": "Khar",
+      "sort": {
+        "en": "The soul of an Assamese meal",
+        "as": "অসমীয়া ভোজৰ আত্মা"
+      },
+      "about": {
+        "en": "A plain-sour dish made with roasted salt and the alkali of shpapa leaves — served at every Assamese table, it opens the meal.",
+        "as": "পোড়া লোণ আৰু শপা-পাতৰ ক্ষাৰে তৈয়াৰিক অসমীয়া খাদ্য — প্ৰতিটো অসমীয়া টেবুলত ইয়াক ভোজ আৰম্ভ কৰি দিয়া হয়।"
+      },
+      "image": "Khar.jpg",
+      "alt": {
+        "en": "Khar, the signature sour dish of Assamese cuisine",
+        "as": "খাৰ, অসমীয়া ৰন্ধনশৈলীৰ পৰিচিত টক খাদ্য"
+      }
+    },
+    {
+      "name": "Masor Tenga",
+      "sort": {
+        "en": "The everyday classic",
+        "as": "নিত্যৰ পৰিচিত খাদ্য"
+      },
+      "about": {
+        "en": "Sour curd curry — Assam's most beloved everyday dish, with milk pulled from the tea gardens.",
+        "as": "টক তেঁতা মাছৰ তৰকাৰী — চাহ বাগানৰ দুধে তৈয়াৰিক, অসমৰ আটাইতকৈ প্ৰিয় নিত্য খাদ্য।"
+      },
+      "image": "Masor Tenga.jpg",
+      "alt": {
+        "en": "Masor Tenga, the sour curd curry of Assam",
+        "as": "মাছৰ টেঙা, অসমৰ টক তেঁতা তৰকাৰী"
+      }
+    },
+    {
+      "name": "Pigu",
+      "sort": {
+        "en": "Riverine delicacy",
+        "as": "নদীয় বিবিধ স্বাদ"
+      },
+      "about": {
+        "en": "Fermented fish from the riverine lowlands — a prized, deeply savoury taste of the Brahmaputra belt.",
+        "as": "নদীয় সমভূমিৰ তেমি মাছ — ব্ৰহ্মপুত্ৰৰ আঁচলৰ এটা মূল্যৱান, গভীৰ ৰুচিকৰ খাদ্য।"
+      },
+      "image": "Pigu.jpg",
+      "alt": {
+        "en": "Pigu, fermented fish of Assam",
+        "as": "পিগু, অসমৰ তেমি মাছ"
+      }
+    },
+    {
+      "name": "Bamboo shoot (Khoa / Khoi)",
+      "sort": {
+        "en": "Seasonal hill staple",
+        "as": "ঋতুগত পাহাৰীৰ খাদ্য"
+      },
+      "about": {
+        "en": "Stewed tender bamboo shoot, fragrant with mustard oil — the taste of Assam's hills at every meal.",
+        "as": "সাৰিয়েই তেলেৰ সুগন্ধে ৰান্ধা কোমল বাঁহ — অসমৰ পাহাৰৰ স্বাদ প্ৰতিটো ভোজত।"
+      },
+      "image": "Bamboo shoot.jpg",
+      "alt": {
+        "en": "Stewed bamboo shoot of Assam",
+        "as": "অসমৰ ৰান্ধা বাঁহৰ কঁৰা"
+      }
+    },
+    {
+      "name": "Til-pitha · Narikol laru · Payas",
+      "sort": {
+        "en": "Sweet tradition",
+        "as": "মিঠাৰ পৰম্পৰা"
+      },
+      "about": {
+        "en": "Steamed sweets on banana leaves for Bihu and every celebration — rice, coconut and milk in every guise.",
+        "as": "বিহু আৰু প্ৰতিটো উৎসৱত কলিপাতত বাপৰা মিঠাই — চাউল, নাৰিকল আৰু গাখীৰৰ বিভিন্ন ৰূপ।"
+      },
+      "image": "Til pitha.jpg",
+      "alt": {
+        "en": "Assamese sweets on banana leaves",
+        "as": "কলিপাতত অসমীয়া মিঠাই"
+      }
+    },
+    {
+      "name": "Assamese Thali",
+      "sort": {
+        "en": "The full feast",
+        "as": "সম্পূৰ্ণ ভোজ"
+      },
+      "about": {
+        "en": "Khar, masor tenga, duck with bamboo shoot and rice served on banana leaf — the complete Assamese table.",
+        "as": "খাৰ, মাছৰ টেঙা, বাঁহৰ কঁৰাৰ হাঁহ আৰু ভাত কলিপাতত পৰিৱেশন — সম্পূৰ্ণ অসমীয়া ভোজ।"
+      },
+      "image": "Assamese Thali (Jorhat).JPG",
+      "alt": {
+        "en": "The traditional Assamese thali on banana leaf",
+        "as": "কলিপাতত পাৰম্পৰিক অসমীয়া থলী"
+      }
+    }
+  ]
+}

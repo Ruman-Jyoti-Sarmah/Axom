@@ -1,0 +1,148 @@
+{
+  "ARCHITECTURE": {
+    "label": {
+      "en": "CHAPTER 02 — THE HERITAGE · AHOM LEGACY",
+      "as": "অধ্যায় ০২ — ঐতিহ্য · আহোম ঐতিহ্য"
+    },
+    "title": [
+      {
+        "en": "CARVED BY AHOMS,",
+        "as": "আহোমসকলে খোদিত,"
+      },
+      {
+        "en": "BLESSED BY KAMAKHYA",
+        "as": "কামাখ্যায়ে আশীৰ্বাদপ্ৰাপ্ত"
+      }
+    ],
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Kamakhya%20Temple%2C%20Guwahati.jpg?width=1600",
+    "alt": {
+      "en": "Kamakhya Temple complex on Nilachal Hill glowing in morning light",
+      "as": "নীলাচল পাহাৰত ৰাতিপুৱাৰ পোহৰতে জিলিকিয়া কামাখ্যা মন্দিৰ পৰিযাল"
+    },
+    "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Jaapi%2CDhemaji.jpg?width=1000",
+    "detailAlt": {
+      "en": "Assorted traditional Jaapi hats of Dhemaji, Assam",
+      "as": "ধেমাজী, অসমৰ বিভিন্ন পৰম্পৰাগত জাপী"
+    },
+    "paragraphs": [
+      {
+        "en": "Six hundred years of Ahom glory. Rang Ghar, Talatal Ghar, Kareng — Asia's oldest amphitheatre of kings.",
+        "as": "ছয়শ বছৰৰ আহোম ঐতিহ্য। ৰংঘৰ, তলাতাল ঘৰ, কাৰেং — এছিয়াৰ আটাইতকৈ পুৰণি ৰাজাসকলৰ অম্ফিথিয়েটাৰ।"
+      },
+      {
+        "en": "The estate unfolds like a satra courtyard — each threshold revealing bamboo, water, jaapi and sky, just as Srimanta Sankardev imagined.",
+        "as": "এই স্থান সাত্ৰৰ পোहৰৰ দৰে খোলে — প্ৰতিটো প্ৰৱেশদ্বাৰে বাঁহ, পানী, জাপী আৰু আকাশ প্ৰকাশ কৰে, ঠিক স্ৰীমন্ত শঙ্কৰদেৱে কল্পনা কৰা দৰে।"
+      }
+    ]
+  },
+  "SUITES": [
+    {
+      "id": "01",
+      "name": {
+        "en": "The Kaziranga Den",
+        "as": "কাজিৰংগাৰ গুহা"
+      },
+      "kind": {
+        "en": "Jungle Lodge · 120 m²",
+        "as": "জংগল লজ · ১২০ বৰ মিটাৰ"
+      },
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Indian%20rhinoceros%20in%20Kaziranga%20National%20Park%20March%202025%20by%20Tisha%20Mukherjee%2006.jpg?width=1600",
+      "alt": {
+        "en": "One-horned rhino in Kaziranga",
+        "as": "কাজিৰংগাৰ একালো গঁড়ৰাগী"
+      }
+    },
+    {
+      "id": "02",
+      "name": {
+        "en": "The Majuli Retreat",
+        "as": "মাজুলীৰ আশ্ৰয়"
+      },
+      "kind": {
+        "en": "River Island Cottage · 95 m²",
+        "as": "নদীয় দ্বীপৰ কুটী · ৯৫ বৰ মিটাৰ"
+      },
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Majuli%2C%20the%20river%20island%20of%20Assam.jpg?width=1600",
+      "alt": {
+        "en": "Wetlands of Majuli river island",
+        "as": "মাজুলী নদীয় দ্বীপৰ জল-ভূমি"
+      }
+    },
+    {
+      "id": "03",
+      "name": {
+        "en": "The Tea Garden House",
+        "as": "চাহ বাগানৰ ঘৰ"
+      },
+      "kind": {
+        "en": "Dibrugarh Bungalow · 72 m²",
+        "as": "ডিব্ৰুগড় বংগলা · ৭২ বৰ মিটাৰ"
+      },
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Plucking%20tea%20in%20a%20tea%20garden%20of%20Assam.jpg?width=1600",
+      "alt": {
+        "en": "Tea pluckers in Assam garden",
+        "as": "অসম বাগানত চাহ তোলা কামৰী"
+      }
+    },
+    {
+      "id": "04",
+      "name": {
+        "en": "The Brahmaputra Suite",
+        "as": "ব্ৰহ্মপুত্ৰ ছুইট"
+      },
+      "kind": {
+        "en": "Riverfront Residence · 260 m²",
+        "as": "নদীয় কিনাৰৰ নিবাস · ২৬০ বৰ মিটাৰ"
+      },
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Sunset%20at%20Lachit%20ghat%2C%20Guwahati.jpg?width=1600",
+      "alt": {
+        "en": "Ferry at Lachit Ghat at sunset",
+        "as": "ৰূপ অৱস্থাত লাচিট ঘাটত বোট"
+      }
+    }
+  ],
+  "DINING": {
+    "label": {
+      "en": "CHAPTER 03 — THE TABLE · AXOMIYA PAAT",
+      "as": "অধ্যায় ০৩ — টেবুল · অসমীয়া পাত"
+    },
+    "title": [
+      {
+        "en": "A FEAST SERVED",
+        "as": "পৰিৱেশন কৰা"
+      },
+      {
+        "en": "ON BANANA & BELL-METAL",
+        "as": "কলিপাত আৰু কাহৰত"
+      }
+    ],
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Assamese%20Thali%20(Jorhat).JPG?width=1600",
+    "alt": {
+      "en": "Traditional Assamese thali on bell-metal",
+      "as": "কাহৰত পৰম্পৰাগত অসমীয়া থলী"
+    },
+    "image2": "https://commons.wikimedia.org/wiki/Special:FilePath/Assamese%20food%20thali.jpg?width=1200",
+    "image2Alt": {
+      "en": "Assamese cuisine on copper plate",
+      "as": "তামাৰ প্লেটত অসমীয়া ৰন্ধনশৈলী"
+    },
+    "body": {
+      "en": "From sour Masor Tenga to silky Khar, duck with bamboo shoot and til-pitha — recipes from Ahom kitchens and satra refectories, served on kahor bell-metal.",
+      "as": "টক মাছৰ টেঙাৰ পৰা মুঘলীয়া খাৰলৈ, বাঁহৰ কঁৰাৰ হাঁহ আৰু তিল-পিঠা — আহোম ৰান্ধিঘৰ আৰু সাত্ৰৰ ভজনাগাৰৰ ৰেছিপি, কাহৰ বেল-মেটেলত পৰিৱেশন কৰা হয়।"
+    },
+    "menuHighlights": [
+      {
+        "en": "Khar, masor tenga & joha rice",
+        "as": "খাৰ, মাছৰ টেঙা আৰু জোৱা চাউল"
+      },
+      {
+        "en": "Haanh with bamboo shoot, Ahom duck curry",
+        "as": "বাঁহৰ কঁৰাৰ হাঁহ, আহোম হাঁহৰ তৰকাৰী"
+      },
+      {
+        "en": "Til-pitha, narikol laru & payas",
+        "as": "তিল-পিঠা, নাৰিকলৰ লাৰু আৰু পায়স"
+      }
+    ]
+  }
+}

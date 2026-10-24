@@ -4,7 +4,7 @@
  *
  * These target the framework-free modules that also run inside the browser:
  *   src/lib/itinerary.js     — the rule-based day-by-day generator + cost model
- *   src/data/destinations.js — the destination catalog + selection helpers
+ *   src/data/travel/destinations.js — the destination catalog + selection helpers
  *
  * TripContext (React hooks + localStorage) is intentionally NOT covered here
  * because it needs a DOM; its duplicate-selection contract is instead asserted
@@ -19,7 +19,7 @@ import {
   getDestination,
   destinationsByDistrict,
   searchDestinations,
-} from "../src/data/destinations.js";
+} from "../src/data/travel/destinations.js";
 
 const { schedule } = __test;
 

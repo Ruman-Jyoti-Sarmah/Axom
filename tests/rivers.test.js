@@ -21,8 +21,8 @@ import {
   searchRivers,
   filterRiversBySystem,
   availableRiverSides,
-} from "../src/data/rivers.js";
-import { RIVER_CREDITS, riverCreditFor } from "../src/data/riverImageCredits.js";
+} from "../src/data/travel/rivers.js";
+import { RIVER_CREDITS, riverCreditFor } from "../src/data/travel/riverImageCredits.js";
 
 const ids = (list) => list.map((r) => r.id);
 

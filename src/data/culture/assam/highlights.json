@@ -1,0 +1,204 @@
+{
+  "assamHighlights": [
+    {
+      "icon": "🦏",
+      "text": {
+        "en": "Greater one-horned rhinoceros — the State Animal, roaming Kaziranga & Pobitora.",
+        "as": "বেশি মূৰ-একালো গঁড় — ৰাজ্যিক প্ৰাণী, কাজিৰংগা আৰু পবিতৰাত বিচৰণ কৰে।"
+      }
+    },
+    {
+      "icon": "🦆",
+      "text": {
+        "en": "White-winged wood duck — the State Bird, a prized wetland species of Manas.",
+        "as": "বগা-পাখী শ্বেত পিছা — ৰাজ্যিক চৰাই, মানসৰ মূল্যৱান জল-অঞ্চলৰ প্ৰজাতি।"
+      }
+    },
+    {
+      "icon": "🌸",
+      "text": {
+        "en": "Foxtail orchids (Kopou phul) — the State Flower, essential to Bihu dance offerings.",
+        "as": "কপৌ ফুল — ৰাজ্যিক ফুল, বিহু নৃত্যত অহা উৎসৱীয় নৈবেদ্য।"
+      }
+    },
+    {
+      "icon": "🌳",
+      "text": {
+        "en": "Hollong — the State Tree, the royal tree of Assam (Dipterocarpus macrocarpus).",
+        "as": "হ'লং — ৰাজ্যিক গছ, অসমৰ ৰাজকীয় গছ (ডিপ্টেৰ'কাৰ্পাছ মেক্ৰ'কাৰ্পাছ)।"
+      }
+    },
+    {
+      "icon": "💃",
+      "text": {
+        "en": "Bihu Dance — the State Dance, performed with Bhaonas & Bihu Garbs.",
+        "as": "বিহু নৃত্য — ৰাজ্যিক নৃত্য, ভাওনা আৰু বিহু গৰ্বৰ সৈতে নৃত্যমান।"
+      }
+    },
+    {
+      "icon": "🎊",
+      "text": {
+        "en": "Bihu — the State Festival, Rongali Bihu marks the Assamese New Year.",
+        "as": "বিহু — ৰাজ্যিক উৎসৱ, ৰঙালী বিহুৱে অসমীয়া নববৰ্ষৰ সূচনা দিয়ে।"
+      }
+    },
+    {
+      "icon": "🎵",
+      "text": {
+        "en": "O Mur Apunar Dekh — the State Song, penned by Lakshminath Bezbaroa.",
+        "as": "অ' মোৰ অপুনাৰ দেশ — ৰাজ্যিক গান, লক্ষ্মীনাথ বেজবৰুৱাৰ রচনা।"
+      }
+    },
+    {
+      "icon": "✨",
+      "text": {
+        "en": "Joi Aai Axom — the State Motto, 'Hail mother Assam'.",
+        "as": "জয় আই অসম — ৰাজ্যিক আদৰ্ষ, 'জয় মা অসম'।"
+      }
+    },
+    {
+      "icon": "🗣️",
+      "text": {
+        "en": "Assamese (Axomiya) — the State Language & Literary Society.",
+        "as": "অসমীয়া (আখমীয়া) — ৰাজ্যিক ভাষা আৰু সাহিত্য-সমাজ।"
+      }
+    },
+    {
+      "icon": "🍲",
+      "text": {
+        "en": "Assamese thali & Khar — the State Food, Assam's iconic sour-salted cuisine.",
+        "as": "অসমীয়া থলী আৰু খাৰ — ৰাজ্যিক খাদ্য, অসমৰ পৰিচিত টক-নুনীয়া ৰন্ধনশৈলী।"
+      }
+    },
+    {
+      "icon": "🍋",
+      "text": {
+        "en": "Kaji Nemu — the State Fruit, a GI-tagged lemon of Assam (declared 2024).",
+        "as": "কাজি নেমু — ৰাজ্যিক ফল, অসমৰ জিআই-পতাকাযুক্ত নেমু (২০২৪ ঘোষিত)।"
+      }
+    },
+    {
+      "icon": "🏑",
+      "text": {
+        "en": "Field Hockey — the State Sport, Assam's most loved team game.",
+        "as": "ফিল্ড হকী — ৰাজ্যিক খেল, অসমৰ আটাইতকৈ প্ৰিয় দলীয় খেল।"
+      }
+    },
+    {
+      "icon": "🌊",
+      "text": {
+        "en": "Brahmaputra — the State River, the lifeline of Assam.",
+        "as": "ব্ৰহ্মপুত্ৰ — ৰাজ্যিক নদী, অসমৰ জীৱনদায়িনী।"
+      }
+    }
+  ],
+  "assamFamous": [
+    {
+      "name": "Kaziranga National Park",
+      "division": "North Assam",
+      "oneLiner": {
+        "en": "Home of the Indian rhinoceros — a UNESCO World Heritage Site.",
+        "as": "ভাৰতীয় গঁড়ৰাগীৰ নিজৰা স্থান — ইউনেস্কো বিশ্ব ঐতিহ্যবাহী স্থান।"
+      }
+    },
+    {
+      "name": "Majuli",
+      "division": "Upper Assam",
+      "oneLiner": {
+        "en": "Asia's largest river island — the heart of Sattriya culture.",
+        "as": "এছিয়াৰ আটাইতকৈ ডাঙৰ নদীয় দ্বীপ — সাত্ৰীয় সংস্কৃতিৰ হৃদয়।"
+      }
+    },
+    {
+      "name": "Sivasagar",
+      "division": "Upper Assam",
+      "oneLiner": {
+        "en": "The Ahom capital of the six-century Ahom dynasty.",
+        "as": "ছয় শতিকাৰ আহোম ৰাজবংশৰ ৰাজধানী।"
+      }
+    },
+    {
+      "name": "Manas National Park",
+      "division": "North Assam",
+      "oneLiner": {
+        "en": "A UNESCO site & paradise for the Royal Bengal tiger & golden langur.",
+        "as": "এক ইউনেস্কো স্থান আৰু বেংগাল বাঘ আৰু সোণালি হানুহৰ স্বৰ্গ।"
+      }
+    },
+    {
+      "name": "Dibru-Saikhowa",
+      "division": "Upper Assam",
+      "oneLiner": {
+        "en": "A vast monograph of wetlands, sandbars and rare wildlife.",
+        "as": "জল-ভূমি, বালিতণ আৰু দুৰ্লভ বন্য প্ৰাণীৰ বিশাল আবাস।"
+      }
+    },
+    {
+      "name": "Nameri National Park",
+      "division": "North Assam",
+      "oneLiner": {
+        "en": "Famous for hornbills, white-winged wood ducks and terrain trails.",
+        "as": "ৰাজহংচ, বগা-পাখী আৰু প্রাকৃতিক পথৰ বাবে পৰিচিত।"
+      }
+    },
+    {
+      "name": "Guwahati",
+      "division": "Lower Assam",
+      "oneLiner": {
+        "en": "Saraighat's city — the gateway, with Umananda & the Brahmaputra.",
+        "as": "শৰাইঘাটৰ নগৰ — উমানন্দা আৰু ব্ৰহ্মপুত্ৰৰ সৈতে সোমাইদুৱাৰ।"
+      }
+    }
+  ],
+  "ASSAM_WORK": [
+    {
+      "icon": "🇰🇿",
+      "text": {
+        "en": "Kaziranga National Park — a UNESCO World Heritage Site and home of the one-horned rhinoceros.",
+        "as": "কাজিৰংগা ৰাষ্ট্ৰীয় উদ্যান — ইউনেস্কো বিশ্ব ঐতিহ্যবাহী স্থান আৰু একালো গঁড়ৰাগীৰ নিজৰা স্থান।"
+      }
+    },
+    {
+      "icon": "🇮🇳",
+      "text": {
+        "en": "Majuli — Asia's largest river island, the heart of Sattriya culture and the sattras.",
+        "as": "মাজুলী — এছিয়াৰ আটাইতকৈ ডাঙৰ নদীয় দ্বীপ, সাত্ৰীয় সংস্কৃতি আৰু সাত্ৰসমূহৰ হৃদয়।"
+      }
+    },
+    {
+      "icon": "🏛️",
+      "text": {
+        "en": "Sivasagar — the Ahom capital of six centuries.",
+        "as": "শিৱসাগৰ — ছয় শতিকাৰ আহোম ৰাজধানী।"
+      }
+    },
+    {
+      "icon": "🌳",
+      "text": {
+        "en": "Manas National Park — a UNESCO site for Royal Bengal tiger, golden langur and the one-horned rhino.",
+        "as": "মানস ৰাষ্ট্ৰীয় উদ্যান — বেংগাল বাঘ, সোণালি হানুহ আৰু একালো গঁড়ৰাগীৰ বাবে ইউনেস্কো স্থান।"
+      }
+    },
+    {
+      "icon": "🎵",
+      "text": {
+        "en": "Guwahati — Saraighat's city, the gateway with Umananda and the Brahmaputra.",
+        "as": "গুৱাহাটী — শৰাইঘাটৰ নগৰ, উমানন্দা আৰু ব্ৰহ্মপুত্ৰৰ সৈতে সোমাইদুৱাৰ।"
+      }
+    },
+    {
+      "icon": "🍵",
+      "text": {
+        "en": "Tea gardens — Assam leads the world with the first flush and the garden family.",
+        "as": "চাহ বাগান — প্ৰথম বৰষুণ আৰু বাগান-পৰিয়ালৰ সৈতে অসম বিশ্বক আগবঢ়াই নিয়ে।"
+      }
+    },
+    {
+      "icon": "🧵",
+      "text": {
+        "en": "Silk & gamosa — the golden muga and the honour of the jaapi.",
+        "as": "ৰেশম আৰু গামোচা — সোণীয় মুগা আৰু জাপীৰ সন্মান।"
+      }
+    }
+  ]
+}

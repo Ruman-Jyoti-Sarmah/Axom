@@ -1,0 +1,98 @@
+{
+  "EXPERIENCES": [
+    {
+      "name": "The Bihu Courtyard",
+      "detail": "Rongali rhythms — dhol, pepa, gogona",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Bihu-Dance-assam.jpg?width=1200",
+      "alt": "Bihu dancers in muga silk"
+    },
+    {
+      "name": "The Kaziranga Safari",
+      "detail": "Dawn trails to meet the one-horned greats",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Indian%20rhinoceros%20in%20Kaziranga%20National%20Park%20March%202025%20by%20Tisha%20Mukherjee%2010.jpg?width=1200",
+      "alt": "Rhino in Kaziranga grasslands"
+    },
+    {
+      "name": "The Masks of Majuli",
+      "detail": "Sattriya dance and sattras mask-makers",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Masks%20of%20Majuli%20(94770).jpg?width=1200",
+      "alt": "Bhaona masks of Majuli"
+    },
+    {
+      "name": "The Tea Garden Morning",
+      "detail": "Pluck two leaves and a bud with garden family",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Female%20workers%20at%20a%20tea%20Garden%20of%20Assam.jpg?width=1200",
+      "alt": "Tea workers plucking leaves"
+    },
+    {
+      "name": "The Brahmaputra Cruise",
+      "detail": "Sunset ferry past Saraighat and Umananda",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/This%20scenic%20sunset%20view%20is%20captured%20over%20the%20Brahmaputra%20River%20in%20Guwahati%2C%20Assam%2C%20India.jpg?width=1200",
+      "alt": "Sunset over Brahmaputra Guwahati"
+    },
+    {
+      "name": "The Gamosa Atelier",
+      "detail": "Muga, eri & pat silk on taat-xaal loom",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Taat%20xaal%202.jpg?width=1200",
+      "alt": "Taat-xaal handloom of Assam"
+    }
+  ],
+  "GALLERY": [
+    {
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Kamakhya%20Temple%2C%20Guwahati%2C%20Assam.jpg?width=1400",
+      "alt": "Kamakhya Temple",
+      "caption": "Kamakhya Devalaya, Dawn Aarti"
+    },
+    {
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Indian%20rhinoceros%20in%20Kaziranga%20National%20Park%20March%202025%20by%20Tisha%20Mukherjee%2006.jpg?width=1000",
+      "alt": "Rhino Kaziranga",
+      "caption": "Kaziranga, 6:42 AM"
+    },
+    {
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Assamese%20Thali%20(Jorhat).JPG?width=1400",
+      "alt": "Assamese thali",
+      "caption": "The Banana-Leaf Feast"
+    },
+    {
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Bihu%20dance.jpg?width=1000",
+      "alt": "Bihu celebration",
+      "caption": "Rongali Bihu, Courtyard IV"
+    },
+    {
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/This%20scenic%20sunset%20view%20is%20captured%20over%20the%20Brahmaputra%20River%20in%20Guwahati.jpg?width=1400",
+      "alt": "Brahmaputra sunset",
+      "caption": "The Luit, Golden Hour"
+    },
+    {
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Majuli%2C%20the%20river%20island%20of%20Assam.jpg?width=1000",
+      "alt": "Majuli wetlands",
+      "caption": "Majuli, Monsoon"
+    },
+    {
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Jaapi%20of%20Assam.jpg?width=1200",
+      "alt": "Jaapi craft",
+      "caption": "Jaapi, Honour of Axom"
+    }
+  ],
+  "LOCATION": {
+    "title": [
+      "FORTY MINUTES FROM",
+      "THE BRAHMAPUTRA"
+    ],
+    "body": "Axom rests on the Saraighat banks in Guwahati — forty minutes from the airport and five centuries deep in Ahom memory, facing Umananda island.",
+    "facts": [
+      { "k": "BY AIR", "v": "Gopinath Bordoloi Airport (GAU) · 25 km" },
+      { "k": "BY ROAD", "v": "Private ferry + transfer via Saraighat" },
+      { "k": "COORDINATES", "v": "26.18° N · 91.75° E — Guwahati" },
+      { "k": "BEST SEASON", "v": "October — March · Bihu in April" }
+    ]
+  },
+  "FINALE": {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Indian%20rhinoceros%20in%20Kaziranga%20National%20Park%20March%202025%20by%20Tisha%20Mukherjee%2002.jpg?width=1600",
+    "alt": "One-horned rhino at dusk in Kaziranga — pride of Assam",
+    "title": [
+      "PLAN YOUR",
+      "VISIT TO ASSAM"
+    ]
+  }
+}

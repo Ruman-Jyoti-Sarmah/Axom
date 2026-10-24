@@ -1,0 +1,72 @@
+{
+  "BRAND": {
+    "name": {
+      "en": "AXOM",
+      "as": "অসম"
+    },
+    "tagline": {
+      "en": "Discover Assam — Land of the Red River & Blue Hills",
+      "as": "অসম চিনক — লাল নদী আৰু নীলা পাহাৰৰ দেশ"
+    },
+    "established": {
+      "en": "ASSAM · INDIA · OFFICIAL CULTURAL PORTAL",
+      "as": "অসম · ভাৰত · আনুষ্ঠানিক সাংস্কৃতিক পোৰ্টাল"
+    }
+  },
+  "NAV": [
+    {
+      "label": "The Heritage",
+      "href": "#architecture"
+    },
+    {
+      "label": "Stays",
+      "href": "#suites"
+    },
+    {
+      "label": "Cuisine",
+      "href": "#dining"
+    },
+    {
+      "label": "Experiences",
+      "href": "#experiences"
+    },
+    {
+      "label": "Districts",
+      "href": "#/districts"
+    },
+    {
+      "label": "Gallery",
+      "href": "#gallery"
+    },
+    {
+      "label": "Visit",
+      "href": "#location"
+    }
+  ],
+  "FOOTER": {
+    "address": {
+      "en": "Axom Heritage, Saraighat Bank, Guwahati, Assam 781001, India",
+      "as": "অসম হেৰিটেজ, শৰাইঘাট বেংক, গুৱাহাটী, অসম ৭৮১০০১, ভাৰত"
+    },
+    "contact": [
+      "namaskar@axom.example",
+      "+91 361 000 0000"
+    ],
+    "social": {
+      "en": [
+        "Instagram",
+        "Pinterest",
+        "Journal"
+      ],
+      "as": [
+        "ইনষ্টাগ্ৰাম",
+        "পিন্টেৰেষ্ট",
+        "পত্ৰিকা"
+      ]
+    },
+    "legal": {
+      "en": "AXOM is a fictional brand celebrating Assam. Imagery via Wikimedia Commons. © 2026",
+      "as": "অসম এটা কাল্পনিক ব্ৰেণ্ড যিয়ে অসম মহিমান্বিত কৰে। ছবিসমূহ ৱিকিমিডিয়া কমন্সৰ জৰিয়তে। © ২০২৬"
+    }
+  }
+}

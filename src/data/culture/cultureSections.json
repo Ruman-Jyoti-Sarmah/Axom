@@ -1,0 +1,605 @@
+{
+  "PILLARS": {
+    "destinations": {
+      "id": "destinations",
+      "label": {
+        "en": "Destinations",
+        "as": "গন্তব্যস্থান"
+      },
+      "blurb": {
+        "en": "From sacred hills to river islands — the places that hold Assam's story.",
+        "as": "পৱিত্ৰ পাহাৰৰ পৰা নদীয় দ্বীপলৈ — অসমৰ কাহিনী ধৰণি ৰখা ঠাইসমূহ।"
+      }
+    },
+    "experiences": {
+      "id": "experiences",
+      "label": {
+        "en": "Experiences",
+        "as": "অভিজ্ঞতা"
+      },
+      "blurb": {
+        "en": "Heritage, spirituality, art, cuisine and the wild — ways to truly meet Assam.",
+        "as": "ঐতিহ্য, আধ্যাত্মিকতা, শিল্প, ৰন্ধনশৈলী আৰু বন্যপ্ৰকৃতি — অসমক প্ৰকৃততে জানিবলৈ পথ।"
+      }
+    },
+    "culture": {
+      "id": "culture",
+      "label": {
+        "en": "Culture",
+        "as": "সংস্কৃতি"
+      },
+      "blurb": {
+        "en": "The people, festivals and living traditions of the Red River.",
+        "as": "ৰঙা নদীৰ মানুহ, উৎসৱ আৰু জীয়ন্ত পৰম্পৰা।"
+      }
+    },
+    "travel": {
+      "id": "travel",
+      "label": {
+        "en": "Travel",
+        "as": "ভ্ৰমণ"
+      },
+      "blurb": {
+        "en": "Plan your journey — where to go, where to stay and how to reach.",
+        "as": "আপোনাৰ যাত্ৰা পৰিকল্পনা কৰক — ক'ত যাব, ক'ত থাকিব আৰু কেনেকৈ পাব।"
+      }
+    }
+  },
+  "EXPERIENCES": [
+    {
+      "id": "heritage",
+      "icon": "🏛️",
+      "name": {
+        "en": "Heritage",
+        "as": "ঐতিহ্য"
+      },
+      "kind": {
+        "en": "Six centuries of Ahoms",
+        "as": "ছয় শতিকাৰ আহোম"
+      },
+      "blurb": {
+        "en": "Rang Ghar, Talatal Ghar and the Ahom capital of Sivasagar.",
+        "as": "ৰংঘৰ, তলাতাল ঘৰ আৰু শিৱসাগৰৰ আহোম ৰাজধানী।"
+      },
+      "image": "/images/culture/rang-ghar.jpg",
+      "href": "#/heritage"
+    },
+    {
+      "id": "spiritual",
+      "icon": "🕉️",
+      "name": {
+        "en": "Spiritual",
+        "as": "আধ্যাত্মিক"
+      },
+      "kind": {
+        "en": "Shakti, Vaishnava & Sufi",
+        "as": "শক্তি, বৈষ্ণৱ আৰু চুফি"
+      },
+      "blurb": {
+        "en": "Kamakhya, Umananda, Hajo and the sattras of Majuli.",
+        "as": "কামাখ্যা, উমানন্দা, হাজো আৰু মাজুলীৰ সাত্ৰ।"
+      },
+      "image": "/images/culture/kamakhya-temple.jpg",
+      "href": "#/culture/experiences/spiritual"
+    },
+    {
+      "id": "art",
+      "icon": "🎭",
+      "name": {
+        "en": "Art & Artists",
+        "as": "শিল্প আৰু শিল্পী"
+      },
+      "kind": {
+        "en": "Sattriya · Borgeet · Cinema",
+        "as": "সাত্ৰীয় · বৰগীত · ছবি"
+      },
+      "blurb": {
+        "en": "The voices and makers who carried Assam to the world.",
+        "as": "অসমক বিশ্বলৈ গৈছিল স্বৰ আৰু সৃষ্টিকৰ্তা।"
+      },
+      "image": "/images/culture/sattriya-performance.jpg",
+      "href": "#/artists"
+    },
+    {
+      "id": "cuisine",
+      "icon": "🍽️",
+      "name": {
+        "en": "Food & Cuisine",
+        "as": "খাদ্য আৰু ৰন্ধনশৈলী"
+      },
+      "kind": {
+        "en": "Khar · Tenga · Pitha",
+        "as": "খাৰ · টেঙা · পিঠা"
+      },
+      "blurb": {
+        "en": "Sour, smoky and herbaceous — the Assamese table on bell-metal.",
+        "as": "টক, ধোঁৱাৰ আৰু তেজপাতাৰ — কাহৰত অসমীয়া টেবুল।"
+      },
+      "image": "/images/culture/assamese-thali.jpg",
+      "href": "#/culture/experiences/cuisine"
+    },
+    {
+      "id": "wildlife",
+      "icon": "🦏",
+      "name": {
+        "en": "Nature & Wildlife",
+        "as": "প্ৰকৃতি আৰু বন্যপ্ৰাণী"
+      },
+      "kind": {
+        "en": "Kaziranga · Manas",
+        "as": "কাজিৰংগা · মানস"
+      },
+      "blurb": {
+        "en": "Home of the one-horned rhino and the golden langur.",
+        "as": "একালো গঁড়ৰাগী আৰু সোণালি হানুহৰ নিজৰা স্থান।"
+      },
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Kaziranga%20National%20Park%2C%20Assam%2C%20India.jpg?width=1000",
+      "href": "#/wildlife"
+    },
+    {
+      "id": "crafts",
+      "icon": "🧵",
+      "name": {
+        "en": "Handicrafts & Shopping",
+        "as": "হস্তশিল্প আৰু বজাৰ"
+      },
+      "kind": {
+        "en": "Muga · Jaapi · Bell metal",
+        "as": "মুগা · জাপী · কাহাৰ"
+      },
+      "blurb": {
+        "en": "Golden muga silk, jaapi hats and terracotta of the looms.",
+        "as": "সোণীয় মুগা ৰেশম, জাপী টুপী আৰু মাটিৰ শিল্প।"
+      },
+      "image": "/images/culture/sualkuchi-handloom.jpg",
+      "href": "#/handicrafts"
+    },
+    {
+      "id": "festivals",
+      "icon": "🎊",
+      "name": {
+        "en": "Festivals & Events",
+        "as": "উৎসৱ আৰু অনুষ্ঠান"
+      },
+      "kind": {
+        "en": "Bihu · Ambubachi · Raas",
+        "as": "বিহু · আম্বুবাচী · ৰাচ"
+      },
+      "blurb": {
+        "en": "The three Bihus and the rites of the Brahmaputra year.",
+        "as": "তিনিটা বিহু আৰু ব্ৰহ্মপুত্ৰ বৰ্ষৰ আচাৰ।"
+      },
+      "image": "/images/culture/bihu-dance.jpg",
+      "href": "#/culture/festivals"
+    },
+    {
+      "id": "adventure",
+      "icon": "🏞️",
+      "name": {
+        "en": "Adventure",
+        "as": "দুঃসাহস"
+      },
+      "kind": {
+        "en": "River · Hills · Forest",
+        "as": "নদী · পাহাৰ · বন"
+      },
+      "blurb": {
+        "en": "Raft the Brahmaputra, trek the Barail, cycle the tea hills.",
+        "as": "ব্ৰহ্মপুত্ৰত ৰাফটিং, বাৰাইলত ভ্ৰমণ, চাহবাগাত চক্ৰ।"
+      },
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Barail%20Range%20in%20Dima%20Hasao%20district.jpg?width=1000",
+      "href": "#/culture/experiences/adventure"
+    }
+  ],
+  "CUISINE": {
+    "intro": {
+      "en": "Assamese cuisine is defined by two notes — khar (alkaline) and tenga (sour). Rice is the centre and the meal is finished with a slice of kaji nemu. Little oil, bold herbs and the smoke of bamboo shoot give it a character entirely its own.",
+      "as": "অসমীয়া ৰন্ধনশৈলী দুটা সূৰৰ দ্বাৰা চিনিব পৰা যায় — খাৰ আৰু টেঙা। ভাতেই কেন্দ্ৰ আৰু খাদ্য শেষ হয় কাজী নেমুৰ এটা টুকুৰাই। কম তেল, বদ্ধ জাদু টুকা আৰু বাঁহৰ কঁৰাৰ ধোঁৱাই ইয়াৰ স্বত্বশ্ৰেণীবোধ গঢ়ি তোলে।"
+    },
+    "dishes": [
+      {
+        "name": {
+          "en": "Khar",
+          "as": "খাৰ"
+        },
+        "kind": {
+          "en": "Alkaline elixir",
+          "as": "ক্ষাৰীয় তিতাস"
+        },
+        "about": {
+          "en": "Raw papaya and pulses cooked with filtered plantain-ash water — the signature first course of every Assamese meal.",
+          "as": "কাঁচা ওঁবাৰ আৰু ডাল চুটি কৰা কলপাতীৰ ছাঁৰ পানী মিহি কৰি — প্ৰতিটো অসমীয়া খাদ্যৰ প্ৰথম পথ।"
+        },
+        "image": "/images/culture/assamese-thali.jpg"
+      },
+      {
+        "name": {
+          "en": "Masor Tenga",
+          "as": "মাছৰ টেঙা"
+        },
+        "kind": {
+          "en": "Sour fish",
+          "as": "টক মাছ"
+        },
+        "about": {
+          "en": "Rohu or catfish in a light, tangy broth of ou tenga (elephant apple) or tomato.",
+          "as": "ঔ টেঙা (কাঠ এলেং) বা বিলাহীৰ হালকা টক ঝোলত ৰুহী মাছ।"
+        },
+        "image": null
+      },
+      {
+        "name": {
+          "en": "Kharoli",
+          "as": "খাৰলি"
+        },
+        "kind": {
+          "en": "Mustard chutney",
+          "as": "সৰিয়হ চাটনী"
+        },
+        "about": {
+          "en": "Toasted mustard flour whipped with khar water into a smoky, pungent dip for rice.",
+          "as": "ভাজা সৰিয়হৰ পিঠা খাৰৰ পানীৰ সৈতে মিহি কৰি তৈয়াৰি ধোঁৱাৰ টক চাটনী।"
+        },
+        "image": null
+      },
+      {
+        "name": {
+          "en": "Duck with Bamboo Shoot",
+          "as": "বাঁহৰ কঁৰাৰ হাঁহ"
+        },
+        "kind": {
+          "en": "Ahom classic",
+          "as": "আহোম পৰম্পৰা"
+        },
+        "about": {
+          "en": "Slow-cooked duck with tender bamboo shoot and ash gourd — an Ahom kitchen heirloom.",
+          "as": "বাঁহৰ কঁৰা আৰু কুমুড়াৰ সৈতে লাহে লাহে ৰন্ধা হাঁহ — আহোম ৰান্ধিঘৰৰ ঐতিহ্য।"
+        },
+        "image": "/images/culture/assamese-thali.jpg"
+      },
+      {
+        "name": {
+          "en": "Pitha",
+          "as": "পিঠা"
+        },
+        "kind": {
+          "en": "Rice cakes",
+          "as": "চৌলৰ পিঠা"
+        },
+        "about": {
+          "en": "Til (sesame), narikol (coconut) and ghila pitha — the sweets of Magh Bihu and every welcome.",
+          "as": "তিল, নাৰিকল আৰু ঘিলা পিঠা — মাঘ বিহু আৰু প্ৰতিটো সদৰখুৰাৰ মিঠাই।"
+        },
+        "image": "/images/culture/assamese-pitha.jpg"
+      },
+      {
+        "name": {
+          "en": "Assam Tea",
+          "as": "অসম চাহ"
+        },
+        "kind": {
+          "en": "World's tea heart",
+          "as": "বিশ্বৰ চাহ হৃদয়"
+        },
+        "about": {
+          "en": "Strong, malty and golden — from the Brahmaputra's floodplains that grow over half of India's tea.",
+          "as": "বলীয়, মল্টী আৰু সোণীয় — ব্ৰহ্মপুত্ৰৰ লাহেটা ভূমিৰ পৰা, য'ত ভাৰতৰ আধিৰো অধিক চাহ জন্মে।"
+        },
+        "image": null
+      }
+    ]
+  },
+  "ADVENTURE": [
+    {
+      "name": {
+        "en": "Brahmaputra Rafting",
+        "as": "ব্ৰহ্মপুত্ৰ ৰাফটিং"
+      },
+      "place": {
+        "en": "Guwahati – Tezpur",
+        "as": "গুৱাহাটী – তেজপুৰ"
+      },
+      "about": {
+        "en": "River-running and kayaking across Asia's great river, with picnic beaches on its sandbars (chars).",
+        "as": "এছিয়াৰ মহানদীত নদী-ভাগ আৰু কায়াকিং, বালিছল (চৰ)ত পিকনিক ছন্দীৰ সৈতে।"
+      },
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Brahmaputra%20river%20rafting.jpg?width=900"
+    },
+    {
+      "name": {
+        "en": "Barail & Karbi Treks",
+        "as": "বাৰাইল আৰু কৰ্বী পথ"
+      },
+      "place": {
+        "en": "Dima Hasao · Karbi Anglong",
+        "as": "ডিমা হাসাও · কৰ্বী অংলং"
+      },
+      "about": {
+        "en": "Misty hill trails of the Barail range and the Langhovku waterfalls above Diphu.",
+        "as": "বাৰাইল পৰ্বতমালাৰ ধূসৰ পাহাৰী পথ আৰু দিফুৰ ওপৰৰ লংভকু জলপ্ৰপাত।"
+      },
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Langkovku%20waterfall%20in%20Manjha%2C%20Karbi%20Anglong.jpg?width=900"
+    },
+    {
+      "name": {
+        "en": "Tea-Garden Cycling",
+        "as": "চাহবাগাত চক্ৰযাত্ৰা"
+      },
+      "place": {
+        "en": "Jorhat · Dibrugarh",
+        "as": "জোৰহাট · ডিব্ৰুগড়"
+      },
+      "about": {
+        "en": "Cycle the flat green rows of the world's largest tea-growing region at first-flush dawn.",
+        "as": "প্ৰথম-বৰষুণৰ ৰাতিপুৱা বিশ্বৰ আটাইতকৈ ডাঙৰ চাহ-উৎপাদন অঞ্চলৰ সবুজ শাৰীত চক্ৰচালন।"
+      },
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Plucking%20tea%20in%20a%20tea%20garden%20of%20Assam.jpg?width=900"
+    },
+    {
+      "name": {
+        "en": "Rhino Safari",
+        "as": "গঁড়ৰাগী সাফাৰী"
+      },
+      "place": {
+        "en": "Kaziranga · Pobitora",
+        "as": "কাজিৰংগা · পবিতৰা"
+      },
+      "about": {
+        "en": "Elephant-back and jeep safaris through elephant grass to meet the great one-horned rhino.",
+        "as": "হাতী আৰু জীপৰ সাফাৰীত হাতী-ঘাহৰ মাজেদি গৈ ডাঙৰ কালো গঁড়ৰাগীৰ সাক্ষাৎ।"
+      },
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Kaziranga%20National%20Park%2C%20Assam%2C%20India.jpg?width=900"
+    }
+  ],
+  "WELLNESS": [
+    {
+      "name": {
+        "en": "Sattra Meditation",
+        "as": "সাত্ৰৰ ধ্যান"
+      },
+      "place": {
+        "en": "Majuli · Barpeta",
+        "as": "মাজুলী · বৰপেতা"
+      },
+      "about": {
+        "en": "Sit in the naamghar at dawn as Borgeet rises — a centuries-old contemplative practice.",
+        "as": "ৰাতিপুৱা নামঘৰত বসলৈ বৰগীত ওলোৱা হৈছে — এশতিকাৰ পুৰণি ধ্যানমূলক আচাৰ।"
+      },
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Doriya%20River%20of%20Majuli.jpg?width=900"
+    },
+    {
+      "name": {
+        "en": "River-Island Calm",
+        "as": "নদীয় দ্বীপৰ শান্তি"
+      },
+      "place": {
+        "en": "Majuli",
+        "as": "মাজুলী"
+      },
+      "about": {
+        "en": "Yoga on the Mising stilt-houses of Asia's largest river island, cradled by the Brahmaputra.",
+        "as": "ব্ৰহ্মপুত্ৰে আঁতোৱা এছিয়াৰ আটাইতকৈ ডাঙৰ নদীয় দ্বীপৰ মিচিং বढ়েল-ঘৰত যোগ।"
+      },
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Majuli%2C%20the%20river%20island%20of%20Assam.jpg?width=900"
+    },
+    {
+      "name": {
+        "en": "Tea-Garden Wellness",
+        "as": "চাহবাগাৰ সুস্থতা"
+      },
+      "place": {
+        "en": "Jorhat",
+        "as": "জোৰহাট"
+      },
+      "about": {
+        "en": "Ayurvedic and herbal retreats among the gardens, with the first flush on your table.",
+        "as": "বাগানৰ মাজত আয়ুৰ্বেদিক আৰু ঔষধী আশ্ৰয়, টেবুলত প্ৰথম বৰষুণৰ চাহৰ সৈতে।"
+      },
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Plucking%20tea%20in%20a%20tea%20garden%20of%20Assam.jpg?width=900"
+    }
+  ],
+  "REGIONS": [
+    {
+      "id": "Lower Assam",
+      "en": "Lower Assam",
+      "as": "তলত অসম"
+    },
+    {
+      "id": "North Assam",
+      "en": "North Assam",
+      "as": "উত্তৰ অসম"
+    },
+    {
+      "id": "Upper Assam",
+      "en": "Upper Assam",
+      "as": "উপৰ অসম"
+    },
+    {
+      "id": "Central Assam",
+      "en": "Central Assam",
+      "as": "মধ্য অসম"
+    },
+    {
+      "id": "Barak Valley",
+      "en": "Barak Valley",
+      "as": "বৰাক উপত্যকা"
+    }
+  ],
+  "CULTURE_HERO": {
+    "kicker": {
+      "en": "Incredible · Assam",
+      "as": "অপূৰ্ব · অসম"
+    },
+    "headline": [
+      {
+        "en": "The Living Soul of",
+        "as": "ৰঙা নদীৰ"
+      },
+      {
+        "en": "the Red River.",
+        "as": "জীয়ন্ত আত্মা।"
+      }
+    ],
+    "sub": {
+      "en": "Six centuries of Ahoms, the sattras of Majuli, muga silk and the one-horned rhino — the culture of Assam, told through its people, places and festivals.",
+      "as": "ছয় শতিকাৰ আহোম, মাজুলীৰ সাত্ৰ, মুগা ৰেশম আৰু একালো গঁড়ৰাগী — অসমৰ সংস্কৃতি, ইয়াৰ মানুহ, ঠাই আৰু উৎসৱৰ মাজেদি।"
+    },
+    "stats": [
+      {
+        "value": "35",
+        "label": {
+          "en": "Districts",
+          "as": "জিলা"
+        }
+      },
+      {
+        "value": "600",
+        "label": {
+          "en": "Years of Ahoms",
+          "as": "বৰ্ষৰ আহোম"
+        }
+      },
+      {
+        "value": "3",
+        "label": {
+          "en": "Bihus a year",
+          "as": "বিহু প্ৰতি বৰ্ষ"
+        }
+      },
+      {
+        "value": "11",
+        "label": {
+          "en": "State symbols",
+          "as": "ৰাজ্যিক প্ৰতীক"
+        }
+      }
+    ]
+  },
+  "HERO_SLIDES": [
+    {
+      "id": "wildlife",
+      "category": {
+        "en": "Wildlife",
+        "as": "বন্যপ্ৰাণী"
+      },
+      "video": "/video/hero-1.mp4",
+      "hdVideo": "/video/hero-hd-wildlife.mp4",
+      "poster": "/homehero.png",
+      "credit": {
+        "author": "L. Shyamal",
+        "source": "https://commons.wikimedia.org/wiki/File:Kaziranga_morning_20231221_075150.webm",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "kicker": {
+        "en": "Kaziranga · Manas",
+        "as": "কাজিৰঙা · মানস"
+      },
+      "headline": [
+        {
+          "en": "Where the one-horned",
+          "as": "য'ত একালো"
+        },
+        {
+          "en": "rhino still roams.",
+          "as": "গঁড়ৰাগী বাটুৱালিয়ে।"
+        }
+      ],
+      "sub": {
+        "en": "Tall elephant grass, the mighty Brahmaputra and the great Indian rhino — the wild heart of Assam, protected since 1905.",
+        "as": "ডাঙৰ হাতী-ঘাহ, মাহাৰথী ব্ৰহ্মপুত্ৰ আৰু মহান ভাৰতীয় গঁড়ৰাগী — ১৯০৫ সালৰ পৰা সুৰক্ষিত অসমৰ বন্যপ্ৰকৃতিৰ হৃদয়।"
+      },
+      "cta": {
+        "label": {
+          "en": "Explore wildlife",
+          "as": "বন্যপ্ৰকৃতি চাওক"
+        },
+        "href": "#/wildlife"
+      }
+    },
+    {
+      "id": "nature",
+      "category": {
+        "en": "Nature",
+        "as": "প্ৰকৃতি"
+      },
+      "video": "/video/hero-2.mp4",
+      "hdVideo": "/video/hero-hd-nature.mp4",
+      "poster": "/homehero.png",
+      "credit": {
+        "author": "Joy Sagar Murmu",
+        "source": "https://commons.wikimedia.org/wiki/File:Tea_garden_Assam_India.webm",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "kicker": {
+        "en": "Brahmaputra · Blue Hills",
+        "as": "ব্ৰহ্মপুত্ৰ · নীলা পাহাৰ"
+      },
+      "headline": [
+        {
+          "en": "A river that is",
+          "as": "এডাল নদী"
+        },
+        {
+          "em": true,
+          "en": "a way of life.",
+          "as": "যাৰ জীৱন ধৰণ।"
+        }
+      ],
+      "sub": {
+        "en": "From the misty tea gardens of Jorhat to the river islands of Majuli — Assam's living landscape shaped by water and monsoon.",
+        "as": "যোৰহাটৰ ডোখৰৰ চাহ বাগানৰ পৰা মাজুলীৰ নদীয় দ্বীপলৈ — পানী আৰু বৰষূণে গঢ় লোৱা অসমৰ জীয়ন্ত ভূ-দৃশ্য।"
+      },
+      "cta": {
+        "label": {
+          "en": "See destinations",
+          "as": "গন্তব্যস্থান চাওক"
+        },
+        "href": "#/districts"
+      }
+    },
+    {
+      "id": "heritage",
+      "category": {
+        "en": "Heritage",
+        "as": "ঐতিহ্য"
+      },
+      "video": "/video/hero-3.mp4",
+      "hdVideo": "/video/hero-hd-heritage.mp4",
+      "poster": "/homehero.png",
+      "credit": {
+        "author": "JyotiPN",
+        "source": "https://commons.wikimedia.org/wiki/File:Rabha_Hamzar_dance_of_Assam,_where_culture,_energy_and_heritage_come_alive_in_every_step.webm",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "kicker": {
+        "en": "Sibsagar · Majuli · Sattras",
+        "as": "শিৱসাগৰ · মাজুলী · সাত্ৰ"
+      },
+      "headline": [
+        {
+          "en": "Six centuries of",
+          "as": "ছয় শতিকাৰ"
+        },
+        {
+          "em": true,
+          "en": "Ahom legacy.",
+          "as": "আহোম পৰম্পৰা।"
+        }
+      ],
+      "sub": {
+        "en": "Brick temples of the Ahom kings, the monastic sattras of Sankardeva and golden muga silk — a culture carried by its people.",
+        "as": "আহোম ৰাজাসকলৰ ইটা মন্দিৰ, শংকৰদেৱৰ সাত্ৰ আৰু সোণীয় মুগা ৰেশম — ইয়াৰ মানুহে বহন কৰা সংস্কৃতি।"
+      },
+      "cta": {
+        "label": {
+          "en": "Discover heritage",
+          "as": "ঐতিহ্য আবিষ্কাৰ কৰক"
+        },
+        "href": "#/heritage"
+      }
+    }
+  ]
+}

@@ -2,7 +2,7 @@
  * spiritualTraditions.test.js — regression tests for the Travel home's
  * "Choose Spiritual Traditions" filter.
  *
- * These target the pure logic layer in `src/data/destinations.js`, the same
+ * These target the pure logic layer in `src/data/travel/destinations.js`, the same
  * framework-free module the existing itinerary suite covers, so they run under
  * plain `node --test` with no DOM. The React interactions (popover open /
  * close, carousel reset) are covered by the assertions on the data they
@@ -25,7 +25,7 @@ import {
   normalizeTraditions,
   spiritualTraditionLabel,
   spiritualTraditionShort,
-} from "../src/data/destinations.js";
+} from "../src/data/travel/destinations.js";
 
 const ids = (list) => list.map((d) => d.id);
 const byId = (id) => DESTINATIONS.find((d) => d.id === id);

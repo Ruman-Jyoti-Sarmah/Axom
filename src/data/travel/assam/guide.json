@@ -1,0 +1,64 @@
+{
+  "ASSAM_GUIDE": [
+    {
+      "name": {
+        "en": "By air",
+        "as": "বায়ুপথে"
+      },
+      "about": {
+        "en": "Gopinath Bordoloi Airport (GAU), Guwahati — the gateway with direct flights to Delhi, Kolkata and Mumbai.",
+        "as": "গোপীনাথ বৰদলৈ বিমানবন্দৰ (GAU), গুৱাহাটী — দিল্লী, কলকাতা আৰু মুম্বাইলৈ পোনপটীয়া উড়ানৰ সৈতে সোমাইদুৱাৰ।"
+      }
+    },
+    {
+      "name": {
+        "en": "By rail",
+        "as": "ৰেলপথে"
+      },
+      "about": {
+        "en": "Guwahati railway station connects to Delhi, Kolkata, Chennai and the North East via the far-east line.",
+        "as": "গুৱাহাটী ৰেলৱে ষ্টেচন দূৰ্বোর্ধ্ব ৰেখাৰ জৰিয়তে দিল্লী, কলকাতা, চেন্নাই আৰু উত্তৰ-পূৰ্বৰ সৈতে সংযুক্ত।"
+      }
+    },
+    {
+      "name": {
+        "en": "By road",
+        "as": "ৰাস্তাপথে"
+      },
+      "about": {
+        "en": "Assam is linked to the rest of India by the Grand Trunk Road and National Highway 27; the river links the interiors.",
+        "as": "গ্রেণ্ড ট্ৰাংক ৰোড আৰু ৰাষ্ট্ৰীয় ছিংফাৰী ২৭-এ অসমক বাকী ভাৰতৰ সৈতে সংযুক্ত কৰে; নদীয়ে ভিতৰুৱা অঞ্চল সংযুক্ত কৰে।"
+      }
+    },
+    {
+      "name": {
+        "en": "Best season",
+        "as": "শ্ৰেষ্ঠ ঋতু"
+      },
+      "about": {
+        "en": "October to March — cool, clear and ideal for rhino safaris; April brings the Rongali Bihu.",
+        "as": "অক্টোবৰৰ পৰা মাৰ্চলৈ — শীতল, পৰিষ্কাৰ আৰু গঁড়-চফাৰিৰ বাবে আদৰ্শ; এপ্ৰিলত ৰঙালী বিহু অহে।"
+      }
+    },
+    {
+      "name": {
+        "en": "Inside the state",
+        "as": "ৰাজ্যৰ ভিতৰত"
+      },
+      "about": {
+        "en": "Buses, taxis and the river ferries move people between the districts; a private car is the easiest way.",
+        "as": "বাচ, টেক্সী আৰু নদীয় বোটেৰে মানুহ জিলাসমূহৰ মাজত আতৰাওক; ব্যক্তিগত গাড়ীয়েই আটাইতকৈ সহজ।"
+      }
+    },
+    {
+      "name": {
+        "en": "Where to stay",
+        "as": "ক'ত থাকিব"
+      },
+      "about": {
+        "en": "From Kaziranga forest camps to Guwahati hotels and Majuli satra cottages — as booked through the Journey planner.",
+        "as": "কাজিৰংগাৰ বন কেম্পৰ পৰা গুৱাহাটীৰ হোটেল আৰু মাজুলীৰ সাত্ৰ কুটীয়ালৈ — যাত্ৰা পৰিকল্পনাৰ জৰিয়তে বুক কৰক।"
+      }
+    }
+  ]
+}

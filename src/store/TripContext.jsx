@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useMemo } from "react";
 import { useLocalStorage } from "../lib/storage";
 import { generateItinerary } from "../lib/itinerary";
-import { getDestination } from "../data/destinations";
+import { getDestination } from "@/data/travel/destinations";
 
 /**
  * TripContext — "My Trip": the selected destinations, the travel-details form

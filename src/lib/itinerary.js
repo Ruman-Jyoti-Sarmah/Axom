@@ -1,4 +1,4 @@
-import { getDestination } from "../data/destinations.js";
+import { getDestination } from "../data/travel/destinations.js";
 
 /**
  * itinerary.js — a transparent, RULE-BASED Assam itinerary generator.

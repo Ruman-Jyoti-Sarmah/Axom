@@ -1,0 +1,246 @@
+{
+  "ASSAM_CULTURE": [
+    {
+      "name": "Rongali Bihu (Bohag Bihu)",
+      "kind": {
+        "en": "Spring · April",
+        "as": "বসন্ত · এপ্ৰিল"
+      },
+      "about": {
+        "en": "The Assamese New Year — drum, dance and the gamosa, celebrated for seven days across the state.",
+        "as": "অসমীয়া নববৰ্ষ — ঢোল, নৃত্য আৰু গামোচাৰ সৈতে ৰাজ্যজুৰে সাত দিনৰ উৎসৱ।"
+      }
+    },
+    {
+      "name": "Kati Bihu",
+      "kind": {
+        "en": "Autumn · October",
+        "as": "শৰৎ · অক্টোবৰ"
+      },
+      "about": {
+        "en": "A festival of light for the standing crops, with the kamdi puja and flickering earthen lamps.",
+        "as": "থিয় হৈ থকা শস্যৰ বাবে পোহৰৰ উৎসৱ — কাঁদি পূজা আৰু জ্বলি থকা মাটিৰ চকী সহিত।"
+      }
+    },
+    {
+      "name": "Magh Bihu",
+      "kind": {
+        "en": "Winter · January",
+        "as": "শীত · জানুৱাৰী"
+      },
+      "about": {
+        "en": "The harvest festival with bigeti (cane rice), curd rice and the feast that ends the season.",
+        "as": "শস্যৰ উৎসৱ — বিঘেটি (বাঁহৰ ভাত), দই-ভাত আৰু ঋতু শেষ কৰা ভোজ।"
+      }
+    },
+    {
+      "name": "Sattriya — the State Dance",
+      "kind": {
+        "en": "Living tradition",
+        "as": "জীৱন্ত পৰম্পৰা"
+      },
+      "about": {
+        "en": "Born in the sattras of Majuli, a classical dance-drama of Srimanta Sankardev, performed here still.",
+        "as": "মাজুলীৰ সাত্ৰত জন্মাৰ বোধ কৰা, স্ৰীমন্ত শঙ্কৰদেৱৰ শাস্ত্ৰীয় নৃত্য-নাটক, এতিয়াও ইয়াত উপস্থাপিত হয়।"
+      }
+    },
+    {
+      "name": "Borgeet & Kirtan",
+      "kind": {
+        "en": "Sacred music",
+        "as": "পৱিত্ৰ সংগীত"
+      },
+      "about": {
+        "en": "The devotional songs of Sankardev and Madhavdeva sung at naamghars and sattras across Assam.",
+        "as": "শঙ্কৰদেৱ আৰু মাধৱদেৱৰ ভক্তি গীত — অসমজুৰি নামঘৰ আৰু সাত্ৰত গাওঁকা হয়।"
+      }
+    },
+    {
+      "name": "Ali-Ai-Ligang",
+      "kind": {
+        "en": "Spring · rural",
+        "as": "বসন্ত · গ্ৰাম্য"
+      },
+      "about": {
+        "en": "The spring sowing festival of the Bodo people — drum, song and the joy of the land.",
+        "as": "বড়ো জনগোষ্ঠীৰ বসন্ত বীজ বপন উৎসৱ — ঢোল, গান আৰু মাটিৰ আনন্দ।"
+      }
+    },
+    {
+      "name": "Dogri — the Karbi festival",
+      "kind": {
+        "en": "Spring · hills",
+        "as": "বসন্ত · পাহাৰ"
+      },
+      "about": {
+        "en": "The new-year celebration of the Karbi folk with the bwenkavil and the rhythmic drum beat.",
+        "as": "কাৰ্বি জনগোষ্ঠীৰ নববৰ্ষ উৎসৱ — ভেঙ্কাভিল আৰু লয়বদ্ধ ঢোলৰ তালেৰ সৈতে।"
+      }
+    }
+  ],
+  "ASSAM_HANDICRAFTS": [
+    {
+      "name": "Muga silk",
+      "kind": {
+        "en": "Golden silk",
+        "as": "সোণীয় ৰেশম"
+      },
+      "about": {
+        "en": "The rare gold silk of Assam, a GI-tagged treasure woven in Titabar and Nahoripathar.",
+        "as": "অসমৰ দুৰ্লভ সোণ ৰেশম — টিটাবৰ আৰু নহৰীপাথাৰত বোৱা জিআই-পতাকাযুক্ত সম্পদ।"
+      }
+    },
+    {
+      "name": "Eri silk",
+      "kind": {
+        "en": "Peace silk",
+        "as": "শান্তি ৰেশম"
+      },
+      "about": {
+        "en": "The 'peace silk' of the hills — warm, creamy and used for mekhela-samel and rington.",
+        "as": "পাহাৰৰ 'শান্তি ৰেশম' — উষ্ণ, মুগ্ধ কৰা, মেখেলা-চাদৰ আৰু ৰিংচনত ব্যৱহৃত।"
+      }
+    },
+    {
+      "name": "Pat silk",
+      "kind": {
+        "en": "Baltic silk",
+        "as": "বাল্টিক ৰেশম"
+      },
+      "about": {
+        "en": "Fine glossy silk from the Brahmaputra banks, worn in the Bihu and wedding ceremonies.",
+        "as": "ব্ৰহ্মপুত্ৰৰ তীৰৰ মিহলি চকমকা ৰেশম — বিহু আৰু বিয়াৰ অনুষ্ঠানে পিন্ধা হয়।"
+      }
+    },
+    {
+      "name": "Gamosa & Jaapi",
+      "kind": {
+        "en": "Honorary cloth",
+        "as": "সন্মানৰ কাপোৰ"
+      },
+      "about": {
+        "en": "The white-red gamosa of honour and the conical jaapi hat — symbols of Assamese grace.",
+        "as": "সন্মানৰ বগা-ৰঙা গামোচা আৰু শঙালী জাপী টুপী — অসমীয়া মৰ্যাদাৰ প্ৰতীক।"
+      }
+    },
+    {
+      "name": "Bell metal (Kahor)",
+      "kind": {
+        "en": "Metal craft",
+        "as": "ধাতু শিল্প"
+      },
+      "about": {
+        "en": "The hammered bell-metal of Assamese kitchens and sattra refectories, handed down for generations.",
+        "as": "অসমীয়া ৰান্ধিঘৰ আৰু সাত্ৰৰ ভোজনাগাৰৰ পিটা কাহৰ — পুৰুষানুপুৰুষ হাতৰ হাতত।"
+      }
+    },
+    {
+      "name": "Bamboo & cane",
+      "kind": {
+        "en": "Weave craft",
+        "as": "বোনা শিল্প"
+      },
+      "about": {
+        "en": "Baskets, mats and furniture woven from the bamboo of the forests — daily craft of the villages.",
+        "as": "জাওবানৰ বাঁহৰে বোৱা টোকা, পাতীয়া আৰু ফাৰ্ণিচাৰ — গাঁৱৰ নিত্য শিল্প।"
+      }
+    },
+    {
+      "name": "Terra-cotta & masks",
+      "kind": {
+        "en": "Art craft",
+        "as": "শিল্পকলা"
+      },
+      "about": {
+        "en": "Terracotta horses of Garhislal and the masks of Majuli, worn in the Bhaona dance-drama.",
+        "as": "গড়হিলালৰ মাটিৰ ঘোঁৰা আৰু মাজুলীৰ মুখৌটা — ভাওনা নৃত্য-নাটত পিন্ধা হয়।"
+      }
+    }
+  ],
+  "ASSAM_HERITAGE": [
+    {
+      "name": {
+        "en": "The Ahom kingdom",
+        "as": "আহোম ৰাজ্য"
+      },
+      "kind": {
+        "en": "Six centuries",
+        "as": "ছয় শতিকাৰ"
+      },
+      "about": {
+        "en": "The Ahom dynasty ruled Assam for six centuries; a kingdom of the Brahmaputra's heartland.",
+        "as": "আহোম ৰাজবংশে ছয় শতিকা অসম চালনা কৰিছিল; ব্ৰহ্মপুত্ৰৰ হৃদয়ভূমিৰ এক ৰাজ্য।"
+      }
+    },
+    {
+      "name": {
+        "en": "Srimanta Sankardev",
+        "as": "স্ৰীমন্ত শঙ্কৰদেৱ"
+      },
+      "kind": {
+        "en": "The saint-scholar",
+        "as": "সাধু-পণ্ডিত"
+      },
+      "about": {
+        "en": "The 15th-century saint, poet and playwright who brought Vaishnavism, Sattriya and the naamghosha.",
+        "as": "১৫শ শতকৰ সাধু, কবি আৰু নাট্যকাৰ — যিয়ে বৈষ্ণৱ ধর্ম, সাত্ৰীয় আৰু নামঘোষা আনিছিল।"
+      }
+    },
+    {
+      "name": {
+        "en": "The sattras of Majuli",
+        "as": "মাজুলীৰ সাত্ৰসমূহ"
+      },
+      "kind": {
+        "en": "Vaishnavite estates",
+        "as": "বৈষ্ণৱ পীঠ"
+      },
+      "about": {
+        "en": "Monastic homes of the Brahmaputra islands, where Sattriya and ritual music still live.",
+        "as": "ব্ৰহ্মপুত্ৰ দ্বীপৰ মঠবাসী ঘৰ, য'ত সাত্ৰীয় আৰু আচাৰ-সংগীত এতিয়াও জীয়াই আছে।"
+      }
+    },
+    {
+      "name": {
+        "en": "Kamakhya Devi",
+        "as": "কামাখ্যা দেৱী"
+      },
+      "kind": {
+        "en": "The Shakti pitha",
+        "as": "শক্তি পীঠ"
+      },
+      "about": {
+        "en": "The temple of Kamakhya atop Nilachal Hill, one of the oldest Shakti shrines of India.",
+        "as": "নীলাচল পাহাৰৰ মূৰত কামাখ্যা মন্দিৰ — ভাৰতৰ এটা আটাইতকৈ পুৰণি শক্তি মন্দিৰ।"
+      }
+    },
+    {
+      "name": {
+        "en": "Sivasagar",
+        "as": "শিৱসাগৰ"
+      },
+      "kind": {
+        "en": "The Ahom capital",
+        "as": "আহোম ৰাজধানী"
+      },
+      "about": {
+        "en": "Seat of the Ahom kings — Rang Ghar, Talatal Ghar, Joysagar tank and the Shiva dol.",
+        "as": "আহোম ৰাজাসকলৰ আসন — ৰংঘৰ, তলাতাল ঘৰ, জয়সাগৰ পুখুৰী আৰু শিৱ দল।"
+      }
+    },
+    {
+      "name": {
+        "en": "Hajo & Sualkuchi",
+        "as": "হাজো আৰু চুৱালকুছি"
+      },
+      "kind": {
+        "en": "Sacred silk town",
+        "as": "পৱিত্ৰ ৰেশম নগৰ"
+      },
+      "about": {
+        "en": "The holy town of Hajo where faiths meet, and Sualkuchi, the muga-silk village on the Brahmaputra.",
+        "as": "হাজোৰ পবিত্ৰ নগৰ, য'ত সমস্থ ধর্ম মিলে, আৰু চুৱালকুছি — ব্ৰহ্মপুত্ৰৰ তীৰৰ মুগা-ৰেশম গাঁৱ।"
+      }
+    }
+  ]
+}

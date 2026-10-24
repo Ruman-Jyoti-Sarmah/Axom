@@ -1,0 +1,111 @@
+{
+  "ZUBEEN_GARG": {
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20of%20Zubeen%20Garg%20the%20Legendary%20Singer%2C%20Composer%2C%20Actor%2C%20Music%20Director%2C%20Poet%20of%20Assam%20by%20Sanjib%20Borah%20Artist.jpg?width=800",
+    "alt": "Zubeen Garg — Assam's legendary singer",
+    "name": "Zubeen Garg",
+    "subtitle": "The Voice of Assam",
+    "born": "18 November 1972",
+    "bornAt": "Tura, Meghalaya, India",
+    "died": "19 September 2025",
+    "diedAt": "Singapore",
+    "age": 52,
+    "roles": [
+      "Singer",
+      "Composer",
+      "Lyricist",
+      "Actor",
+      "Director",
+      "Musician"
+    ],
+    "albums": [
+      "Anamika (1992)",
+      "Mayabini",
+      "Ujan Piriti",
+      "Mission China (2017)"
+    ],
+    "songs": [
+      "Ya Ali (Gangster, 2006)",
+      "Dil Tu Hi Bataa (Krrish 3)",
+      "Mayabini",
+      "Boku Duru Duru",
+      "Gaane Ki Aane"
+    ],
+    "award": "National Film Award — Best Male Playback (Mayabini)",
+    "legacy": "A defining cultural figure of modern Assam, spanning Assamese popular music, Bihu, Bengali and Hindi cinema for over three decades.",
+    "diedNote": "Died in Singapore on 19 September 2025, aged 52, while performing at the Northeast Festival — an unprecedented wave of mourning across Assam."
+  },
+  "assamArtists": [
+    {
+      "image": "/images/artists/bhupen-hazarika.jpg",
+      "name": "Bhupen Hazarika",
+      "born": "1926",
+      "died": "2011",
+      "knownFor": "Singer · Songwriter · Filmmaker · National Poet of Assam",
+      "bio": "Mahapurush Bhupen Hazarika is Assam's most celebrated cultural icon. Composer of 'Jiyori', 'O Mor Apunar Dekh' and 'Bhey Bhikhari', he carried Assam's pain and pride to the nation and beyond."
+    },
+    {
+      "image": "/images/artists/bishnu-rabha.jpg",
+      "name": "Bishnu Prasad Rabha",
+      "born": "1909",
+      "died": "1969",
+      "knownFor": "Singer · Composer · Actor · Sattriya revivalist",
+      "bio": "Rupkonwar Bishnu Prasad Rabha shaped modern Assamese culture — music, drama, the Sattriya renaissance and the Assam trunk road (BRT). A true Renaissance man of Assam."
+    },
+    {
+      "image": "/images/artists/jyoti-prasad-agarwala.jpg",
+      "name": "Jyoti Prasad Agarwala",
+      "born": "1903",
+      "died": "1961",
+      "knownFor": "Director · Playwright · Lyricist · Pioneer of Assamese cinema",
+      "bio": "The first filmmaker of Assam — directed, wrote and composed the first Assamese feature film 'Joymati' (1935) and wrote the classic 'Jiyori'. A colossus of Assamese literature and theatre."
+    },
+    {
+      "image": null,
+      "name": "Dr. Anima Choudhury",
+      "born": "1932",
+      "died": "",
+      "knownFor": "Singer · Musicologist · Borgeet tradition",
+      "bio": "A rare living link to Assam's sacred musical heritage — a noted vocalist of Borgeets and Manipuri music, carrying forward the musical lineage of Assam's greatest tradition."
+    },
+    {
+      "image": "/img/zubeen-garg.jpg",
+      "name": "Zubeen Garg",
+      "born": "1972",
+      "died": "2025",
+      "knownFor": "Singer · Songwriter · Actor · Filmmaker · Multi-instrumentalist",
+      "bio": "Over three decades, Zubeen Garg defined a generation of Assamese music — from the Bihu anthem 'Mayabini' and 'Ya Ali' in Hindi cinema to Assamese films like 'Mission China'. A global voice of Assamese soul."
+    },
+    {
+      "image": "/images/artists/sankardev.jpg",
+      "name": "Srimanta Sankardev",
+      "born": "1449",
+      "died": "1568",
+      "knownFor": "Saint · Scholar · Dance · Music · Theatre",
+      "bio": "The 15th-century saint, poet and playwright who unified Assam under Vaishnavism — founder of Sattriya dance, Borgeet and the Bhaona theatre."
+    },
+    {
+      "image": null,
+      "name": "Mahapurush Madhavdeva",
+      "born": "1489",
+      "died": "1596",
+      "knownFor": "Singer · Composer · Poet",
+      "bio": "The soul of Assamese devotional music — composed the Bhawaiya and Borgeet, and wrote the devotional play Patassara."
+    },
+    {
+      "image": "/images/artists/lakshminath-bezbaroa.jpg",
+      "name": "Lakshminath Bezbaroa",
+      "born": "1864",
+      "died": "1938",
+      "knownFor": "Poet · Playwright · 'O Mur Apunar Dekh'",
+      "bio": "Assam's national poet, writer and journalist — author of the state song 'O Mur Apunar Dekh' and the iconic 'Joi Aai Axom'."
+    },
+    {
+      "image": null,
+      "name": "Sheila K. Bharali",
+      "born": "1960",
+      "died": "",
+      "knownFor": "Singer · Composer · Cultural Revivalist",
+      "bio": "A powerful voice of contemporary Assamese folk and patriotic songs, carrying the Bihu and folk traditions forward."
+    }
+  ]
+}

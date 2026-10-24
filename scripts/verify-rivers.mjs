@@ -1,4 +1,4 @@
-import { RIVERS, RIVER_SYSTEMS } from "../src/data/rivers.js";
+import { RIVERS, RIVER_SYSTEMS } from "../src/data/travel/rivers.js";
 console.log("rows:", RIVERS.length);
 console.log("aliases:", RIVERS.filter((r) => r.aliases.en.length).map((r) => r.id));
 console.log("systems:", RIVER_SYSTEMS.map((s) => s.id));

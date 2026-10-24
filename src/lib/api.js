@@ -1,6 +1,6 @@
-import { DISTRICTS, slugify } from "../data/districts.js";
-import { DISTRICT_DETAILS } from "../data/districtDetails.js";
-import * as STATIC_CONTENT from "../data/content.js";
+import { DISTRICTS, slugify } from "@/data/travel/districts.js";
+import { DISTRICT_DETAILS } from "@/data/travel/districtDetails.js";
+import * as STATIC_CONTENT from "@/data/content.js";
 
 const API = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
 
