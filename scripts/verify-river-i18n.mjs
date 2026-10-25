@@ -1,14 +1,19 @@
 import { readFileSync } from "node:fs";
 import { STRINGS } from "../src/data/i18n.js";
 
-const files = ["RiversPage", "RiverDetail", "RiversHome", "RiversAtlas"];
+const files = [
+  ["RiversPage", "../src/pages/Travel/RiversPage.jsx"],
+  ["RiverDetail", "../src/pages/Travel/RiverDetail.jsx"],
+  ["RiversHome", "../src/components/culture/Home/RiversHome.jsx"],
+  ["RiversAtlas", "../src/components/travel/RiversPage/RiversAtlas.jsx"],
+];
 const missing = [];
-for (const f of files) {
-  const s = readFileSync(new URL(`../src/components/${f}.jsx`, import.meta.url), "utf8");
-  for (const m of s.matchAll(/t\("([^"]+)"/g)) {
+for (const [name, file] of files) {
+  const s = readFileSync(new URL(file, import.meta.url), "utf8");
+  for (const m of s.matchAll(/\bt\("([^"]+)"/g)) {
     const k = m[1];
-    if (!(k in STRINGS.en)) missing.push(`${f}: ${k} (en)`);
-    if (!(k in STRINGS.as)) missing.push(`${f}: ${k} (as)`);
+    if (!(k in STRINGS.en)) missing.push(`${name}: ${k} (en)`);
+    if (!(k in STRINGS.as)) missing.push(`${name}: ${k} (as)`);
   }
 }
 console.log("missing keys:", missing.length ? missing : "NONE");

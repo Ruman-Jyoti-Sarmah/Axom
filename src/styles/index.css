@@ -4422,17 +4422,185 @@ img:not([src]) {
 .artists__row-media img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.5s var(--ease); }
 .artists__row:hover .artists__row-media img { transform: scale(1.04); }
 .artists__card-bio { line-height: 1.7; }
+
+/* ── Assam communities ──────────────────────────────────────────────── */
+.communities {
+  position: relative;
+  margin-top: clamp(2.5rem, 6vh, 4.5rem);
+}
+.communities--compact {
+  padding: clamp(3rem, 7vw, 5.5rem) var(--gutter);
+  margin-top: 0;
+  background: #f5efe4;
+}
+.communities__head { max-width: 62rem; }
+.communities__head .label { color: var(--bronze); }
+.communities__title {
+  margin-top: 0.75rem;
+  max-width: 12ch;
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 5vw, 4.6rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+.communities__intro {
+  max-width: 62ch;
+  margin-top: 1.2rem;
+  color: var(--ivory-dim);
+  line-height: 1.75;
+}
+.communities__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+  margin-top: 2.4rem;
+}
+.community-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+  background: #fffdf8;
+}
+.community-card__image-wrap {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #e7dcc7;
+}
+.community-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+.community-card:hover .community-card__image { transform: scale(1.04); }
+.community-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.35rem;
+}
+.community-card__body h3 {
+  margin: 0.55rem 0 0.7rem;
+  font-family: var(--serif);
+  font-size: 1.55rem;
+  font-weight: 600;
+  line-height: 1.08;
+}
+.community-card__body p { color: var(--ivory-dim); line-height: 1.65; }
+.community-card__craft {
+  margin-top: 0.85rem;
+  color: var(--bronze) !important;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.community-card__button {
+  margin-top: auto;
+  padding: 0.75rem 1rem;
+  font-size: 0.64rem;
+}
+.community-drawer__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  background: rgba(12, 11, 9, 0.64);
+  animation: communityFadeIn 0.25s ease both;
+}
+.community-drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  width: min(40rem, 100%);
+  height: 100%;
+  overflow-y: auto;
+  background: #fffdf8;
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.24);
+  animation: communitySlideIn 0.42s var(--ease) both;
+}
+.community-drawer__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  display: grid;
+  width: 2.7rem;
+  height: 2.7rem;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(12, 11, 9, 0.45);
+  backdrop-filter: blur(8px);
+}
+.community-drawer__image-wrap {
+  flex: 0 0 auto;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #e7dcc7;
+}
+.community-drawer__image { width: 100%; height: 100%; object-fit: cover; }
+.community-drawer__body { padding: clamp(1.5rem, 5vw, 2.7rem); }
+.community-drawer__body h2 {
+  margin: 0.55rem 0 0.65rem;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3.3rem);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--ink);
+}
+.community-drawer__craft {
+  color: var(--bronze);
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.community-drawer__story { margin-top: 1.1rem; color: var(--ivory-dim); line-height: 1.75; }
+.community-drawer__columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 1.6rem;
+}
+.community-drawer__group { margin-top: 1.6rem; }
+.community-drawer__columns .community-drawer__group { margin-top: 0; }
+.community-drawer__group h3 {
+  margin-bottom: 0.65rem;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.community-drawer__group ul {
+  display: grid;
+  gap: 0.45rem;
+  padding-left: 1.1rem;
+  color: var(--ivory-dim);
+  line-height: 1.55;
+}
+.community-drawer__source { margin-top: 1.8rem; }
+@keyframes communityFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes communitySlideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+
 @media (max-width: 900px) {
   .herit2__feature, .craft2__row, .artists__lead { grid-template-columns: 1fr; }
   .craft2__row--flip .craft2__media { order: 0; }
   .herit2__row { grid-template-columns: 160px 1fr; }
   .artists__row { grid-template-columns: 110px 1fr; }
   .artists__row-media { width: 110px; }
+  .communities__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 600px) {
   .herit2__row, .artists__row { grid-template-columns: 1fr; }
   .herit2__thumb { aspect-ratio: 16 / 10; }
   .artists__row-media { width: 96px; }
+  .communities__grid { grid-template-columns: 1fr; }
+  .community-drawer__columns { grid-template-columns: 1fr; gap: 0; }
 }
 @media (max-width: 600px) {
   .page__culture-grid,
