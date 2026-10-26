@@ -7093,7 +7093,7 @@ main[data-section="travel"] .trail-card__body em {
   background: var(--accent);
 }
 .chub__lede-text {
-  margin-top: 1.4rem;
+  margin: 1rem 0 0;
   font-family: var(--serif);
   font-size: clamp(1.3rem, 2.4vw, 1.9rem);
   font-weight: 400;
@@ -10919,4 +10919,3 @@ img {
     padding-top: 12px;
   }
 }
-
