@@ -4652,6 +4652,145 @@ img:not([src]) {
 }
 
 /* ============================================================
+   HANDICRAFTS & SILK PAGE (#/handicrafts)
+   ============================================================ */
+.handicrafts {
+  padding: clamp(3rem, 7vw, 6rem) 0;
+}
+.handicrafts__head {
+  max-width: 62rem;
+  margin-bottom: 2.5rem;
+}
+.handicrafts__head .label { color: var(--bronze); }
+.handicrafts__head h2 {
+  max-width: 12ch;
+  margin-top: 0.75rem;
+  font-family: var(--serif);
+  font-size: clamp(2.3rem, 5vw, 4.8rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+}
+.handicrafts__head p {
+  max-width: 68ch;
+  margin-top: 1.25rem;
+  color: var(--ivory-dim);
+  line-height: 1.75;
+}
+.handicrafts__list {
+  display: grid;
+  gap: 1.25rem;
+}
+.handicraft-card {
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.85fr) 1.15fr;
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+  background: #fffdf8;
+}
+.handicraft-card__image-wrap {
+  min-height: 19rem;
+  background: #e7dcc7;
+}
+.handicraft-card__image,
+.handicraft-card__detail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.handicraft-card__body {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(1.35rem, 3vw, 2.3rem);
+}
+.handicraft-card__body h3 {
+  margin: 0.55rem 0 0.7rem;
+  font-family: var(--serif);
+  font-size: clamp(1.65rem, 3vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.05;
+}
+.handicraft-card__summary,
+.handicraft-card__story {
+  color: var(--ivory-dim);
+  line-height: 1.7;
+}
+.handicraft-card__materials {
+  margin-top: 0.9rem;
+  color: var(--bronze) !important;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.handicraft-card__button {
+  margin-top: 1.3rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.64rem;
+}
+.handicraft-card.is-expanded .handicraft-card__button svg {
+  transform: rotate(180deg);
+}
+.handicraft-card__details {
+  width: 100%;
+  margin-top: 1.35rem;
+  padding-top: 1.35rem;
+  border-top: 1px solid var(--hairline);
+  animation: communityDetailsIn 0.35s var(--ease) both;
+}
+.handicraft-card__detail-hero {
+  display: grid;
+  grid-template-columns: minmax(10rem, 0.8fr) 1.2fr;
+  gap: 1.2rem;
+  align-items: start;
+}
+.handicraft-card__detail-image-wrap {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #e7dcc7;
+}
+.handicraft-card__detail-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-top: 1.6rem;
+}
+.handicraft-card__detail-group { margin-top: 1.6rem; }
+.handicraft-card__detail-columns .handicraft-card__detail-group { margin-top: 0; }
+.handicraft-card__detail-group h3 {
+  margin-bottom: 0.65rem;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.handicraft-card__detail-group ul {
+  display: grid;
+  gap: 0.45rem;
+  padding-left: 1.1rem;
+  color: var(--ivory-dim);
+  line-height: 1.55;
+}
+.handicraft-card__source {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.5rem;
+  color: var(--bronze);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+@media (max-width: 800px) {
+  .handicraft-card { grid-template-columns: 1fr; }
+  .handicraft-card__image-wrap { min-height: 15rem; }
+}
+@media (max-width: 600px) {
+  .handicraft-card__detail-hero,
+  .handicraft-card__detail-columns { grid-template-columns: 1fr; gap: 0; }
+}
+
+/* ============================================================
    STATE SYMBOLS PAGE (#/symbols)
    ============================================================ */
 .symbols {
@@ -10917,6 +11056,357 @@ img {
     position: relative;
     z-index: 2;
     padding-top: 12px;
+  }
+}
+
+/* ============================================================
+   PROFESSIONAL VISUAL REFRESH
+   ------------------------------------------------------------
+   A quieter, more editorial layer for the whole portal. The layout and
+   interactions stay the same; this pass improves hierarchy, rhythm, contrast,
+   and the way photographs are framed across Culture and Travel.
+   ============================================================ */
+:root {
+  --ink: #fffdf8;
+  --paper: #fbfaf6;
+  --charcoal: #f3efe6;
+  --charcoal-2: #e9e0d0;
+  --ivory: #211b17;
+  --ivory-dim: rgba(33, 27, 23, 0.68);
+  --ivory-faint: rgba(33, 27, 23, 0.34);
+  --bronze: #a53b36;
+  --bronze-dim: rgba(165, 59, 54, 0.38);
+  --hairline: rgba(33, 27, 23, 0.13);
+  --gutter: clamp(1rem, 4vw, 5.5rem);
+  --img-radius: 16px;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ivory);
+}
+
+main[data-section="culture"],
+main[data-section="travel"] {
+  background: var(--paper);
+}
+
+/* Header: a more intentional two-level frame with less visual noise. */
+.chead {
+  background: rgba(255, 253, 248, 0.96);
+  border-bottom-color: rgba(33, 27, 23, 0.1);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(18px);
+}
+.chead__strip {
+  background: #173a36;
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+}
+.chead__strip-inner {
+  min-height: 32px;
+  padding-block: 0.35rem;
+}
+.chead__strip-brand {
+  color: #f2c878;
+  letter-spacing: 0.18em;
+}
+.chead__strip-links a {
+  color: rgba(255, 255, 255, 0.68);
+}
+.chead__bar {
+  min-height: 72px;
+  padding-block: 0.6rem;
+}
+.chead__logo-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #b9473e, #8e2e2b);
+  box-shadow: 0 8px 18px rgba(165, 59, 54, 0.2);
+}
+.chead__logo-text strong {
+  letter-spacing: 0.04em;
+}
+.chead__trigger,
+.chead__menu--flat .chead__link {
+  border-radius: 10px;
+  border-bottom: 0;
+  transition: color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.chead__trigger:hover,
+.chead__item.is-open .chead__trigger,
+.chead__menu--flat .chead__link:hover,
+.chead__menu--flat .chead__link.is-active {
+  background: rgba(165, 59, 54, 0.08);
+  border-bottom-color: transparent;
+}
+.chead__search {
+  height: 40px;
+  border-radius: 12px;
+  background: #f4efe6;
+}
+.chead__lang-btn,
+.chead__account {
+  height: 40px;
+  border-radius: 12px;
+}
+.chead__account {
+  background: #173a36;
+  box-shadow: 0 8px 18px rgba(23, 58, 54, 0.16);
+}
+.chead__account:hover {
+  background: #0f2b28;
+  box-shadow: 0 12px 22px rgba(23, 58, 54, 0.2);
+}
+.chead__trip {
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.7);
+}
+.chead__panel,
+.chead__lang-menu {
+  border-radius: 16px;
+  box-shadow: 0 24px 70px rgba(38, 26, 18, 0.16);
+}
+
+/* Hero: give the landing experience more breathing room and a clearer focal point. */
+.chub__hero {
+  min-height: clamp(620px, calc(100svh - 82px), 860px);
+}
+.chub__hero-inner {
+  max-width: 1320px;
+  padding-bottom: clamp(6rem, 12vh, 8.5rem);
+}
+.chub__hero-copy {
+  max-width: 720px;
+}
+.chub__hero-title {
+  max-width: 10ch;
+  font-size: clamp(3.6rem, 7.5vw, 7.4rem);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+}
+.chub__hero-sub {
+  max-width: 48ch;
+  font-size: clamp(1rem, 1.3vw, 1.18rem);
+}
+.chub__hero-cat,
+.chub__kicker {
+  letter-spacing: 0.24em;
+}
+.chub__hero-cta {
+  gap: 0.75rem;
+}
+.chub__btn {
+  border-radius: 12px;
+  padding-inline: 1.35rem;
+}
+.chub__btn--solid {
+  background: #f2c878;
+  color: #1e2926;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.16);
+}
+.chub__hero-bar {
+  max-width: 1320px;
+  padding-bottom: 1.2rem;
+}
+.chub__stats {
+  gap: clamp(1.4rem, 3vw, 2.8rem);
+}
+.chub__stat dt {
+  font-size: clamp(2rem, 3vw, 2.7rem);
+}
+
+/* Editorial rhythm: consistent reading measure and deliberate section gaps. */
+.chub__lede,
+.chome,
+.communities,
+.handicrafts {
+  scroll-margin-top: 5rem;
+}
+.chub__lede {
+  max-width: 980px;
+  padding-block: clamp(4rem, 8vw, 7rem);
+}
+.chub__lede-text,
+.chome__sub,
+.communities__intro,
+.handicrafts__head p {
+  max-width: 64ch;
+}
+.chome__title,
+.communities__title,
+.handicrafts__head h2 {
+  letter-spacing: -0.035em;
+}
+.chome__head,
+.communities__head,
+.handicrafts__head {
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+/* Cards: less boxy, richer hover state, and more consistent image framing. */
+.exp-card,
+.dest-card,
+.community-card,
+.handicraft-card,
+.chome__row,
+.chome__strip-card,
+.chome__split-card,
+.chome__trio-card,
+.chome__band-card,
+.ppl-card {
+  border-color: rgba(33, 27, 23, 0.11);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(45, 31, 20, 0.05);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+.exp-card:hover,
+.dest-card:hover,
+.community-card:hover,
+.handicraft-card:hover,
+.chome__row:hover,
+.chome__strip-card:hover,
+.chome__split-card:hover,
+.chome__trio-card:hover,
+.chome__band-card:hover,
+.ppl-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(165, 59, 54, 0.3);
+  box-shadow: 0 22px 48px rgba(45, 31, 20, 0.11);
+}
+.community-card,
+.handicraft-card {
+  background: #fffefa;
+}
+.community-card__image-wrap,
+.handicraft-card__image-wrap {
+  background: #e8dfd0;
+}
+.community-card__body,
+.handicraft-card__body {
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+}
+.community-card__button,
+.handicraft-card__button {
+  border-radius: 10px;
+}
+
+/* Contrast guard: these are light cards, so their headings must use the ink
+   token rather than the white surface token. */
+.communities__title,
+.community-card__detail-group h3,
+.handicraft-card__detail-group h3,
+.symbol__name {
+  color: var(--ivory);
+}
+.btn--onphoto:hover {
+  color: var(--ivory);
+}
+
+/* Floating section switcher: premium but quieter, so it does not fight the page. */
+.section-dock {
+  border: 1px solid rgba(33, 27, 23, 0.11);
+  background: rgba(255, 253, 248, 0.92);
+  box-shadow: 0 16px 42px rgba(41, 29, 20, 0.14);
+  backdrop-filter: blur(16px);
+}
+.section-dock__track {
+  background: #f0eadf;
+}
+.section-dock__thumb {
+  background: #173a36;
+  box-shadow: 0 6px 16px rgba(23, 58, 54, 0.18);
+}
+.section-dock__btn.is-active {
+  color: #fff;
+}
+.section-dock__btn.is-active .section-dock__hint {
+  color: rgba(255, 255, 255, 0.7);
+}
+.section-dock__btn.is-active .section-dock__icon {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+/* Footer: stronger closing frame and a more useful newsletter block. */
+.footer {
+  background: #173a36;
+  border-top: 0;
+  color: #f8f3e8;
+  padding-top: clamp(5rem, 10vw, 8rem);
+}
+.footer__top {
+  border-bottom-color: rgba(255, 255, 255, 0.18);
+}
+.footer__logo {
+  color: #f2c878;
+  letter-spacing: 0.22em;
+}
+.footer__col h4,
+.footer__tag,
+.footer__col a,
+.footer__col address,
+.footer__bottom {
+  color: rgba(248, 243, 232, 0.78);
+}
+.footer__col a:hover {
+  color: #fff;
+}
+.footer .news {
+  padding: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.07);
+}
+.footer .news__row input {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.footer .news .btn--solid {
+  background: #f2c878;
+  border-color: #f2c878;
+  color: #173a36;
+}
+
+/* Small screens: keep the editorial feel without crowding the viewport. */
+@media (max-width: 720px) {
+  .chead__bar { min-height: 64px; }
+  .chead__logo-mark { width: 36px; height: 36px; }
+  .chead__logo-text strong { font-size: 1.15rem; }
+  .chead__mobile { background: #fffdf8; }
+  .chub__hero { min-height: calc(100svh - 64px); }
+  .chub__hero-inner { padding-bottom: 8.5rem; }
+  .chub__hero-title { max-width: 11ch; font-size: clamp(2.8rem, 13vw, 4.6rem); }
+  .chub__hero-sub { font-size: 0.96rem; }
+  .chub__hero-bar { padding-inline: 1rem; }
+  .chub__hero-cats { overflow-x: auto; flex-wrap: nowrap; max-width: 100%; scrollbar-width: none; }
+  .chub__hero-cats::-webkit-scrollbar { display: none; }
+  .chub__hero-chip { flex: 0 0 auto; padding-inline: 0.8rem; font-size: 0.72rem; }
+  .chub__hero-nav { flex: 0 0 auto; }
+  .chub__stat dt { font-size: 1.8rem; }
+  .chub__stats { gap: 1rem 1.5rem; }
+  .chome__head,
+  .communities__head,
+  .handicrafts__head { margin-bottom: 2rem; }
+  .footer { padding-bottom: 6rem; }
+  .footer__top { gap: 2.5rem; }
+  .footer__cols { gap: 2rem 3rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exp-card,
+  .dest-card,
+  .community-card,
+  .handicraft-card,
+  .chome__row,
+  .chome__strip-card,
+  .chome__split-card,
+  .chome__trio-card,
+  .chome__band-card,
+  .ppl-card {
+    transition: none;
   }
 }
 

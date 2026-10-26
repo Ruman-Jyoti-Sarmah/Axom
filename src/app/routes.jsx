@@ -10,6 +10,7 @@ const CultureAndFestivals = lazy(() => import("@/pages/Culture/CultureAndFestiva
 const ImageCredits = lazy(() => import("@/pages/Culture/ImageCredits"));
 const HeritageAndKings = lazy(() => import("@/pages/Culture/HeritageAndKings"));
 const AssamCommunities = lazy(() => import("@/pages/Culture/AssamCommunities"));
+const HandicraftsAndSilk = lazy(() => import("@/pages/Culture/HandicraftsAndSilk"));
 const AssamArtists = lazy(() => import("@/pages/Culture/AssamArtists"));
 const AssamFacts = lazy(() => import("@/pages/Culture/AssamFacts"));
 const StateSymbols = lazy(() => import("@/pages/Culture/StateSymbols"));
@@ -75,9 +76,8 @@ export function getRoute(hash = "") {
   if (currentHash === "#/artists") return route("artists", AssamArtists, { titleKey: "title_artists" });
   if (currentHash === "#/wildlife") return route("wildlife", Wildlife, { titleKey: "title_wildlife" });
   if (currentHash === "#/facts") return route("facts", AssamFacts, { titleKey: "title_facts" });
-  if (currentHash === "#/communities" || currentHash === "#/handicrafts") {
-    return route("communities", AssamCommunities, { titleKey: "title_communities" });
-  }
+  if (currentHash === "#/communities") return route("communities", AssamCommunities, { titleKey: "title_communities" });
+  if (currentHash === "#/handicrafts") return route("handicrafts", HandicraftsAndSilk, { titleKey: "title_handicrafts" });
   if (currentHash === "#/guide") return route("guide", TravelGuide, { titleKey: "title_guide" });
   if (currentHash === "#/heritage") return route("heritage", HeritageAndKings, { titleKey: "title_heritage" });
   if (currentHash === "#/symbols") return route("symbols", StateSymbols, { titleKey: "title_symbols" });

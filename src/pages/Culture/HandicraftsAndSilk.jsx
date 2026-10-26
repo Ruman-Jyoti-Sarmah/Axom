@@ -1,1 +1,1 @@
-export { default } from "./AssamCommunities";
+export { default } from "@/components/culture/HandicraftsAndSilk/HandicraftsAndSilkPage";
