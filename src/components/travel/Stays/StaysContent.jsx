@@ -4,14 +4,28 @@ import { DISTRICTS, slugify } from "@/data/travel/districts";
 import { getStays, bookingUrl, agodaUrl, googleUrl } from "@/data/travel/stays";
 import { useApp } from "@/store/AppContext";
 
-/** One stay card — type badge + name + area + live booking links. */
-export function StayCard({ stay, t, district }) {
+/** One stay card — type badge + area + registered tariff + live booking links. */
+export function StayCard({ stay, t, district, onSelect, selected = false }) {
   return (
-    <article className="stay">
+    <article className={`stay ${selected ? "stay--selected" : ""}`}>
       {district && <span className="label stay__district">{district}</span>}
       <span className="label stay__type">{t(`type_${stay.type}`)}</span>
       <h3 className="stay__name">{stay.name}</h3>
       <p className="stay__area">{stay.area}</p>
+      <p className="stay__price">
+        <strong>₹{Number(stay.registeredPrice || 0).toLocaleString("en-IN")}</strong>
+        <span>{t("stay_registered_price")}</span>
+      </p>
+      {onSelect && (
+        <button
+          type="button"
+          className={`stay__select ${selected ? "is-selected" : ""}`}
+          onClick={() => onSelect(stay)}
+          aria-pressed={selected}
+        >
+          {selected ? t("stay_selected") : t("stay_choose")}
+        </button>
+      )}
       <div className="stay__links">
         <a className="stay__link stay__link--booking" href={bookingUrl(stay)} target="_blank" rel="noopener noreferrer">
           Booking.com <ExternalLink size={11} aria-hidden="true" />

@@ -167,8 +167,32 @@ export const STAYS = {
   ],
 };
 
-/** Stays for a district (empty array fallback). */
-export const getStays = (slug) => STAYS[slug] || [];
+/*
+ * Registered nightly tariffs shown in the journey planner. These are the
+ * rates currently registered in the local catalogue, kept separate from the
+ * booking links so a later admin/API update can replace them cleanly.
+ */
+const REGISTERED_PRICE_BY_TYPE = {
+  circuit: 900,
+  guesthouse: 1200,
+  homestay: 1800,
+  camp: 2200,
+  lodge: 2400,
+  heritage: 2800,
+  hotel: 3600,
+  bungalow: 4500,
+  resort: 5200,
+};
+
+/** Stays for a district (empty array fallback), with registered tariff data. */
+export const getStays = (slug) =>
+  (STAYS[slug] || []).map((stay) => ({
+    ...stay,
+    registeredPrice:
+      stay.registeredPrice ?? REGISTERED_PRICE_BY_TYPE[stay.type] ?? 1800,
+    rateCurrency: "INR",
+    rateUnit: "night",
+  }));
 
 /** Live search links — rates & availability always current on each platform. */
 export const bookingUrl = (s) =>

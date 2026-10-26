@@ -671,6 +671,7 @@ export default function TravelHome() {
         <div className="thub__head">
           <span className="thub__sec-kicker"><Route size={14} aria-hidden="true" /> {t("travel_build_kicker")}</span>
           <h2 className="thub__sec-title">{t("travel_build_title")}</h2>
+          <p className="thub__sec-sub">{t("travel_build_sub")}</p>
         </div>
         <ol className="tbuild__steps">
           {[
@@ -728,6 +729,7 @@ export default function TravelHome() {
         <div className="thub__head">
           <span className="thub__sec-kicker"><CalendarDays size={14} aria-hidden="true" /> {t("travel_guide_kicker")}</span>
           <h2 className="thub__sec-title">{t("travel_guide_title")}</h2>
+          <p className="thub__sec-sub">{t("travel_guide_sub")}</p>
         </div>
         <div className="tguide__grid">
           <div className="tguide__card"><h3>{t("travel_guide_season")}</h3><p>{t("travel_guide_season_body")}</p></div>
