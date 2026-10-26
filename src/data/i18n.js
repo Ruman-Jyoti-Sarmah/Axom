@@ -93,6 +93,10 @@ export const STRINGS = {
     page_handicrafts_title: "Handicrafts & Silk",
     page_handicrafts_intro:
       "Muga and eri silk, the gamosa, bell-metal and bamboo craft — the skilled hands of Assam.",
+    page_communities: "Communities",
+    page_communities_title: "Communities of Assam",
+    page_communities_intro:
+      "Meet the communities whose textiles, foods, festivals and everyday traditions shape Assam.",
     handicrafts_headline: "Craft of the Brahmaputra",
     page_guide: "Travel Guide",
     page_guide_title: "Assam Travel Guide",
@@ -718,6 +722,10 @@ export const STRINGS = {
     page_handicrafts: "হস্তশিল্প",
     page_handicrafts_title: "হস্তশিল্প আৰু পাট",
     page_handicrafts_intro: "মুগা আৰু এৰি পাট, গমোচা, কণ্হাৰ বাটোৰ আৰু বাহগোলেৰ হাতৰ শিল্প।",
+    page_communities: "জনগোষ্ঠীসমূহ",
+    page_communities_title: "অসমৰ জনগোষ্ঠীসমূহ",
+    page_communities_intro:
+      "অসমৰ বস্ত্ৰ, খাদ্য, উৎসৱ আৰু দৈনন্দিন পৰম্পৰাক গঢ় দিয়া জনগোষ্ঠীসমূহক চিনি লওক।",
     handicrafts_headline: "ব্ৰহ্মপুত্ৰৰ শিল্প",
     page_guide: "ভ্ৰমণ নিৰ্দেশনা",
     page_guide_title: "অসম ভ্ৰমণ নিৰ্দেশনা",

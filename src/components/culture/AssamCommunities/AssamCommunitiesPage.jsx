@@ -11,9 +11,9 @@ export default function AssamCommunitiesPage() {
         <img src={CULTURE_IMG.sualkuchiHandloom} alt="" />
         <div className="page__veil" />
         <div className="page__hero-content">
-          <span className="label">{t("page_handicrafts")}</span>
-          <h1 className="page__title">{t("page_handicrafts_title")}</h1>
-          <p className="page__tagline">{t("page_handicrafts_intro")}</p>
+          <span className="label">{t("page_communities")}</span>
+          <h1 className="page__title">{t("page_communities_title")}</h1>
+          <p className="page__tagline">{t("page_communities_intro")}</p>
         </div>
       </div>
 

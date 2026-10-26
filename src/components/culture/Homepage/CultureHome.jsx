@@ -142,19 +142,6 @@ function HeroCarousel() {
         ))}
         <div className="chub__hero-veil" aria-hidden="true" />
       </div>
-      <div className="chub__hero-credit">
-        Video:{" "}
-        <a href={slide.credit.source} target="_blank" rel="noreferrer">
-          {slide.credit.author}
-        </a>
-        <span aria-hidden="true"> · </span>
-        <a href={slide.credit.licenseUrl} target="_blank" rel="noreferrer">
-          {slide.credit.license}
-        </a>
-        <span aria-hidden="true"> · </span>
-        <span>transcoded to MP4</span>
-      </div>
-
       {/* Side rail actions — like Incredible India */}
       <a
         className="chub__rail chub__rail--left"

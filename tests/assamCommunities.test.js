@@ -15,6 +15,7 @@ test("Assam communities catalogue has complete, unique cards", () => {
     assert.ok(community.imageUrl.startsWith("https://commons.wikimedia.org/"));
     assert.ok(community.imageSearchUrl.startsWith("https://www.google.com/search?tbm=isch"));
     assert.ok(community.foods.length > 0);
+    assert.ok(community.languages.length > 0);
     assert.ok(community.traditions.length > 0);
     assert.ok(community.places.length > 0);
   }

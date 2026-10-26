@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import {
-  Menu,
   X,
   Search,
   Globe,
@@ -8,6 +7,7 @@ import {
   User,
   Landmark,
   MapPin,
+  MoreVertical,
 } from "lucide-react";
 import { BRAND } from "@/data/site/brand";
 import { useApp } from "@/store/AppContext";
@@ -436,15 +436,17 @@ export default function CultureHeader({ section, isCultureHome = false }) {
           <SectionSwitcher section={section} compact />
 
           <button
-            className="chead__burger"
+            type="button"
+            className="chead__mobile-toggle"
             aria-label={mobileOpen ? t("a11y_close_menu") : t("a11y_open_menu")}
             aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
             onClick={() => setMobileOpen((v) => !v)}
           >
             {mobileOpen ? (
               <X size={22} aria-hidden="true" />
             ) : (
-              <Menu size={22} aria-hidden="true" />
+              <MoreVertical size={22} aria-hidden="true" />
             )}
           </button>
         </div>
@@ -452,7 +454,11 @@ export default function CultureHeader({ section, isCultureHome = false }) {
 
       {/* ── Mobile drawer ─────────────────────────────────────────── */}
       {mobileOpen && (
-        <nav className="chead__mobile" aria-label={t("a11y_mobile")}>
+        <nav
+          id="mobile-navigation"
+          className="chead__mobile"
+          aria-label={t("a11y_mobile")}
+        >
           {section === "travel" ? (
             <>
               <div className="chead__mgroup">

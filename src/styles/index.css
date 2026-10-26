@@ -4451,19 +4451,70 @@ img:not([src]) {
   color: var(--ivory-dim);
   line-height: 1.75;
 }
+.communities__controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.55rem;
+  margin-top: 1.5rem;
+}
+.communities__control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--hairline);
+  border-radius: 50%;
+  color: var(--ivory);
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease), opacity 0.2s var(--ease);
+}
+.communities__control:hover:not(:disabled),
+.communities__control:focus-visible:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.communities__control:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
 .communities__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
   gap: 1.2rem;
   margin-top: 2.4rem;
+  overflow-x: auto;
+  padding: 0.25rem 0.2rem 0.9rem;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 0.2rem;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+.communities__grid::-webkit-scrollbar {
+  display: none;
+}
+.communities__grid--stacked {
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: visible;
+  padding: 0.25rem 0 0.9rem;
+  scroll-snap-type: none;
+}
+.communities__grid--stacked .community-card {
+  width: 100%;
+  flex: none;
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
 }
 .community-card {
   display: flex;
   flex-direction: column;
+  flex: 0 0 calc((100% - 2.4rem) / 3);
   min-width: 0;
   overflow: hidden;
   border: 1px solid var(--hairline);
   background: #fffdf8;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 .community-card__image-wrap {
   aspect-ratio: 4 / 3;
@@ -4503,89 +4554,71 @@ img:not([src]) {
   padding: 0.75rem 1rem;
   font-size: 0.64rem;
 }
-.community-drawer__backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 1200;
-  background: rgba(12, 11, 9, 0.64);
-  animation: communityFadeIn 0.25s ease both;
+.community-card.is-expanded .community-card__button {
+  margin-top: 1rem;
 }
-.community-drawer {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  width: min(40rem, 100%);
-  height: 100%;
-  overflow-y: auto;
-  background: #fffdf8;
-  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.24);
-  animation: communitySlideIn 0.42s var(--ease) both;
+.community-card.is-expanded .community-card__button svg {
+  transform: rotate(180deg);
 }
-.community-drawer__close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 2;
+.community-card__details {
+  width: 100%;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--hairline);
+  animation: communityDetailsIn 0.35s var(--ease) both;
+}
+.community-card__detail-hero {
   display: grid;
-  width: 2.7rem;
-  height: 2.7rem;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 50%;
-  color: #fff;
-  background: rgba(12, 11, 9, 0.45);
-  backdrop-filter: blur(8px);
+  grid-template-columns: minmax(10rem, 0.8fr) 1.2fr;
+  gap: 1.2rem;
+  align-items: start;
 }
-.community-drawer__image-wrap {
-  flex: 0 0 auto;
-  aspect-ratio: 16 / 10;
+.community-card__detail-image-wrap {
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   background: #e7dcc7;
 }
-.community-drawer__image { width: 100%; height: 100%; object-fit: cover; }
-.community-drawer__body { padding: clamp(1.5rem, 5vw, 2.7rem); }
-.community-drawer__body h2 {
-  margin: 0.55rem 0 0.65rem;
-  font-family: var(--serif);
-  font-size: clamp(2rem, 5vw, 3.3rem);
-  font-weight: 400;
-  line-height: 1;
-  color: var(--ink);
+.community-card__detail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.community-drawer__craft {
-  color: var(--bronze);
-  font-size: 0.85rem;
-  font-weight: 600;
-  line-height: 1.5;
-}
-.community-drawer__story { margin-top: 1.1rem; color: var(--ivory-dim); line-height: 1.75; }
-.community-drawer__columns {
+.community-card__story { color: var(--ivory-dim); line-height: 1.7; }
+.community-card__detail-columns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.2rem;
   margin-top: 1.6rem;
 }
-.community-drawer__group { margin-top: 1.6rem; }
-.community-drawer__columns .community-drawer__group { margin-top: 0; }
-.community-drawer__group h3 {
+.community-card__detail-group { margin-top: 1.6rem; }
+.community-card__detail-columns .community-card__detail-group { margin-top: 0; }
+.community-card__detail-group h3 {
   margin-bottom: 0.65rem;
   font-family: var(--serif);
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--ink);
 }
-.community-drawer__group ul {
+.community-card__detail-group ul {
   display: grid;
   gap: 0.45rem;
   padding-left: 1.1rem;
   color: var(--ivory-dim);
   line-height: 1.55;
 }
-.community-drawer__source { margin-top: 1.8rem; }
-@keyframes communityFadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes communitySlideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+.community-card__source {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.5rem;
+  color: var(--bronze);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+@keyframes communityDetailsIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 @media (max-width: 900px) {
   .herit2__feature, .craft2__row, .artists__lead { grid-template-columns: 1fr; }
@@ -4593,14 +4626,22 @@ img:not([src]) {
   .herit2__row { grid-template-columns: 160px 1fr; }
   .artists__row { grid-template-columns: 110px 1fr; }
   .artists__row-media { width: 110px; }
-  .communities__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .community-card { flex-basis: calc((100% - 1.2rem) / 2); }
 }
 @media (max-width: 600px) {
   .herit2__row, .artists__row { grid-template-columns: 1fr; }
   .herit2__thumb { aspect-ratio: 16 / 10; }
   .artists__row-media { width: 96px; }
-  .communities__grid { grid-template-columns: 1fr; }
-  .community-drawer__columns { grid-template-columns: 1fr; gap: 0; }
+  /* Communities become a swipeable one-card-at-a-time rail on phones. */
+  .communities__grid {
+    gap: 1rem;
+    margin-top: 1.8rem;
+  }
+  .community-card {
+    flex: 0 0 min(86vw, 21rem);
+  }
+  .community-card__detail-hero,
+  .community-card__detail-columns { grid-template-columns: 1fr; gap: 0; }
 }
 @media (max-width: 600px) {
   .page__culture-grid,
@@ -6541,30 +6582,25 @@ main[data-section="travel"] .trail-card__body em {
   font-size: 0.85rem;
   font-weight: 600;
 }
-.chead__burger {
+.chead__mobile-toggle {
   display: none;
-  padding: 0.4rem;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--hairline);
+  border-radius: 50%;
   color: var(--ivory);
+  transition:
+    color 0.2s var(--ease),
+    border-color 0.2s var(--ease),
+    background 0.2s var(--ease);
 }
-
-/* Three-dots toggle — hidden on desktop (mega menu shows all), visible on mobile */
-.chead .three-dots-toggle {
-  display: none;
-}
-
-@media (max-width: 900px) {
-  .chead .three-dots-toggle {
-    display: inline-flex;
-    width: 44px;
-    height: 44px;
-    border: 1px solid var(--hairline);
-    border-radius: 6px;
-    color: var(--ivory);
-  }
-  .chead .three-dots-toggle:hover {
-    border-color: var(--bronze);
-    color: var(--bronze);
-  }
+.chead__mobile-toggle:hover,
+.chead__mobile-toggle:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 .chead__mobile {
   display: none;
@@ -6626,6 +6662,11 @@ main[data-section="travel"] .trail-card__body em {
 }
 
 @media (max-width: 900px) {
+  .chead__tools {
+    margin-left: auto;
+    min-width: 0;
+    flex-shrink: 0;
+  }
   .chead__nav {
     display: none;
   }
@@ -6633,6 +6674,15 @@ main[data-section="travel"] .trail-card__body em {
     display: none;
   }
   .chead__account {
+    display: none;
+  }
+  .chead__mobile-toggle {
+    display: inline-flex;
+    flex: 0 0 44px;
+  }
+  /* The section switcher and full trip action are already available inside
+     the mobile drawer. Keep the header focused on the overflow menu button. */
+  .chead__tools > .switch--compact {
     display: none;
   }
   .chead__strip-links {
@@ -6657,6 +6707,9 @@ main[data-section="travel"] .trail-card__body em {
   }
   .chead__tools {
     gap: 0.4rem;
+  }
+  .chead__trip {
+    display: none;
   }
   /* Keep one compact My Trip action (icon + badge) without crowding the bar */
   .chead__trip-label {
@@ -6748,16 +6801,6 @@ main[data-section="travel"] .trail-card__body em {
     transform: scale(1);
   }
 }
-.chub__hero-credit {
-  position: absolute;
-  right: var(--gutter);
-  bottom: 0.9rem;
-  z-index: 3;
-  font-size: 0.6rem;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.5);
-}
-
 /* Hero copy swap animation (keyed to slide id) */
 .chub__hero-copy {
   animation: chubFade 0.7s var(--ease) both;
@@ -10047,29 +10090,6 @@ main[data-section="culture"] .chub__hero-video.is-active {
   transform: none;
 }
 
-main[data-section="culture"] .chub__hero-credit {
-  top: 1rem;
-  right: var(--gutter);
-  bottom: auto;
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  padding: 0.35rem 0.55rem;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 4px;
-  background: rgba(58, 11, 11, 0.64);
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 0.68rem;
-  letter-spacing: 0;
-  backdrop-filter: blur(6px);
-}
-
-main[data-section="culture"] .chub__hero-credit a {
-  color: #fff;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
 main[data-section="culture"] .chub__kicker {
   color: #d8f0dc;
 }
@@ -10505,7 +10525,7 @@ main[data-section="travel"] .chead__logo-mark {
   }
 
   /* ── shared header touch targets ── */
-  .chead__three-dots-toggle {
+  .chead__mobile-toggle {
     min-width: 44px;
     min-height: 44px;
     align-items: center;
@@ -10814,24 +10834,12 @@ img {
 
 /* ============================================================
    PHASE 3B — Mobile responsive layout fix (≤420px)
-   Targets: hero credit overlap, hero video fallback,
+   Targets: hero video fallback,
    section dock footprint, hero padding balance.
    No desktop rules are modified.
    ============================================================ */
 @media (max-width: 420px) {
-  /* 1. Hero video credit — compact, wrapping, no overlap */
-  .chub__hero-credit {
-    left: var(--gutter);
-    right: auto;
-    bottom: 0.5rem;
-    max-width: 65%;
-    font-size: 0.55rem;
-    line-height: 1.2;
-    white-space: normal;
-    color: rgba(255, 255, 255, 0.65);
-  }
-
-  /* 2. Hero heading & description */
+  /* 1. Hero heading & description */
   .chub__hero-title,
   .thub__hero-title {
     font-size: clamp(1.6rem, 7vw, 2rem);
