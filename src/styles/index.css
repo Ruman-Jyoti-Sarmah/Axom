@@ -11410,3 +11410,28 @@ main[data-section="travel"] {
   }
 }
 
+/* Keep homepage hero frames tied to the 16:9 footage they display. The
+   previous viewport-height lock made the video crop differently at each
+   screen size, so the section frame no longer matched the footage. */
+.chub__hero,
+.thub__hero {
+  aspect-ratio: 16 / 9;
+  height: clamp(32rem, calc(100vw * 9 / 16), 58rem);
+  min-height: 0;
+}
+
+.chub__hero-media,
+.thub__hero-media,
+.chub__hero-video,
+.thub__video {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 720px) {
+  .chub__hero,
+  .thub__hero {
+    height: max(32rem, calc(100vw * 9 / 16));
+  }
+}
+

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRight, ChevronDown, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import ASSAM_COMMUNITIES from "@/data/culture/assam/communities";
+import { useApp } from "@/store/AppContext";
 
 function CommunityImage({ community, className = "" }) {
   const [src, setSrc] = useState(community.imageUrl);
@@ -33,6 +34,7 @@ function DetailList({ title, items }) {
 }
 
 export default function AssamCommunitiesSection({ compact = false }) {
+  const { t } = useApp();
   const isCarousel = compact;
   const [expandedCommunityId, setExpandedCommunityId] = useState(null);
   const trackRef = useRef(null);
@@ -89,11 +91,9 @@ export default function AssamCommunitiesSection({ compact = false }) {
   return (
     <section className={`communities${compact ? " communities--compact" : ""}`} id="assam-communities">
       <div className="communities__head">
-        <span className="label">Assam · living culture</span>
-        <h2 className="communities__title">Communities of Assam</h2>
-        <p className="communities__intro">
-          Assam is not one single tradition. Its textiles, foods, festivals and everyday objects are shaped by many communities, each with its own voice.
-        </p>
+        <span className="label">{t("culture_communities_kicker")}</span>
+        <h2 className="communities__title">{t("culture_communities_title")}</h2>
+        <p className="communities__intro">{t("culture_communities_sub")}</p>
       </div>
 
       {isCarousel ? (

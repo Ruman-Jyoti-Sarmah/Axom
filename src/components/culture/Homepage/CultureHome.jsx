@@ -434,11 +434,12 @@ function People() {
   const railRef = useRef(null);
   return (
     <section className="chub__people" data-reveal>
-        <div className="chub__head">
-          <span className="chub__sec-kicker">
-            <Users size={14} aria-hidden="true" /> {t("culture_people_title")}
+      <div className="chub__head">
+        <span className="chub__sec-kicker">
+            <Users size={14} aria-hidden="true" /> {t("culture_people_kicker")}
         </span>
-        <h2 className="chub__sec-title">{t("culture_people_sub")}</h2>
+        <h2 className="chub__sec-title">{t("culture_people_title")}</h2>
+        <p className="chub__sec-sub">{t("culture_people_sub")}</p>
       </div>
       <div className="chub__people-grid" ref={railRef}>
         {featured.map((a) => (
